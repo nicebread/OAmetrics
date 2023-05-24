@@ -27,12 +27,17 @@ h_index(
 A list containing the net academic age, h-index and hIa-index of the author.
 }
 \description{
+TODO: Could a time-window (currently, it uses all citations since publication).
+}
+\details{
 Computes the h-index and hIa-index of an author. You need to provide exactly \emph{one} of the parameters \code{search}, \code{display_name} or \code{author.id}:
 \itemize{
 \item \code{search} allows fuzzy search of the author's name (e.g. with or without middle initial). Might return too many matches
-\item \code{display_name} allows to provide a vector with multiple versions of a name (e.g., \code{c("Hans Müller", "Hans Mueller", "Hans J. Muller")})
+\item \code{display_name} requires an exact match but allows to provide a vector with multiple versions of a name (e.g., \code{c("Hans Müller", "Hans Mueller", "Hans J. Muller")})
 \item \code{author.id} is the OpenAlex ID for authors.
 }
+
+Often the same author is listed under different IDs in the OpenAlex database, therefore these are merged by the function. \strong{But what if the function includes wrong authors?} Then you need to manually screen the table with author names, record the IDs from the correct aliases of the target person (starting with "A.......") and enter these author IDs into the \code{author.id} parameter.
 }
 \examples{
 h_index(search = "Felix Schönbrodt")

@@ -4,8 +4,7 @@
 #' Retrieving 10,000 documents from the API takes about 1-2 min.
 #' Ideally, this should be cached locally.
 #'
-#' @param from_year The start year of the range
-#' @param to_year The end year of the range (optional, defaults to \code{from_year})
+#' @param years The year(s) from which a sample of the reference field should be retrieved.
 #' @param n_per_year The number of documents to retrieve per requested year (optional, defaults to 10000). Values larger than 10000 are possible (they are split up to multiple OA requests).
 #' @param concept.id A vector of `concept.id`s to search for (optional, defaults to "C15744967", i.e. "Psychology")
 #' @param verbose Show OA API progress?
@@ -16,16 +15,14 @@
 #' @examples
 #' # Get reference set for "Psychology" for multiple years (small n here for demo)
 #' psych_ref <- get_reference_set(
-#'    from_year = 2013, to_year = 2020,
-#'    n_per_year = 100, concept.id = "C15744967"
+#'   2013:2020, n_per_year = 100,
+#'   concept.id = "C15744967"
 #'  )
 
-get_reference_set <- function(from_year, to_year=NA, n_per_year=10000, concept.id = "C15744967", verbose=TRUE) {
-
-  if (is.na(to_year)) to_year <- from_year
+get_reference_set <- function(years, n_per_year=10000, concept.id = "C15744967", verbose=TRUE) {
 
   pages <- list()
-  for (y in from_year:to_year) {
+  for (y in years) {
     if (verbose==TRUE) {print(paste0(Sys.time(), ": Retrieving documents for ", y, " ..."))}
 
     n_retrieved <- 0

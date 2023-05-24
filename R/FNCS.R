@@ -112,5 +112,5 @@ FNCS <- function(dois, ref_set, upper_trim = .01) {
   #curve(c_count_ecdf,  0, max(ref_set_year$cited_by_count), main = "step function ecdf")
   #curve(c_count_ecdf2, 0, max(ref_set_year$cited_by_count), main = "linear interpolation function ecdf")
 
-  return(papers %>% select(doi, title=display_name, cited_by_count, FNCS, FNPR))
+  return(papers %>% select(doi, publication_year, title=display_name, cited_by_count, FNCS, FNPR))
 }

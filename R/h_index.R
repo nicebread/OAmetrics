@@ -1,10 +1,13 @@
 #' Compute h-index and hIa-index
 #'
+#'TODO: Could a time-window (currently, it uses all citations since publication).
 #'
 #' Computes the h-index and hIa-index of an author. You need to provide exactly *one* of the parameters `search`, `display_name` or `author.id`:
 #' - `search` allows fuzzy search of the author's name (e.g. with or without middle initial). Might return too many matches
-#' - `display_name` allows to provide a vector with multiple versions of a name (e.g., `c("Hans Müller", "Hans Mueller", "Hans J. Muller")`)
+#' - `display_name` requires an exact match but allows to provide a vector with multiple versions of a name (e.g., `c("Hans Müller", "Hans Mueller", "Hans J. Muller")`)
 #' - `author.id` is the OpenAlex ID for authors.
+#'
+#' Often the same author is listed under different IDs in the OpenAlex database, therefore these are merged by the function. **But what if the function includes wrong authors?** Then you need to manually screen the table with author names, record the IDs from the correct aliases of the target person (starting with "A.......") and enter these author IDs into the `author.id` parameter.
 #'
 #' @param search A character string with the author's name for searching in the OpenAlex API. Allows fuzzy search (e.g. with or without middle initial).
 #' @param display_name A character vector with the exact author's names for searching in the OpenAlex API. You cvan provide multiple variants in a vector.

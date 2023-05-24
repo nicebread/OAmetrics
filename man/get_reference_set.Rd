@@ -5,17 +5,14 @@
 \title{Get a reference set for field normalized citation rates}
 \usage{
 get_reference_set(
-  from_year,
-  to_year = NA,
+  years,
   n_per_year = 10000,
   concept.id = "C15744967",
   verbose = TRUE
 )
 }
 \arguments{
-\item{from_year}{The start year of the range}
-
-\item{to_year}{The end year of the range (optional, defaults to \code{from_year})}
+\item{years}{The year(s) from which a sample of the reference field should be retrieved.}
 
 \item{n_per_year}{The number of documents to retrieve per requested year (optional, defaults to 10000). Values larger than 10000 are possible (they are split up to multiple OA requests).}
 
@@ -34,7 +31,7 @@ Ideally, this should be cached locally.
 \examples{
 # Get reference set for "Psychology" for multiple years (small n here for demo)
 psych_ref <- get_reference_set(
-   from_year = 2013, to_year = 2020,
-   n_per_year = 100, concept.id = "C15744967"
+  2013:2020, n_per_year = 100,
+  concept.id = "C15744967"
  )
 }

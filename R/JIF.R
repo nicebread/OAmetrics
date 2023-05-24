@@ -37,6 +37,7 @@ get_JIF <- function(issn, year, verbose=FALSE) {
     primary_location.source.issn = issn,
     from_publication_date = paste0(year-2, "-01-01"),
     to_publication_date = paste0(year-1, "-12-31"),
+    authors_count = ">0",  # remove corrections (which have no authors)
     verbose=verbose
   )
 
@@ -45,10 +46,6 @@ get_JIF <- function(issn, year, verbose=FALSE) {
     !is.na(referenced_works),  # TODO: This does not work for all journals: Some don't have referenced_work in the OA data (although they do have references)
     # type == "journal-article"  # some journals have "book-chapter" as meta-data ...
   )
-
-  # remove corrections (which have no authors)
-  citable_items <- citable_items[sapply(citable_items$author, nrow) > 0, ]
-  table(citable_items$publication_year)
 
   # get citations to these articles from a specific target year
   has_citations <- !(sapply(all_works_search$counts_by_year, nrow) |> sapply(is.null))
