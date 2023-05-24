@@ -9,9 +9,9 @@ FNCS(doi, ref_set, upper_trim = 0.01)
 \arguments{
 \item{doi}{A character string of the DOI of the paper for which the FNCS should be computed.}
 
-\item{ref_set}{A data frame containing the reference set for the paper of interest. This is an object from the `get_reference_set` function.}
+\item{ref_set}{A data frame containing the reference set for the paper of interest. This is an object from the \code{get_reference_set} function.}
 
-\item{upper_trim}{A numeric value between 0 and 1 that indicates the fraction of values to be trimmed from the upper end of the reference set. Scheidsteger et al. (2023) remove the upper 1\% of citation counts when using OpenAlex. This only affects the FNCS, not the percentiel rank.}
+\item{upper_trim}{A numeric value between 0 and 1 that indicates the fraction of values to be trimmed from the upper end of the reference set. Scheidsteger et al. (2023) remove the upper 1\\% of citation counts when using OpenAlex. This only affects the FNCS, not the percentiel rank.}
 }
 \value{
 A list containing the computed FNCS and the percentile rank of the paper.

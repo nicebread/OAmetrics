@@ -13,7 +13,7 @@ ecdf2(x)
 A function that calculates the linearly interpolated ecdf of the vector of values.
 }
 \description{
-Calculates an linearly interpolated empirical cumulative distribution function (ecdf) from a vector of values. This function was provided by Tal Galili on [StackOverflow](https://stats.stackexchange.com/q/230458).
+Calculates an linearly interpolated empirical cumulative distribution function (ecdf) from a vector of values. This function was provided by Tal Galili on \href{https://stats.stackexchange.com/q/230458}{StackOverflow}.
 }
 \examples{
 x <- c(1,2,3,4,5,6,7,8)

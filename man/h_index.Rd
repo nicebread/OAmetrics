@@ -27,18 +27,16 @@ h_index(
 A list containing the net academic age, h-index and hIa-index of the author.
 }
 \description{
-Computes the h-index and hIa-index of an author. You need to provide exactly *one* of the parameters `search`, `display_name` or `author.id`:
-- `search` allows fuzzy search of the author's name (e.g. with or without middle initial). Might return too many matches
-- `display_name` allows to provide a vector with multiple versions of a name (e.g., `c("Hans Müller", "Hans Mueller", "Hans J. Muller")`)
-- `author.id` is the OpenAlex ID for authors.
+Computes the h-index and hIa-index of an author. You need to provide exactly \emph{one} of the parameters \code{search}, \code{display_name} or \code{author.id}:
+\itemize{
+\item \code{search} allows fuzzy search of the author's name (e.g. with or without middle initial). Might return too many matches
+\item \code{display_name} allows to provide a vector with multiple versions of a name (e.g., \code{c("Hans Müller", "Hans Mueller", "Hans J. Muller")})
+\item \code{author.id} is the OpenAlex ID for authors.
+}
 }
 \examples{
-# Compute the h-index and hIa-index of Albert Einstein
 h_index(search = "Felix Schönbrodt")
 h_index("Markus Bühner", first_pub_year = 1997) # adjust year of first publication
 
-# If you have alternative names, you need to use the `display_name` parameter
-# with exact spelling (all variants that are relevant)
-h_index(display_name = c("Ramona Schödel", "Ramona Schoedel"))
 
 }

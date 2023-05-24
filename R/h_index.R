@@ -17,13 +17,9 @@
 #' @export
 #'
 #' @examples
-#' # Compute the h-index and hIa-index of Albert Einstein
 #' h_index(search = "Felix Schönbrodt")
 #' h_index("Markus Bühner", first_pub_year = 1997) # adjust year of first publication
 #'
-#' # If you have alternative names, you need to use the `display_name` parameter
-#' # with exact spelling (all variants that are relevant)
-#' h_index(display_name = c("Ramona Schödel", "Ramona Schoedel"))
 #'
 #' @import openalexR
 #' @import dplyr

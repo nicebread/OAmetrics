@@ -1,3 +1,11 @@
-# get citation counts for a specific paper.
-paper <- oa_fetch(entity = "works", doi = "https://doi.org/10.1177/2515245917745629")
-paper$cited_by_count
+# OAmetrics
+
+An R package for computing several bibliometric indices by calling the OpenAlex database API.
+
+You can install the developer version of `OAmetrics` from GitHub with:
+
+```
+install.packages("remotes")
+remotes::install_github("nicebread/OAmetrics")
+```
+

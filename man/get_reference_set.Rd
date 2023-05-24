@@ -19,7 +19,7 @@ get_reference_set(
 
 \item{n_per_year}{The number of documents to retrieve per requested year (optional, defaults to 10000). Values larger than 10000 are possible (they are split up to multiple OA requests).}
 
-\item{concept.id}{A vector of `concept.id`s to search for (optional, defaults to "C15744967", i.e. "Psychology")}
+\item{concept.id}{A vector of \code{concept.id}s to search for (optional, defaults to "C15744967", i.e. "Psychology")}
 
 \item{verbose}{Show OA API progress?}
 }
