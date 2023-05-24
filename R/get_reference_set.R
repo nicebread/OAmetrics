@@ -19,7 +19,7 @@
 #'   concept.id = "C15744967"
 #'  )
 
-get_reference_set <- function(years, n_per_year=10000, concept.id = "C15744967", verbose=TRUE) {
+get_reference_set <- function(years, n_per_year=10000, concept.id = "C15744967", verbose=TRUE, seed = NULL) {
 
   pages <- list()
   for (y in years) {
@@ -29,11 +29,17 @@ get_reference_set <- function(years, n_per_year=10000, concept.id = "C15744967",
     page <- 1
 
     while (n_retrieved < n_per_year) {
+      if (!is.null(seed)) {
+        seed2 <- seed + y*100 + page
+      } else {
+        seed2 <- NULL
+      }
+
       pages[[paste0(y, "_", page)]] <- oa_fetch(
         entity = "works",
         options = list(
             sample = ifelse((n_per_year - n_retrieved) >= 10000, 10000, n_per_year - n_retrieved),
-            seed = y*100+page
+            seed = seed2
           ),
         concept.id = concept.id,
         type = "journal-article",

@@ -1,5 +1,5 @@
 
-# ref_set <- readRDS(file="/Users/felix/Documents/Gitlab/R-openAlex/raw_data/c_counts_psy.RDS")
+# ref_set <- c_counts_psy <- readRDS(file="/Users/felix/Documents/Gitlab/R-openAlex/raw_data/c_counts_psy.RDS")
 # doi <- c("https://doi.org/10.1027/2151-2604/a000342", "https://doi.org/10.3389/fpsyg.2017.02119", "https://doi.org/10.1177/0956797617723726")
 
 
@@ -29,7 +29,7 @@ upper_trim_mean <- function(x, trim) {
 #' @importFrom stats approxfun ecdf
 #' @export
 #' @examples
-#' x <- c(1,2,3,4,5,6,7,8)
+#' x <- c(0,0,0,0,0,0,1,1,1,1,2,2,2,5,7,11,20,100)
 #' ecdf2(x)
 ecdf2 <- function (x) {
   x <- sort(x)
@@ -48,12 +48,12 @@ ecdf2 <- function (x) {
 
 #' Compute the Field Normalized Citation Score of a publication
 #'
-#' The percentage rank is the "CP-IN" measure described in Bornmann & Williams (2020). For the percentile rank, the function uses a linear interpolation (cf. Bornmann & Williams, 2020) using a function provided by Tal Galili (https://stats.stackexchange.com/q/230458)
+#' The percentage rank is the "CP-EX" measure described in Bornmann & Williams (2020), which returns the percentage of publication with less citations (and "less or equal"). As many publications have 0 citations, the alternative CP-IN measure (which return "less or equal") returns often very high percentiles although a paper has 0 citations. This is not intuitive. For the percentile rank, the function uses a linear interpolation (cf. Bornmann & Williams, 2020) using a function provided by Tal Galili (https://stats.stackexchange.com/q/230458)
 #'
 #' @param dois A character vector of the DOI of the paper for which the FNCS should be computed.
 #' @param ref_set A data frame containing the reference set for the paper of interest. This is an object from the `get_reference_set` function.
 #' @param upper_trim A numeric value between 0 and 1 that indicates the fraction of values to be trimmed from the upper end of the reference set. Scheidsteger et al. (2023) remove the upper 1 percent of citation counts when using OpenAlex. This only affects the FNCS, not the percentile rank.
-#' @return A list containing the computed FNCS and the percentile rank of the paper.
+#' @return A list containing the computed FNCS and the percentile rank of the paper. The latter is the CP-EX measure which means "how many citations in the reference set have *less* citations than the target paper".
 #' @export
 #' @references
 #' Bornmann, L., & Williams, R. (2020). An evaluation of percentile measures of citation impact, and a proposal for making them better. Scientometrics, 124(2), 1457–1478. https://doi.org/10.1007/s11192-020-03512-7
@@ -66,7 +66,7 @@ ecdf2 <- function (x) {
 #' }
 
 # Compute the field normalized citation scores
-FNCS <- function(dois, ref_set, upper_trim = .01) {
+FNCS <- function(dois, ref_set, upper_trim = 0) {
 
   # get citation counts for a specific paper.
   papers <- oa_fetch(entity = "works", doi = dois, abstract=FALSE)
@@ -99,8 +99,8 @@ FNCS <- function(dois, ref_set, upper_trim = .01) {
 
   for (i in 1:nrow(papers)) {
     if (papers$publication_year[i] %in% yearly_expected_c$publication_year) {
-      # Quantile / percentage rank
-      c_count_ecdf2 <- ecdf2(ref_set[ref_set$publication_year == papers$publication_year[i], "cited_by_count"])
+      # Quantile / percentage rank. We add 1 to each citation count; this way we obtain the CP-EX percentage rank (instead of the CP-IN rank), which returns "percentage of publications with less than X citations" (in contrast to "less or equal", which is returned by the regular ecdf function).
+      c_count_ecdf2 <- ecdf2(ref_set[ref_set$publication_year == papers$publication_year[i], "cited_by_count"] + 1)
       papers$FNPR[i] <- c_count_ecdf2(papers$cited_by_count[i])
     } else {
       print(paste0("No metrics could be computed for ", papers$doi[i]))
@@ -112,5 +112,5 @@ FNCS <- function(dois, ref_set, upper_trim = .01) {
   #curve(c_count_ecdf,  0, max(ref_set_year$cited_by_count), main = "step function ecdf")
   #curve(c_count_ecdf2, 0, max(ref_set_year$cited_by_count), main = "linear interpolation function ecdf")
 
-  return(papers %>% select(doi, publication_year, title=display_name, cited_by_count, FNCS, FNPR))
+  return(papers %>% select(doi, publication_year, title=display_name, cited_by_count, expected_citations = mean_c, FNCS, FNPR))
 }
