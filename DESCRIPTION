@@ -1,0 +1,22 @@
+Package: OAmetrics
+Type: Package
+Title: Compute Bibliometric Indices by Calling the OpenAlex API
+Version: 0.1.0
+Authors@R: 
+    person("Felix D.", "Schönbrodt", , "felix.schoenbrodt@psy.lmu.de", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-8282-3910"))
+Maintainer: Felix Schönbrodt <felix.schoenbrodt@psy.lmu.de>
+Description: Compute several bibliometric indices by calling the OpenAlex database API
+    Use four spaces when indenting paragraphs within the Description.
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+Imports:
+    openalexR,
+    dplyr
+Depends:
+    data.table
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+RoxygenNote: 7.2.3
