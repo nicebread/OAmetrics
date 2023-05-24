@@ -11,9 +11,8 @@
 #' citable_items and JIF.
 #'
 #' @examples
-#' \dontrun{
-#' get_JIF("0022-3514", 2018)
-#' }
+#' get_JIF(issn="0022-3514", year=2018)  # JPSP
+#' get_JIF(issn="0890-2070", year=2019)  # EJP
 #'
 #' @importFrom data.table rbindlist
 #' @export

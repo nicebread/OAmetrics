@@ -34,14 +34,17 @@ get_reference_set <- function(from_year, to_year=NA, n_per_year=10000, concept.i
     while (n_retrieved < n_per_year) {
       pages[[paste0(y, "_", page)]] <- oa_fetch(
         entity = "works",
-        sample = ifelse((n_per_year - n_retrieved) >= 10000, 10000, n_per_year - n_retrieved),
-        seed = y*100+page,
+        options = list(
+            sample = ifelse((n_per_year - n_retrieved) >= 10000, 10000, n_per_year - n_retrieved),
+            seed = y*100+page
+          ),
         concept.id = concept.id,
         type = "journal-article",
         from_publication_date = paste0(y, "-01-01"),
         to_publication_date = paste0(y, "-12-31"),
         is_paratext = FALSE,
         is_retracted = FALSE,
+        abstract = FALSE,
         authors_count = ">0",  # remove corrections (which have no authors)
         has_doi = TRUE,   # TODO: is that filter legit?
         #primary_location.source.has_issn = TRUE,    # TODO: is that filter legit?
