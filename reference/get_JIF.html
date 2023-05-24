@@ -72,9 +72,13 @@ citable_items and JIF.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span><span class="fu">get_JIF</span><span class="op">(</span><span class="st">"0022-3514"</span>, <span class="fl">2018</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">get_JIF</span><span class="op">(</span>issn<span class="op">=</span><span class="st">"0022-3514"</span>, year<span class="op">=</span><span class="fl">2018</span><span class="op">)</span>  <span class="co"># JPSP</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                             so      issn year total_citations</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Journal of Personality and Social Psychology 0022-3514 2018            1686</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   citable_items     JIF</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1           219 7.69863</span>
+<span class="r-in"><span><span class="fu">get_JIF</span><span class="op">(</span>issn<span class="op">=</span><span class="st">"0890-2070"</span>, year<span class="op">=</span><span class="fl">2019</span><span class="op">)</span>  <span class="co"># EJP</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in `[.tbl_df`(citable_items, sapply(citable_items$author, nrow) &gt;     0, ):</span> 'list' object cannot be coerced to type 'double'</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
