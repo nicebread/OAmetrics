@@ -52,7 +52,7 @@ ecdf2 <- function (x) {
 #'
 #' @param doi A character string of the DOI of the paper for which the FNCS should be computed.
 #' @param ref_set A data frame containing the reference set for the paper of interest. This is an object from the `get_reference_set` function.
-#' @param upper_trim A numeric value between 0 and 1 that indicates the fraction of values to be trimmed from the upper end of the reference set. Scheidsteger et al. (2023) remove the upper 1\% of citation counts when using OpenAlex. This only affects the FNCS, not the percentiel rank.
+#' @param upper_trim A numeric value between 0 and 1 that indicates the fraction of values to be trimmed from the upper end of the reference set. Scheidsteger et al. (2023) remove the upper 1 percent of citation counts when using OpenAlex. This only affects the FNCS, not the percentile rank.
 #' @return A list containing the computed FNCS and the percentile rank of the paper.
 #' @export
 #' @references
