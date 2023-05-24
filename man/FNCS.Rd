@@ -4,10 +4,10 @@
 \alias{FNCS}
 \title{Compute the Field Normalized Citation Score of a publication}
 \usage{
-FNCS(doi, ref_set, upper_trim = 0.01)
+FNCS(dois, ref_set, upper_trim = 0.01)
 }
 \arguments{
-\item{doi}{A character string of the DOI of the paper for which the FNCS should be computed.}
+\item{dois}{A character vector of the DOI of the paper for which the FNCS should be computed.}
 
 \item{ref_set}{A data frame containing the reference set for the paper of interest. This is an object from the \code{get_reference_set} function.}
 
@@ -22,7 +22,7 @@ The percentage rank is the "CP-IN" measure described in Bornmann & Williams (202
 \examples{
 \dontrun{
 # TODO: ref_set does not exist yet
-FNCS(doi = "10.1038/s41586-019-1712-z", ref_set = ref_set, upper_trim = .01)
+FNCS(dois = "10.1038/s41586-019-1712-z", ref_set = ref_set, upper_trim = .01)
 }
 }
 \references{

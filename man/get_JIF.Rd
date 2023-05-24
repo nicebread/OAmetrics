@@ -22,8 +22,7 @@ This function computes the Journal Impact Factor (JIF) for a given journal
 given its ISSN and a target year.
 }
 \examples{
-\dontrun{
-get_JIF("0022-3514", 2018)
-}
+get_JIF(issn="0022-3514", year=2018)  # JPSP
+get_JIF(issn="0890-2070", year=2019)  # EJP
 
 }

@@ -1,6 +1,6 @@
 
 # ref_set <- readRDS(file="/Users/felix/Documents/Gitlab/R-openAlex/raw_data/c_counts_psy.RDS")
-
+# doi <- c("https://doi.org/10.1027/2151-2604/a000342", "https://doi.org/10.3389/fpsyg.2017.02119", "https://doi.org/10.1177/0956797617723726")
 
 
 #' Calculates the upper trimmed mean of a vector
@@ -50,7 +50,7 @@ ecdf2 <- function (x) {
 #'
 #' The percentage rank is the "CP-IN" measure described in Bornmann & Williams (2020). For the percentile rank, the function uses a linear interpolation (cf. Bornmann & Williams, 2020) using a function provided by Tal Galili (https://stats.stackexchange.com/q/230458)
 #'
-#' @param doi A character string of the DOI of the paper for which the FNCS should be computed.
+#' @param dois A character vector of the DOI of the paper for which the FNCS should be computed.
 #' @param ref_set A data frame containing the reference set for the paper of interest. This is an object from the `get_reference_set` function.
 #' @param upper_trim A numeric value between 0 and 1 that indicates the fraction of values to be trimmed from the upper end of the reference set. Scheidsteger et al. (2023) remove the upper 1 percent of citation counts when using OpenAlex. This only affects the FNCS, not the percentile rank.
 #' @return A list containing the computed FNCS and the percentile rank of the paper.
@@ -62,39 +62,55 @@ ecdf2 <- function (x) {
 #' @examples
 #' \dontrun{
 #' # TODO: ref_set does not exist yet
-#' FNCS(doi = "10.1038/s41586-019-1712-z", ref_set = ref_set, upper_trim = .01)
+#' FNCS(dois = "10.1038/s41586-019-1712-z", ref_set = ref_set, upper_trim = .01)
 #' }
 
 # Compute the field normalized citation scores
-FNCS <- function(doi, ref_set, upper_trim = .01) {
+FNCS <- function(dois, ref_set, upper_trim = .01) {
 
   # get citation counts for a specific paper.
-  paper <- oa_fetch(entity = "works", doi = doi)
-
-  ref_set_year <- ref_set %>% filter(publication_year == paper$publication_year)
-
-  if (nrow(ref_set_year) == 0) {
-    stop("The reference set does not contain publication from the same year (", paper$publication_year,")")
-  } else {
-    print(paste0("The reference set for the year ", paper$publication_year, " has ", nrow(ref_set_year), " publications."))
-  }
+  papers <- oa_fetch(entity = "works", doi = dois, abstract=FALSE)
 
   # What citation counts would be expected in the same field from publications of the same year?
-  expected_cc <- upper_trim_mean(ref_set_year$cited_by_count, trim=upper_trim)
+  yearly_expected_c <- ref_set %>%
+    select(-id) %>%
+    group_by(publication_year) %>%
+    summarise(mean_c = upper_trim_mean(cited_by_count, trim=upper_trim))
+
+  # Does the reference set contain publications from the relevant years?
+  years_not_in_ref_set <- setdiff(papers$publication_year, yearly_expected_c$publication_year)
+  if (length(years_not_in_ref_set) > 0) {
+    warning(paste0("The following years are not in the reference set: ", paste(years_not_in_ref_set, collapse=", "), ". No metrics can be computed for publications from these years."))
+  }
 
   # TODO: If a paper is assigned to multiple fields, this should be an weighted average...
-  FNCS <- paper$cited_by_count / expected_cc
+  res <- data.frame(
+    doi = papers$doi,
+    cited_by_count = papers$cited_by_count,
+    FNCS = NA,
+    FNPR = NA
+  )
 
-  # Quantile / percentage rank
-  c_count_ecdf <- ecdf(ref_set_year$cited_by_count)
-  c_count_ecdf2 <- ecdf2(ref_set_year$cited_by_count)
+  papers <- left_join(papers, yearly_expected_c, by="publication_year") %>%
+    mutate(
+      FNCS = cited_by_count / mean_c,
+      FNPR = NA  # initialize with NA; fill in below
+    )
+
+  for (i in 1:nrow(papers)) {
+    if (papers$publication_year[i] %in% yearly_expected_c$publication_year) {
+      # Quantile / percentage rank
+      c_count_ecdf2 <- ecdf2(ref_set[ref_set$publication_year == papers$publication_year[i], "cited_by_count"])
+      papers$FNPR[i] <- c_count_ecdf2(papers$cited_by_count[i])
+    } else {
+      print(paste0("No metrics could be computed for ", papers$doi[i]))
+    }
+  }
 
   # Plot the step-wise and the linear interpolation ECDF
   #par(mfrow = c(1,2))
   #curve(c_count_ecdf,  0, max(ref_set_year$cited_by_count), main = "step function ecdf")
   #curve(c_count_ecdf2, 0, max(ref_set_year$cited_by_count), main = "linear interpolation function ecdf")
 
-  perc_rank <- c_count_ecdf2(paper$cited_by_count)
-
-  return(list(citation_count = paper$cited_by_count, FNCS = FNCS, FN_PR = perc_rank))
+  return(papers %>% select(doi, title=display_name, cited_by_count, FNCS, FNPR))
 }
