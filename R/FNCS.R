@@ -46,13 +46,14 @@ ecdf2 <- function (x) {
 }
 
 
-#' Compute the Field Normalized Citation Score of a publication
+#' Compute the Field Normalized Citation Score (FNCS) and Percentage Rank (FNPR) of a publication
 #'
+#' The FNCS is defined as ... (TODO)
 #' The percentage rank is the "CP-EX" measure described in Bornmann & Williams (2020), which returns the percentage of publication with less citations (and "less or equal"). As many publications have 0 citations, the alternative CP-IN measure (which return "less or equal") returns often very high percentiles although a paper has 0 citations. This is not intuitive. For the percentile rank, the function uses a linear interpolation (cf. Bornmann & Williams, 2020) using a function provided by Tal Galili (https://stats.stackexchange.com/q/230458)
 #'
 #' @param dois A character vector of the DOI of the paper for which the FNCS should be computed.
 #' @param ref_set A data frame containing the reference set for the paper of interest. This is an object from the `get_reference_set` function.
-#' @param upper_trim A numeric value between 0 and 1 that indicates the fraction of values to be trimmed from the upper end of the reference set. Scheidsteger et al. (2023) remove the upper 1 percent of citation counts when using OpenAlex. This only affects the FNCS, not the percentile rank.
+#' @param upper_trim A numeric value between 0 and 1 that indicates the fraction of values to be trimmed from the upper end of the reference set. Scheidsteger et al. (2023) remove the upper 1 percent of citation counts when using OpenAlex. This only affects the FNCS, not the percentile rank (FNPR).
 #' @return A list containing the computed FNCS and the percentile rank of the paper. The latter is the CP-EX measure which means "how many citations in the reference set have *less* citations than the target paper".
 #' @export
 #' @references
@@ -114,3 +115,4 @@ FNCS <- function(dois, ref_set, upper_trim = 0) {
 
   return(papers %>% select(doi, publication_year, title=display_name, cited_by_count, expected_citations = mean_c, FNCS, FNPR))
 }
+

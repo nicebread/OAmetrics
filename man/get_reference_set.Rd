@@ -8,7 +8,9 @@ get_reference_set(
   years,
   n_per_year = 10000,
   concept.id = "C15744967",
-  verbose = TRUE
+  verbose = TRUE,
+  seed = NULL,
+  save_intermediate = NULL
 )
 }
 \arguments{
@@ -19,6 +21,10 @@ get_reference_set(
 \item{concept.id}{A vector of \code{concept.id}s to search for (optional, defaults to "C15744967", i.e. "Psychology")}
 
 \item{verbose}{Show OA API progress?}
+
+\item{seed}{Set a seed for reproducible analyses. However, as the underlying OA database changes frequently, the results will still not be very stable ...}
+
+\item{save_intermediate}{If a path is provided here, the intermediate downloaded files are saved at that path.}
 }
 \value{
 A data frame containing the document id, year, cited_by_count, and number of authors of the retrieved documents

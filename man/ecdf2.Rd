@@ -16,6 +16,6 @@ A function that calculates the linearly interpolated ecdf of the vector of value
 Calculates an linearly interpolated empirical cumulative distribution function (ecdf) from a vector of values. This function was provided by Tal Galili on \href{https://stats.stackexchange.com/q/230458}{StackOverflow}.
 }
 \examples{
-x <- c(1,2,3,4,5,6,7,8)
+x <- c(0,0,0,0,0,0,1,1,1,1,2,2,2,5,7,11,20,100)
 ecdf2(x)
 }
