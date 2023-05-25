@@ -17,7 +17,7 @@
 #' @examples
 #' # Get reference set for "Psychology" for multiple years (small n here for demo)
 #' psych_ref <- get_reference_set(
-#'   2013:2020, n_per_year = 100,
+#'   2018:2020, n_per_year = 100,
 #'   concept.id = "C15744967"
 #'  )
 
@@ -70,7 +70,7 @@ get_reference_set <- function(years, n_per_year=10000, concept.id = "C15744967",
   res <- data.table::rbindlist(pages)
   res$n_authors <- sapply(res$author, nrow)
 
-  # TODO: Which columns are necessary to return?
+  # FIXME: Which columns are necessary to return?
   return(data.frame(
     id = res$id,
     publication_year = res$publication_year,
