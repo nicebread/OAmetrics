@@ -52,7 +52,9 @@ Ideally, this should be cached locally.</p>
 <span>  <span class="va">years</span>,</span>
 <span>  n_per_year <span class="op">=</span> <span class="fl">10000</span>,</span>
 <span>  concept.id <span class="op">=</span> <span class="st">"C15744967"</span>,</span>
-<span>  verbose <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>  verbose <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  seed <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  save_intermediate <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -73,6 +75,14 @@ Ideally, this should be cached locally.</p>
 <dt>verbose</dt>
 <dd><p>Show OA API progress?</p></dd>
 
+
+<dt>seed</dt>
+<dd><p>Set a seed for reproducible analyses. However, as the underlying OA database changes frequently, the results will still not be very stable ...</p></dd>
+
+
+<dt>save_intermediate</dt>
+<dd><p>If a path is provided here, the intermediate downloaded files are saved at that path.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -88,36 +98,36 @@ Ideally, this should be cached locally.</p>
 <span class="r-in"><span>  <span class="fl">2013</span><span class="op">:</span><span class="fl">2020</span>, n_per_year <span class="op">=</span> <span class="fl">100</span>,</span></span>
 <span class="r-in"><span>  concept.id <span class="op">=</span> <span class="st">"C15744967"</span></span></span>
 <span class="r-in"><span> <span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-05-24 15:24:56.658033: Retrieving documents for 2013 ..."</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=concept.id%3AC15744967%2Ctype%3Ajournal-article%2Cfrom_publication_date%3A2013-01-01%2Cto_publication_date%3A2013-12-31%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue&amp;sample=100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-05-25 06:50:06.811684: Retrieving documents for 2013 ..."</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=concept.id%3AC15744967%2Ctype%3Ajournal-article%2Cfrom_publication_date%3A2013-01-01%2Cto_publication_date%3A2013-12-31%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=100</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 100 records...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Retrieved 100 documents"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-05-24 15:24:57.943126: Retrieving documents for 2014 ..."</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=concept.id%3AC15744967%2Ctype%3Ajournal-article%2Cfrom_publication_date%3A2014-01-01%2Cto_publication_date%3A2014-12-31%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue&amp;sample=100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-05-25 06:50:08.106643: Retrieving documents for 2014 ..."</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=concept.id%3AC15744967%2Ctype%3Ajournal-article%2Cfrom_publication_date%3A2014-01-01%2Cto_publication_date%3A2014-12-31%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=100</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 100 records...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Retrieved 100 documents"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-05-24 15:24:59.103499: Retrieving documents for 2015 ..."</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=concept.id%3AC15744967%2Ctype%3Ajournal-article%2Cfrom_publication_date%3A2015-01-01%2Cto_publication_date%3A2015-12-31%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue&amp;sample=100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-05-25 06:50:09.433997: Retrieving documents for 2015 ..."</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=concept.id%3AC15744967%2Ctype%3Ajournal-article%2Cfrom_publication_date%3A2015-01-01%2Cto_publication_date%3A2015-12-31%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=100</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 100 records...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Retrieved 100 documents"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-05-24 15:25:00.392592: Retrieving documents for 2016 ..."</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=concept.id%3AC15744967%2Ctype%3Ajournal-article%2Cfrom_publication_date%3A2016-01-01%2Cto_publication_date%3A2016-12-31%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue&amp;sample=100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-05-25 06:50:10.780969: Retrieving documents for 2016 ..."</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=concept.id%3AC15744967%2Ctype%3Ajournal-article%2Cfrom_publication_date%3A2016-01-01%2Cto_publication_date%3A2016-12-31%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=100</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 100 records...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Retrieved 100 documents"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-05-24 15:25:01.58352: Retrieving documents for 2017 ..."</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=concept.id%3AC15744967%2Ctype%3Ajournal-article%2Cfrom_publication_date%3A2017-01-01%2Cto_publication_date%3A2017-12-31%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue&amp;sample=100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-05-25 06:50:12.138182: Retrieving documents for 2017 ..."</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=concept.id%3AC15744967%2Ctype%3Ajournal-article%2Cfrom_publication_date%3A2017-01-01%2Cto_publication_date%3A2017-12-31%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=100</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 100 records...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Retrieved 100 documents"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-05-24 15:25:02.843148: Retrieving documents for 2018 ..."</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=concept.id%3AC15744967%2Ctype%3Ajournal-article%2Cfrom_publication_date%3A2018-01-01%2Cto_publication_date%3A2018-12-31%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue&amp;sample=100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-05-25 06:50:13.457456: Retrieving documents for 2018 ..."</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=concept.id%3AC15744967%2Ctype%3Ajournal-article%2Cfrom_publication_date%3A2018-01-01%2Cto_publication_date%3A2018-12-31%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=100</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 100 records...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Retrieved 100 documents"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-05-24 15:25:04.129693: Retrieving documents for 2019 ..."</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=concept.id%3AC15744967%2Ctype%3Ajournal-article%2Cfrom_publication_date%3A2019-01-01%2Cto_publication_date%3A2019-12-31%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue&amp;sample=100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-05-25 06:50:14.839372: Retrieving documents for 2019 ..."</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=concept.id%3AC15744967%2Ctype%3Ajournal-article%2Cfrom_publication_date%3A2019-01-01%2Cto_publication_date%3A2019-12-31%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=100</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 100 records...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Retrieved 100 documents"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-05-24 15:25:05.393481: Retrieving documents for 2020 ..."</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=concept.id%3AC15744967%2Ctype%3Ajournal-article%2Cfrom_publication_date%3A2020-01-01%2Cto_publication_date%3A2020-12-31%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue&amp;sample=100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-05-25 06:50:16.266629: Retrieving documents for 2020 ..."</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=concept.id%3AC15744967%2Ctype%3Ajournal-article%2Cfrom_publication_date%3A2020-01-01%2Cto_publication_date%3A2020-12-31%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=100</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 100 records...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Retrieved 100 documents"</span>
 </code></pre></div>
