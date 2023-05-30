@@ -63,14 +63,15 @@ ecdf2 <- function (x) {
 #' @examples
 #' \dontrun{
 #' # TODO: ref_set does not exist yet
-#' FNCS(dois = "10.1038/s41586-019-1712-z", ref_set = ref_set, upper_trim = .01)
+#' FNCS(dois = "10.1177/2515245918810225", ref_set = ref_set, upper_trim = .01)
 #' }
 
 # Compute the field normalized citation scores
 FNCS <- function(dois, ref_set, upper_trim = 0) {
 
   # get citation counts for a specific paper.
-  papers <- oa_fetch(entity = "works", doi = dois, abstract=FALSE)
+  papers <- oa_fetch(entity = "works", doi = dois, abstract=FALSE,
+                     options = list(select=c("id", "doi", "cited_by_count", "publication_year", "display_name")))
 
   # What citation counts would be expected in the same field from publications of the same year?
   yearly_expected_c <- ref_set %>%

@@ -42,7 +42,8 @@ get_reference_set <- function(years, n_per_year=10000, concept.id = "C15744967",
         entity = "works",
         options = list(
             sample = ifelse((n_per_year - n_retrieved) >= 10000, 10000, n_per_year - n_retrieved),
-            seed = seed2
+            seed = seed2,
+            select = c("id", "authorships", "publication_year", "cited_by_count")
           ),
         concept.id = concept.id,
         type = "journal-article",
@@ -70,7 +71,6 @@ get_reference_set <- function(years, n_per_year=10000, concept.id = "C15744967",
   res <- data.table::rbindlist(pages)
   res$n_authors <- sapply(res$author, nrow)
 
-  # FIXME: Which columns are necessary to return?
   return(data.frame(
     id = res$id,
     publication_year = res$publication_year,

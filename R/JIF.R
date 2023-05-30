@@ -38,12 +38,20 @@ get_JIF <- function(issn, year, verbose=FALSE) {
     from_publication_date = paste0(year-2, "-01-01"),
     to_publication_date = paste0(year-1, "-12-31"),
     authors_count = ">0",  # remove corrections (which have no authors)
+    options = list(
+      select = c("id", "publication_year", "cited_by_count", "counts_by_year")
+    ),
     verbose=verbose
+  )
+
+  journal_info <- oa_fetch(
+    entity = "venues",
+    issn = issn
   )
 
   # For denominator: remove supplemental material and corrections
   citable_items <- all_works_search %>% filter(
-    !is.na(referenced_works),  # TODO: This does not work for all journals: Some don't have referenced_work in the OA data (although they do have references)
+    # !is.na(referenced_works),  # TODO: This does not work for all journals: Some don't have referenced_work in the OA data (although they do have references); add to "options(select = )" in oa_fetch if you need it.
     # type == "journal-article"  # some journals have "book-chapter" as meta-data ...
   )
 
@@ -54,7 +62,7 @@ get_JIF <- function(issn, year, verbose=FALSE) {
   total_citations <- sum(cc_per_year$cited_by_count[cc_per_year$year==year])
 
   res <- data.frame(
-    journal = all_works_search[1, "so"],
+    journal = journal_info[1, "display_name"],
     issn = issn,
     year = year,
     total_citations = total_citations,

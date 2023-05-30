@@ -52,6 +52,9 @@ h_index <- function(search = NULL, display_name = NULL, author.id = NULL, first_
     author.id = author.id,
     is_paratext = FALSE,
     is_retracted = FALSE,
+    options = list(
+      select = c("id", "authorships", "publication_year", "cited_by_count")
+    ),
     verbose = FALSE
   )
 
