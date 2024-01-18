@@ -48,10 +48,11 @@ ecdf2 <- function (x) {
 
 #' Compute the Field Normalized Citation Score (FNCS) and Percentage Rank (FNPR) of a publication
 #'
-#' The FNCS is defined as ... (TODO)
-#' The percentage rank is the "CP-EX" measure described in Bornmann & Williams (2020), which returns the percentage of publication with less citations (and "less or equal"). As many publications have 0 citations, the alternative CP-IN measure (which return "less or equal") returns often very high percentiles although a paper has 0 citations. This is not intuitive. For the percentile rank, the function uses a linear interpolation (cf. Bornmann & Williams, 2020) using a function provided by Tal Galili (https://stats.stackexchange.com/q/230458)
+#' The FNCS reflects the impact of a paper relative to a reference set, namely publications of the same type (typically, journal articles), published in the same year, and in the same field. The “same field” can be operationalized, for example, by the top-level concepts as assigned by the OpenAlex database. Once a reference set has been compiled, the FNCS of a paper is computed as the raw citation count divided by the average citation count of papers in the reference set. It can be interpreted as a ratio: A value of 1 means that a paper has received as many citations as an average paper in the reference set, 2 means that it received two times as many citations.
+#' The percentage rank is the "CP-EX" measure described in Bornmann & Williams (2020), which returns the percentage of publications with strictly less citations (and *not* "less or equal"). As many publications have 0 citations, the alternative CP-IN measure (which return "less or equal") returns often very high percentiles although a paper has 0 citations. This is not intuitive. For the percentile rank, the function applies a linear interpolation on the empirical reference data (cf. Bornmann & Williams, 2020) using a function provided by Tal Galili (https://stats.stackexchange.com/q/230458). The FNPR is a monotonic transformation of the FNCS; except adding new aspects of interpretation and providing some robustness against outliers, it doesn't add any new information compared tot he FNCS.
 #'
 #' @param dois A character vector of the DOI of the paper for which the FNCS should be computed.
+#' @param papers A data frame with the papers that should be analyzed, as provided by an `oa_fetch` call. Either provide `dois` or `papers`.
 #' @param ref_set A data frame containing the reference set for the paper of interest. This is an object from the `get_reference_set` function.
 #' @param upper_trim A numeric value between 0 and 1 that indicates the fraction of values to be trimmed from the upper end of the reference set. Scheidsteger et al. (2023) remove the upper 1 percent of citation counts when using OpenAlex. This only affects the FNCS, not the percentile rank (FNPR).
 #' @return A list containing the computed FNCS and the percentile rank of the paper. The latter is the CP-EX measure which means "how many citations in the reference set have *less* citations than the target paper".
@@ -67,11 +68,22 @@ ecdf2 <- function (x) {
 #' }
 
 # Compute the field normalized citation scores
-FNCS <- function(dois, ref_set, upper_trim = 0) {
+FNCS <- function(dois=NULL, papers=NULL, ref_set=NULL, upper_trim = 0) {
 
-  # get citation counts for a specific paper.
-  papers <- oa_fetch(entity = "works", doi = dois, abstract=FALSE,
-                     options = list(select=c("id", "doi", "cited_by_count", "publication_year", "display_name")))
+  if (is.null(ref_set)) stop("You need to provide a reference set.")
+
+  if (is.null(dois) & is.null(papers)) {
+    stop("You have to provide either dois or works.")
+  } else if (!is.null(dois) & is.null(papers)) {
+    # get citation counts for all provided dois
+    papers <- oa_fetch(entity = "works", doi = dois, abstract=FALSE,
+                       options = list(select=c("id", "doi", "cited_by_count", "publication_year", "display_name")))
+  } else if (is.null(dois) & !is.null(papers)) {
+    # check if all necessary columns exist
+    coldiff <- setdiff(c("id", "doi", "cited_by_count", "publication_year", "display_name"), colnames(papers))
+    if (length(coldiff) > 0) stop(paste0("The following columns are missing in the `paper` object: ", paste(coldiff, collapse=", ")))
+  }
+
 
   # What citation counts would be expected in the same field from publications of the same year?
   yearly_expected_c <- ref_set %>%
@@ -102,10 +114,11 @@ FNCS <- function(dois, ref_set, upper_trim = 0) {
   for (i in 1:nrow(papers)) {
     if (papers$publication_year[i] %in% yearly_expected_c$publication_year) {
       # Quantile / percentage rank. We add 1 to each citation count; this way we obtain the CP-EX percentage rank (instead of the CP-IN rank), which returns "percentage of publications with less than X citations" (in contrast to "less or equal", which is returned by the regular ecdf function).
-      c_count_ecdf2 <- ecdf2(ref_set[ref_set$publication_year == papers$publication_year[i], "cited_by_count"] + 1)
+      ref_set_cites <- ref_set[ref_set$publication_year == papers$publication_year[i], "cited_by_count"] + 1
+      c_count_ecdf2 <- ecdf2(unlist(ref_set_cites))
       papers$FNPR[i] <- c_count_ecdf2(papers$cited_by_count[i])
     } else {
-      print(paste0("No metrics could be computed for ", papers$doi[i]))
+      print(paste0("No metrics could be computed for ", papers$doi[i], ": Publication_year ", papers$publication_year[i], " missing in reference set"))
     }
   }
 

@@ -27,7 +27,7 @@ h_index(
 A list containing the net academic age, h-index and hIa-index of the author.
 }
 \description{
-TODO: Could a time-window (currently, it uses all citations since publication).
+TODO: Could use a time-window (currently, it uses all citations since publication).
 }
 \details{
 Computes the h-index and hIa-index of an author. You need to provide exactly \emph{one} of the parameters \code{search}, \code{display_name} or \code{author.id}:

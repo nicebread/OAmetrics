@@ -12,6 +12,6 @@ remotes::install_github("nicebread/OAmetrics")
 
 ## Known issues / TODOs
 
-- FNCS: If a paper is assigned to multiple fields, this should be an weighted average
+- FNCS: If a paper is assigned to multiple fields, this should be an weighted average. Currently, the function implicitly assumes that you only look at a single field.
 - get_reference_set:  around 20% of sampled document are duplicates. Ensure that only unique documents are sampled (use paging?)
 - 

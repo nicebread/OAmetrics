@@ -4,10 +4,12 @@
 \alias{FNCS}
 \title{Compute the Field Normalized Citation Score (FNCS) and Percentage Rank (FNPR) of a publication}
 \usage{
-FNCS(dois, ref_set, upper_trim = 0)
+FNCS(dois = NULL, papers = NULL, ref_set = NULL, upper_trim = 0)
 }
 \arguments{
 \item{dois}{A character vector of the DOI of the paper for which the FNCS should be computed.}
+
+\item{papers}{A data frame with the papers that should be analyzed, as provided by an \code{oa_fetch} call. Either provide \code{dois} or \code{papers}.}
 
 \item{ref_set}{A data frame containing the reference set for the paper of interest. This is an object from the \code{get_reference_set} function.}
 
@@ -17,13 +19,13 @@ FNCS(dois, ref_set, upper_trim = 0)
 A list containing the computed FNCS and the percentile rank of the paper. The latter is the CP-EX measure which means "how many citations in the reference set have \emph{less} citations than the target paper".
 }
 \description{
-The FNCS is defined as ... (TODO)
-The percentage rank is the "CP-EX" measure described in Bornmann & Williams (2020), which returns the percentage of publication with less citations (and "less or equal"). As many publications have 0 citations, the alternative CP-IN measure (which return "less or equal") returns often very high percentiles although a paper has 0 citations. This is not intuitive. For the percentile rank, the function uses a linear interpolation (cf. Bornmann & Williams, 2020) using a function provided by Tal Galili (https://stats.stackexchange.com/q/230458)
+The FNCS reflects the impact of a paper relative to a reference set, namely publications of the same type (typically, journal articles), published in the same year, and in the same field. The “same field” can be operationalized, for example, by the top-level concepts as assigned by the OpenAlex database. Once a reference set has been compiled, the FNCS of a paper is computed as the raw citation count divided by the average citation count of papers in the reference set. It can be interpreted as a ratio: A value of 1 means that a paper has received as many citations as an average paper in the reference set, 2 means that it received two times as many citations.
+The percentage rank is the "CP-EX" measure described in Bornmann & Williams (2020), which returns the percentage of publications with strictly less citations (and \emph{not} "less or equal"). As many publications have 0 citations, the alternative CP-IN measure (which return "less or equal") returns often very high percentiles although a paper has 0 citations. This is not intuitive. For the percentile rank, the function applies a linear interpolation on the empirical reference data (cf. Bornmann & Williams, 2020) using a function provided by Tal Galili (https://stats.stackexchange.com/q/230458). The FNPR is a monotonic transformation of the FNCS; except adding new aspects of interpretation and providing some robustness against outliers, it doesn't add any new information compared tot he FNCS.
 }
 \examples{
 \dontrun{
 # TODO: ref_set does not exist yet
-FNCS(dois = "10.1038/s41586-019-1712-z", ref_set = ref_set, upper_trim = .01)
+FNCS(dois = "10.1177/2515245918810225", ref_set = ref_set, upper_trim = .01)
 }
 }
 \references{

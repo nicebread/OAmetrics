@@ -7,6 +7,7 @@
 #' @param years The year(s) from which a sample of the reference field should be retrieved.
 #' @param n_per_year The number of documents to retrieve per requested year (optional, defaults to 10000). Values larger than 10000 are possible (they are split up to multiple OA requests).
 #' @param concept.id A vector of `concept.id`s to search for (optional, defaults to "C15744967", i.e. "Psychology")
+#' @param type Reference sets should refer to the same type of publication; defaults to "article"
 #' @param verbose Show OA API progress?
 #' @param seed Set a seed for reproducible analyses. However, as the underlying OA database changes frequently, the results will still not be very stable ...
 #' @param save_intermediate If a path is provided here, the intermediate downloaded files are saved at that path.
@@ -17,11 +18,11 @@
 #' @examples
 #' # Get reference set for "Psychology" for multiple years (small n here for demo)
 #' psych_ref <- get_reference_set(
-#'   2018:2020, n_per_year = 100,
+#'   years = 2018:2020, n_per_year = 20,
 #'   concept.id = "C15744967"
 #'  )
 
-get_reference_set <- function(years, n_per_year=10000, concept.id = "C15744967", verbose=TRUE, seed = NULL, save_intermediate = NULL) {
+get_reference_set <- function(years, n_per_year=10000, concept.id = "C15744967", type="article", verbose=TRUE, seed = NULL, save_intermediate = NULL) {
 
   pages <- list()
   for (y in years) {
@@ -46,7 +47,7 @@ get_reference_set <- function(years, n_per_year=10000, concept.id = "C15744967",
             select = c("id", "authorships", "publication_year", "cited_by_count")
           ),
         concept.id = concept.id,
-        type = "journal-article",
+        type = type,
         from_publication_date = paste0(y, "-01-01"),
         to_publication_date = paste0(y, "-12-31"),
         is_paratext = FALSE,

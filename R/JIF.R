@@ -15,6 +15,7 @@
 #' get_JIF(issn="0890-2070", year=2019)  # EJP
 #'
 #' @importFrom data.table rbindlist
+#' @importFrom lubridate year
 #' @export
 
 get_JIF <- function(issn, year, verbose=FALSE) {
@@ -37,12 +38,15 @@ get_JIF <- function(issn, year, verbose=FALSE) {
     primary_location.source.issn = issn,
     from_publication_date = paste0(year-2, "-01-01"),
     to_publication_date = paste0(year-1, "-12-31"),
+    abstract=FALSE,
     authors_count = ">0",  # remove corrections (which have no authors)
-    options = list(
-      select = c("id", "publication_year", "cited_by_count", "counts_by_year")
-    ),
+   # options = list(
+   #   select = c("id", "publication_date", "cited_by_count", "counts_by_year")
+   # ),
     verbose=verbose
   )
+
+  all_works_search$publication_year <- lubridate::year(all_works_search$publication_date)
 
   journal_info <- oa_fetch(
     entity = "venues",
@@ -52,7 +56,7 @@ get_JIF <- function(issn, year, verbose=FALSE) {
   # For denominator: remove supplemental material and corrections
   citable_items <- all_works_search %>% filter(
     # !is.na(referenced_works),  # TODO: This does not work for all journals: Some don't have referenced_work in the OA data (although they do have references); add to "options(select = )" in oa_fetch if you need it.
-    # type == "journal-article"  # some journals have "book-chapter" as meta-data ...
+    # type == "article"  # some journals have "book-chapter" as meta-data ...
   )
 
   # get citations to these articles from a specific target year

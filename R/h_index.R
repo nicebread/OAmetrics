@@ -1,6 +1,6 @@
 #' Compute h-index and hIa-index
 #'
-#'TODO: Could a time-window (currently, it uses all citations since publication).
+#'TODO: Could use a time-window (currently, it uses all citations since publication).
 #'
 #' Computes the h-index and hIa-index of an author. You need to provide exactly *one* of the parameters `search`, `display_name` or `author.id`:
 #' - `search` allows fuzzy search of the author's name (e.g. with or without middle initial). Might return too many matches
