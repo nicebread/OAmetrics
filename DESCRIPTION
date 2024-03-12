@@ -1,24 +1,28 @@
 Package: OAmetrics
 Type: Package
 Title: Bibliometric Indices Based on the OpenAlex API
-Version: 0.1.1
+Version: 0.3
 Authors@R: 
     person("Felix D.", "Schönbrodt", , "felix.schoenbrodt@psy.lmu.de", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-8282-3910"))
 Maintainer: Felix Schönbrodt <felix.schoenbrodt@psy.lmu.de>
-Description: Computes several bibliometric indices by calling the OpenAlex database API, including journal impact factors, h-indexes, field normalized citation scores (FNCS) and normalized percentage ranks.
+Description: Computes several bibliometric indices by calling the OpenAlex database API, including journal impact factors, h-indexes, field normalized citation scores (FNCS) and normalized percentage ranks. Provides indizes for co-author networks (e.g., internationalization) and citation metrics by calling the BIP! database.
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
 Imports:
     openalexR,
     dplyr,
-    lubridate
+    lubridate,
+    curl,
+    jsonlite,
+    stringr,
+    entropy
 Depends:
     data.table
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-RoxygenNote: 7.3.0
+RoxygenNote: 7.3.1
 Roxygen: list(markdown = TRUE)
 URL: https://nicebread.github.io/OAmetrics/

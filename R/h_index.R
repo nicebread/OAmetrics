@@ -42,7 +42,8 @@ h_index <- function(search = NULL, display_name = NULL, author.id = NULL, first_
       author.id <- authors_from_names$id[authors_from_names$cited_by_count > 1]
       cat("Multiple author IDs have substantial citation count - merged author IDs. Please check if they are correct.\n\n")
     } else {
-      print(authors_from_names[1:5, c("display_name", "works_count", "cited_by_count")])
+      cat("A unique author record has been found: \n\n")
+      print(authors_from_names[1, c("display_name", "works_count", "cited_by_count")])
       author.id <- authors_from_names[1, "id"]
     }
   }
@@ -52,11 +53,24 @@ h_index <- function(search = NULL, display_name = NULL, author.id = NULL, first_
     author.id = author.id,
     is_paratext = FALSE,
     is_retracted = FALSE,
-    options = list(
-      select = c("id", "authorships", "publication_year", "cited_by_count")
-    ),
+    abstract=FALSE,
     verbose = FALSE
   )
+
+  # filter out works that should not count for the h-index, and for the computation of academic age (i.e., works without doi and which are not published in an outlet).
+  # This is mostly irrelevant for the h-index, but important for the automatic retrieval of academic age.
+  works <- works %>% filter(!is.na(doi), !is.na(so))
+
+  # if a first_publication_year is provided: strip all older publications from h-index computation
+  if (!is.na(first_pub_year)) {
+    works <- works %>% filter(publication_year >= first_pub_year)
+  }
+
+  # early stop:
+  if (nrow(works) == 0) {
+    warning("Author has zero works in data base, cannot compute h-index.")
+    return(list(net_academic_age=NA, h_index=NA, h_Ia = NA, first_publication=NA))
+  }
 
   works$n_authors <- sapply(works$author, nrow)
 
@@ -65,6 +79,20 @@ h_index <- function(search = NULL, display_name = NULL, author.id = NULL, first_
 
   h_index <- sum(works$cited_by_count > works$h_position)
 
+  # retrieve first publication from data set
+  if (is.na(first_pub_year)) {
+    first_pub_year <- min(works$publication_year)
+    first_work <- works %>% arrange(publication_year) %>% slice(1)
+    co <- first_work$concepts[[1]]
+    top_L0_concept <- co %>% filter(level==0) %>% slice(1) %>% pull("display_name")
+
+      cat(paste0("Computation of academic age (relative to first publication):\nRetrieving year of first publication from data: ", first_pub_year, ". \n\nThe first publication is: '", first_work$display_name,"', published in '", first_work$so, "'. It has the top L0 concept '", top_L0_concept, "'. \n\nIs that plausible? If not, provide `first_pub_year` as a parameter. You can see all works of that author with the following command:\n\noa_fetch(entity = 'works', author.id = '", author.id, "', is_paratext = F, is_retracted = F, abstract=F) %>% arrange(publication_year)\n\n"))
+  } else {
+    first_work <- works %>% arrange(publication_year) %>% slice(1)
+  }
+
+
+
   # hIa: hI,norm/academic age, where:
   #   hI,norm: normalize the number of citations for each paper by dividing the number of citations by the number of authors for that paper, and then calculate the h-index of the normalized citation counts
   # academic age: number of years elapsed since first publication
@@ -72,17 +100,17 @@ h_index <- function(search = NULL, display_name = NULL, author.id = NULL, first_
   works <- works %>% arrange(-cit_norm)
   works$h_Ia_position <- 1:nrow(works)
 
-  if (is.na(first_pub_year)) {
-    first_pub_year <- min(works$publication_year)
-    cat(paste0("Computation of academic age (relative to first publication):\nRetrieving year of first publication from data: ", first_pub_year, ". Is that plausible?\n\n"))
-  }
-
   net_academic_age <- as.integer(format(Sys.Date(), "%Y")) - first_pub_year - academic_age_bonus
 
   # h_Ia: The hIa-index thus measures the average number of single-author equivalent h-index points that an academic has accumulated in each year of their academic career. A hIa of 1.0 means that an academic has consistently published one article per year that, when corrected for the number of co-authors, has accumulated enough citations to be included in the h-index (https://harzing.com/publications/white-papers/from-h-index-to-hia)
   h_Ia0 <- sum(works$cit_norm > works$h_Ia_position)
   h_Ia <- h_Ia0 / net_academic_age
 
-  return(list(net_academic_age=net_academic_age, h_index=h_index, h_Ia = h_Ia))
+  return(list(
+    net_academic_age=net_academic_age,
+    h_index=h_index,
+    h_Ia = h_Ia,
+    first_publication=first_work
+  ))
 }
 
