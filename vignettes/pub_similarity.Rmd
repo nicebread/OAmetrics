@@ -151,7 +151,7 @@ In my experience, ORCID record fewer publications than OpenAlex, but these are m
 
 Here, I try to use the ORCID publication record as a reference set to find false positive in the OpenAlex record:
 
-```{r}
+```{r eval=FALSE, include=TRUE}
 
 library(rorcid)
 library(openalexR)
@@ -163,17 +163,6 @@ au <- oa_fetch(entity="author", id=author.id)
 au$orcid
 
 library(httr)
-# orcid_request <- POST(url  = "https://orcid.org/oauth/token",
-#           config = add_headers(`Accept` = "application/json",
-#                                `Content-Type` = "application/x-www-form-urlencoded"),
-#           body = list(grant_type = "client_credentials",
-#                       scope = "/read-public",
-#                       client_id = "APP-R40M14OCJVHRX2T0",
-#                       client_secret = "2ae4c4bc-0f1f-4efe-aecf-27681b9516cf"),
-#           encode = "form")
-# 
-# orcid_response <- content(orcid_request)
-# print(orcid_response$access_token)
 
 orcid_works <- rorcid::works(substr(au$orcid, 19, 38)) %>%
   as_tibble() %>%
@@ -232,19 +221,19 @@ ggplot(works_reduced %>% filter(ORCID_sim < .10), aes(x=lonely_wolf_index, y=ORC
 Which publications are added by OpenAlex, and are they valid?
 
 Without selection by ORCID similarity:
-```{r}
+```{r eval=FALSE, include=TRUE}
 table("in ORCID"=works_reduced$in_ORCID, "Valid"=works_reduced$valid)
 ```
 
 
 With selection by ORCID similarity (cutoff = .05):
-```{r}
+```{r eval=FALSE, include=TRUE}
 table("in ORCID"=works_reduced$in_ORCID, "Valid"=works$valid, "outlier"=works_reduced$ORCID_sim <=.05 & !works_reduced$in_ORCID)
 ```
 
 Hence, the candidates for invalidly assigned publications are:
 
-```{r}
+```{r eval=FALSE, include=TRUE}
 works %>% filter(ORCID_sim <=.05 & !in_ORCID) %>% select(display_name, so, publication_year)
 works %>% filter(is.na(core_sim)) %>% select(display_name, so, publication_year)
 ```
