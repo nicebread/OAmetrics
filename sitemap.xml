@@ -4,10 +4,19 @@
     <loc>https://nicebread.github.io/OAmetrics/404.html</loc>
   </url>
   <url>
+    <loc>https://nicebread.github.io/OAmetrics/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://nicebread.github.io/OAmetrics/articles/pub_similarity.html</loc>
+  </url>
+  <url>
     <loc>https://nicebread.github.io/OAmetrics/authors.html</loc>
   </url>
   <url>
     <loc>https://nicebread.github.io/OAmetrics/index.html</loc>
+  </url>
+  <url>
+    <loc>https://nicebread.github.io/OAmetrics/news/index.html</loc>
   </url>
   <url>
     <loc>https://nicebread.github.io/OAmetrics/reference/FNCS.html</loc>
@@ -16,7 +25,13 @@
     <loc>https://nicebread.github.io/OAmetrics/reference/ecdf2.html</loc>
   </url>
   <url>
+    <loc>https://nicebread.github.io/OAmetrics/reference/get_BIP.html</loc>
+  </url>
+  <url>
     <loc>https://nicebread.github.io/OAmetrics/reference/get_JIF.html</loc>
+  </url>
+  <url>
+    <loc>https://nicebread.github.io/OAmetrics/reference/get_network.html</loc>
   </url>
   <url>
     <loc>https://nicebread.github.io/OAmetrics/reference/get_reference_set.html</loc>
@@ -29,6 +44,9 @@
   </url>
   <url>
     <loc>https://nicebread.github.io/OAmetrics/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://nicebread.github.io/OAmetrics/reference/normalize_dois.html</loc>
   </url>
   <url>
     <loc>https://nicebread.github.io/OAmetrics/reference/upper_trim_mean.html</loc>

@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">OAmetrics</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,6 +20,15 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
+</li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/pub_similarity.html">Computing the similarity of papers to an author's core set</a>
+  </div>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
@@ -57,9 +66,19 @@
         <dd>ecdf2</dd>
       </dl><dl><dt>
           
+          <code><a href="get_BIP.html">get_BIP()</a></code> 
+        </dt>
+        <dd>Retrieve BIP scores for a list of DOIs</dd>
+      </dl><dl><dt>
+          
           <code><a href="get_JIF.html">get_JIF()</a></code> 
         </dt>
         <dd>Compute the Journal Impact Factor</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_network.html">get_network()</a></code> 
+        </dt>
+        <dd>Get network analysis of co-authorships for a given author or set of works</dd>
       </dl><dl><dt>
           
           <code><a href="get_reference_set.html">get_reference_set()</a></code> 
@@ -75,6 +94,11 @@
           <code><a href="h_index.html">h_index()</a></code> 
         </dt>
         <dd>Compute h-index and hIa-index</dd>
+      </dl><dl><dt>
+          
+          <code><a href="normalize_dois.html">normalize_dois()</a></code> 
+        </dt>
+        <dd>Normalize DOIs</dd>
       </dl><dl><dt>
           
           <code><a href="upper_trim_mean.html">upper_trim_mean()</a></code> 
