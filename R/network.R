@@ -1,19 +1,19 @@
 # author.id="https://openalex.org/A5022479713"
 # author.id="https://openalex.org/A5089676027"
 
-# if you only provide the author.id, it downloads all works of that person.
-# If you provide, in addition, a vector of dois, only these are analyzed. (But you always have to provide an author.id).
-
 #' @title Get network analysis of co-authorships for a given author or set of works
-#' @description This function performs a network analysis for a given author or set of works.
+#' @description This function performs a network analysis for a given author or set of works, providing indicators for the degree of international collaborations.
 #'
 #' @param author.id The ID of the author for whom the network will be analyzed. Must be provided.
 #' @param doi Optional vector of DOIs. If provided, only works with these DOIs will be analyzed.
+#' @param works Optional data frame of works (that have already been fetched by oa_fetch). Either provide dois or works.
 #' @param verbose Whether to display the result string (default is TRUE).
 #' @param min_edges Minimal number of co-authorships. By default set to 2: This way, single co-authorship connections are ignored (e.g., in ManyLabs-style papers, this can lead to a strong inflation of co-authorship connections.)
 #'
 #' @return A list containing various results of the network analysis, including unique coauthor edges, counts of international and same-country co-authors,
 #' country codes of coauthors, and a result string summarizing the analysis.
+#' It also computes the normalized Shannon entropy. It is normalized by dividing
+#' it by log_2(n_countries), which bounds its range to \[0; 1\].
 #'
 #' @importFrom data.table rbindlist
 #' @importFrom openalexR oa_fetch
@@ -34,9 +34,9 @@
 #'         'https://doi.org/10.1146/annurev-psych-020821-114157'))
 
 #'
-get_network <- function(author.id, doi=NA, min_edges=2, verbose=TRUE) {
+get_network <- function(author.id, doi=NA, works=NA, min_edges=2, verbose=TRUE) {
 
-  if (all(is.na(doi))) {
+  if (all(is.na(doi)) & all(is.na(works))) {
     works <- oa_fetch(
       entity = "works",
       author.id = author.id,
@@ -45,7 +45,8 @@ get_network <- function(author.id, doi=NA, min_edges=2, verbose=TRUE) {
       abstract=FALSE,
       verbose = verbose
     )
-  } else {
+  }
+  if (!all(is.na(doi)) & all(is.na(works))) {
     works <- oa_fetch(
       entity = "works",
       doi = doi,
@@ -54,6 +55,10 @@ get_network <- function(author.id, doi=NA, min_edges=2, verbose=TRUE) {
       abstract=FALSE,
       verbose = verbose
     )
+  }
+  if (all(is.na(doi)) & !all(is.na(works))) {
+   # works = works
+    print("Using the provided works.")
   }
 
   # get_all_coauthors
@@ -114,6 +119,7 @@ get_network <- function(author.id, doi=NA, min_edges=2, verbose=TRUE) {
     unique_coauthor_edges=unique_coauthor_edges,
     n_coauthors_international=n_coauthors_international,
     n_coauthors_same_country=n_coauthors_same_country,
+    entropy_normalized = ent.norm,
     country_codes_repeated=country_codes_repeated,
     result_string=result_string
     ))

@@ -4,12 +4,14 @@
 \alias{get_network}
 \title{Get network analysis of co-authorships for a given author or set of works}
 \usage{
-get_network(author.id, doi = NA, min_edges = 2, verbose = TRUE)
+get_network(author.id, doi = NA, works = NA, min_edges = 2, verbose = TRUE)
 }
 \arguments{
 \item{author.id}{The ID of the author for whom the network will be analyzed. Must be provided.}
 
 \item{doi}{Optional vector of DOIs. If provided, only works with these DOIs will be analyzed.}
+
+\item{works}{Optional data frame of works (that have already been fetched by oa_fetch). Either provide dois or works.}
 
 \item{min_edges}{Minimal number of co-authorships. By default set to 2: This way, single co-authorship connections are ignored (e.g., in ManyLabs-style papers, this can lead to a strong inflation of co-authorship connections.)}
 
@@ -18,9 +20,11 @@ get_network(author.id, doi = NA, min_edges = 2, verbose = TRUE)
 \value{
 A list containing various results of the network analysis, including unique coauthor edges, counts of international and same-country co-authors,
 country codes of coauthors, and a result string summarizing the analysis.
+It also computes the normalized Shannon entropy. It is normalized by dividing
+it by log_2(n_countries), which bounds its range to [0; 1].
 }
 \description{
-This function performs a network analysis for a given author or set of works.
+This function performs a network analysis for a given author or set of works, providing indicators for the degree of international collaborations.
 }
 \examples{
 # Analyze the network of a specific author

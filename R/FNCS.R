@@ -61,6 +61,7 @@ ecdf2 <- function (x) {
 #' @param papers A data frame with the papers that should be analyzed, as provided by an `oa_fetch` call. In this case the citation counts and not freshly retrieved, but taken from the object. Either provide `dois` or `papers`.
 #' @param ref_set A data frame containing the reference set for the paper of interest. This is an object from the `get_reference_set` function, which needs the following columns: `publication_year` and `cited_by_count`.
 #' @param upper_trim A numeric value between 0 and 1 that indicates the fraction of values to be trimmed from the upper end of the reference set. Scheidsteger et al. (2023) remove the upper 1 percent of citation counts when using OpenAlex. This only affects the FNCS, not the percentile rank (FNPR).
+#' @param verbose Show diagnostic information?
 #' @return A list containing the computed FNCS and the percentile rank of the paper. The latter is the CP-EX measure which means "how many citations in the reference set have *less* citations than the target paper".
 #' @export
 #' @references

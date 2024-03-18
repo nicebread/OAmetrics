@@ -8,6 +8,8 @@ normalize_dois(x, verbose = FALSE)
 }
 \arguments{
 \item{x}{Character vector of DOIs to be normalized}
+
+\item{verbose}{Show diagnostic information?}
 }
 \value{
 Character vector of normalized DOIs

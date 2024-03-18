@@ -1,10 +1,8 @@
 ---
 title: "Computing the similarity of papers to an author's core set"
 output: rmarkdown::html_vignette
-description: >
-  TODO
 vignette: >
-  %\VignetteIndexEntry{Paper similarity}
+  %\VignetteIndexEntry{Computing the similarity of papers to an author's core set}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -28,10 +26,8 @@ library(tidyr)
 library(openalexR)
 library(lsa)
 
-#author.id <- "https://openalex.org/A5083504666"  # Mitja
-author.id <- "https://openalex.org/A5022479713" # Felix
-#author.id <- "https://openalex.org/A5027778611"  # Julia Rohrer
-author.id <- "https://openalex.org/A5091563836"   # Markus Steiner
+author.id <- "https://openalex.org/A5083504666"  # Mitja
+#author.id <- "https://openalex.org/A5022479713" # Felix
 
 # which concept levels should be included in the analysis?
 included_levels <- 0:1

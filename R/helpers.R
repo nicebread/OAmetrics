@@ -5,6 +5,7 @@
 #' and converting the DOI to lowercase, according to the DOI specification
 #'
 #' @param x Character vector of DOIs to be normalized
+#' @param verbose Show diagnostic information?
 #' @return Character vector of normalized DOIs
 #' @import stringr
 #' @examples
