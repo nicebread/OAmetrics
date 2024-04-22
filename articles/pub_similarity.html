@@ -11,7 +11,7 @@
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Computing the similarity of papers to an author's core set">
+<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js" integrity="sha512-7O5pXpc0oCRrxk8RUfDYFgn0nO1t+jLuIOQdOMRp4APB7uZ4vSjspzp5y6YDtDs4VzUSTbWzBFZ/LKJhnyFOKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Computing the similarity of papers to an author's core set">
 <meta property="og:description" content="OAmetrics">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -22,7 +22,7 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
+    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light" data-bs-theme="light"><div class="container">
     
     <a class="navbar-brand me-2" href="../index.html">OAmetrics</a>
 
@@ -150,7 +150,7 @@ score 0.</p>
 <span><span class="va">PCA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/princomp.html" class="external-link">princomp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html" class="external-link">cor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/t.html" class="external-link">t</a></span><span class="op">(</span><span class="va">con.mat</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">PCA</span><span class="op">$</span><span class="va">scores</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span>, <span class="va">PCA</span><span class="op">$</span><span class="va">scores</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <p><img src="pub_similarity_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
-<p>The matrix is very sparse: 93.2% of concept scores are exactly zero.
+<p>The matrix is very sparse: 93.1% of concept scores are exactly zero.
 Given this sparsity, cosine similarity seems to be a good measure.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># this is the core concept vector of an author</span></span>
@@ -158,18 +158,18 @@ Given this sparsity, cosine similarity seems to be a good measure.</p>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="va">mean_concept_vector</span>, <span class="fl">3</span><span class="op">)</span>, decreasing <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">20</span><span class="op">]</span></span>
 <span><span class="co">#&gt;               Psychology        Social psychology Developmental psychology </span></span>
-<span><span class="co">#&gt;                    0.620                    0.361                    0.099 </span></span>
-<span><span class="co">#&gt;     Cognitive psychology         Computer science        Political science </span></span>
-<span><span class="co">#&gt;                    0.068                    0.066                    0.041 </span></span>
+<span><span class="co">#&gt;                    0.618                    0.361                    0.102 </span></span>
+<span><span class="co">#&gt;         Computer science     Cognitive psychology        Political science </span></span>
+<span><span class="co">#&gt;                    0.067                    0.067                    0.042 </span></span>
 <span><span class="co">#&gt;      Clinical psychology               Humanities           Psychoanalysis </span></span>
-<span><span class="co">#&gt;                    0.035                    0.027                    0.025 </span></span>
-<span><span class="co">#&gt;       Applied psychology              Mathematics               Statistics </span></span>
-<span><span class="co">#&gt;                    0.022                    0.018                    0.018 </span></span>
-<span><span class="co">#&gt;                Sociology               Philosophy  Artificial intelligence </span></span>
-<span><span class="co">#&gt;                    0.017                    0.016                    0.014 </span></span>
-<span><span class="co">#&gt;             Data science                Geography                 Medicine </span></span>
-<span><span class="co">#&gt;                    0.013                    0.013                    0.010 </span></span>
-<span><span class="co">#&gt;               Demography             Econometrics </span></span>
+<span><span class="co">#&gt;                    0.033                    0.026                    0.024 </span></span>
+<span><span class="co">#&gt;       Applied psychology                Sociology              Mathematics </span></span>
+<span><span class="co">#&gt;                    0.020                    0.019                    0.018 </span></span>
+<span><span class="co">#&gt;               Statistics  Artificial intelligence               Philosophy </span></span>
+<span><span class="co">#&gt;                    0.018                    0.017                    0.017 </span></span>
+<span><span class="co">#&gt;                Geography             Data science               Demography </span></span>
+<span><span class="co">#&gt;                    0.015                    0.014                    0.011 </span></span>
+<span><span class="co">#&gt;             Epistemology             Econometrics </span></span>
 <span><span class="co">#&gt;                    0.010                    0.010</span></span>
 <span></span>
 <span><span class="co"># add the core concept vector in row 1 as the reference</span></span>
@@ -187,40 +187,40 @@ Given this sparsity, cosine similarity seems to be a good measure.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 5</span></span></span>
 <span><span class="co">#&gt;    core_sim valid display_name                            so    publication_year</span></span>
 <span><span class="co">#&gt;       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>    0.979 TRUE  Trait personality and state variabilit… Jour…             <span style="text-decoration: underline;">2</span>017</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>    0.979 TRUE  A New Reliable and Valid Tool for Meas… Euro…             <span style="text-decoration: underline;">2</span>012</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>    0.978 TRUE  Why are narcissists so charming at fir… Jour…             <span style="text-decoration: underline;">2</span>010</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>    0.976 TRUE  Personality trait stability and change  Pers…             <span style="text-decoration: underline;">2</span>021</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>    0.976 TRUE  Narcissistic admiration and rivalry: D… Jour…             <span style="text-decoration: underline;">2</span>013</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>    0.976 TRUE  The Good, the Bad and the Narcissist: … Psyc…             <span style="text-decoration: underline;">2</span>013</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>    0.976 TRUE  Facebook Profiles Reflect Actual Perso… Psyc…             <span style="text-decoration: underline;">2</span>010</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>    0.978 TRUE  Trait personality and state variabilit… Jour…             <span style="text-decoration: underline;">2</span>017</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>    0.978 TRUE  Why are narcissists so charming at fir… Jour…             <span style="text-decoration: underline;">2</span>010</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>    0.978 TRUE  A New Reliable and Valid Tool for Meas… Euro…             <span style="text-decoration: underline;">2</span>012</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>    0.975 TRUE  Personality trait stability and change  Pers…             <span style="text-decoration: underline;">2</span>021</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>    0.975 TRUE  Narcissistic admiration and rivalry: D… Jour…             <span style="text-decoration: underline;">2</span>013</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>    0.975 TRUE  The Good, the Bad and the Narcissist: … Psyc…             <span style="text-decoration: underline;">2</span>013</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>    0.975 TRUE  Facebook Profiles Reflect Actual Perso… Psyc…             <span style="text-decoration: underline;">2</span>010</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>    0.975 TRUE  Interpersonal behavior in assessment c… Pers…             <span style="text-decoration: underline;">2</span>022</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>    0.975 TRUE  The associations between grandiose nar… Pers…             <span style="text-decoration: underline;">2</span>023</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>    0.975 TRUE  A Process × Domain Assessment of Narci… Asse…             <span style="text-decoration: underline;">2</span>021</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>    0.974 TRUE  The associations between grandiose nar… Pers…             <span style="text-decoration: underline;">2</span>023</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>    0.974 TRUE  A Process × Domain Assessment of Narci… Asse…             <span style="text-decoration: underline;">2</span>021</span></span>
 <span><span class="va">works</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="op">-</span><span class="va">core_sim</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">core_sim</span>, <span class="va">valid</span>, <span class="va">display_name</span>, <span class="va">so</span>, <span class="va">publication_year</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 20 × 5</span></span></span>
 <span><span class="co">#&gt;    core_sim valid display_name                            so    publication_year</span></span>
 <span><span class="co">#&gt;       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>  0.065<span style="text-decoration: underline;">0</span>  TRUE  Persönlichkeit 2.0                      Date…             <span style="text-decoration: underline;">2</span>010</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>  0.064<span style="text-decoration: underline;">6</span>  TRUE  Produktion von naturwissenschaftlichen… Psyc…             <span style="text-decoration: underline;">2</span>017</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>  0.064<span style="text-decoration: underline;">4</span>  TRUE  Der Identitätskonflikt zwischen Entdec… Esse…             <span style="text-decoration: underline;">2</span>022</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>  0.059<span style="text-decoration: underline;">7</span>  FALSE From Statistical Physics to Statistica… Spri…             <span style="text-decoration: underline;">1</span>994</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>  0.055<span style="text-decoration: underline;">6</span>  TRUE  Back, Mitja                             Spri…             <span style="text-decoration: underline;">2</span>017</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>  0.055<span style="text-decoration: underline;">6</span>  FALSE Gestaltungsbereiche der Digitalen Tran… Die …             <span style="text-decoration: underline;">2</span>016</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>  0.052<span style="text-decoration: underline;">0</span>  TRUE  Special Issue on “The Social Psycholog… Euro…             <span style="text-decoration: underline;">2</span>019</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>  0.050<span style="text-decoration: underline;">6</span>  TRUE  Support for Refugee Integration in Wes… Soci…             <span style="text-decoration: underline;">2</span>020</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>  0.049<span style="text-decoration: underline;">9</span>  FALSE Field management and control strategie… CAB …             <span style="text-decoration: underline;">2</span>018</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>  0.047<span style="text-decoration: underline;">7</span>  TRUE  Back, Mitja                             Spri…             <span style="text-decoration: underline;">2</span>020</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span>  0.041<span style="text-decoration: underline;">9</span>  TRUE  Das Dreckige Dutzend und die Niederträ… Diag…             <span style="text-decoration: underline;">2</span>015</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span>  0.041<span style="text-decoration: underline;">5</span>  TRUE  Von Verteidigern und Entdeckern         Esse…             <span style="text-decoration: underline;">2</span>022</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">13</span>  0.040<span style="text-decoration: underline;">6</span>  TRUE  Wege aus der Vertrauenskrise            Zeit…             <span style="text-decoration: underline;">2</span>016</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">14</span>  0.028<span style="text-decoration: underline;">0</span>  FALSE ON d-MEASURE AND d-DIMENSION            Real…             <span style="text-decoration: underline;">1</span>991</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">15</span>  0.024<span style="text-decoration: underline;">6</span>  FALSE Terrific Series-7 PDF Questions 2022 T… Zeno…             <span style="text-decoration: underline;">2</span>022</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">16</span>  0.018<span style="text-decoration: underline;">9</span>  FALSE A Study on the Park Using Pattern Focu… Jour…             <span style="text-decoration: underline;">2</span>013</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">17</span>  0.011<span style="text-decoration: underline;">9</span>  TRUE  Lens and Dual Lens Models               Oxfo…             <span style="text-decoration: underline;">2</span>019</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">18</span>  0.009<span style="text-decoration: underline;">84</span> TRUE  Hätte die Geschichte auch anders verla… De G…             <span style="text-decoration: underline;">2</span>015</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">19</span>  0.007<span style="text-decoration: underline;">92</span> FALSE Strategic pricing Possibilities of Gro… The …             <span style="text-decoration: underline;">2</span>007</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">20</span>  0.006<span style="text-decoration: underline;">10</span> FALSE Mining Textual Contents of Financial R… The …             <span style="text-decoration: underline;">2</span>004</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>  0.065<span style="text-decoration: underline;">6</span>  TRUE  Verteidiger und Entdecker: Zugehörigke… <span style="color: #949494;">"</span>Ess…             <span style="text-decoration: underline;">2</span>022</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>  0.065<span style="text-decoration: underline;">0</span>  TRUE  Produktion von naturwissenschaftlichen… <span style="color: #949494;">"</span>Psy…             <span style="text-decoration: underline;">2</span>017</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>  0.064<span style="text-decoration: underline;">7</span>  TRUE  Der Identitätskonflikt zwischen Entdec… <span style="color: #949494;">"</span>Ess…             <span style="text-decoration: underline;">2</span>022</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>  0.061<span style="text-decoration: underline;">8</span>  FALSE From Statistical Physics to Statistica… <span style="color: #949494;">"</span>Spr…             <span style="text-decoration: underline;">1</span>994</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>  0.056<span style="text-decoration: underline;">6</span>  FALSE Gestaltungsbereiche der Digitalen Tran… <span style="color: #949494;">"</span>\u0…             <span style="text-decoration: underline;">2</span>016</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>  0.056<span style="text-decoration: underline;">6</span>  TRUE  Back, Mitja                             <span style="color: #949494;">"</span>Spr…             <span style="text-decoration: underline;">2</span>017</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>  0.055<span style="text-decoration: underline;">4</span>  TRUE  Special Issue on “The Social Psycholog… <span style="color: #949494;">"</span>Eur…             <span style="text-decoration: underline;">2</span>019</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>  0.055<span style="text-decoration: underline;">2</span>  TRUE  Support for Refugee Integration in Wes… <span style="color: #949494;">"</span>Soc…             <span style="text-decoration: underline;">2</span>020</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>  0.051<span style="text-decoration: underline;">1</span>  FALSE Field management and control strategie… <span style="color: #949494;">"</span>CAB…             <span style="text-decoration: underline;">2</span>018</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>  0.048<span style="text-decoration: underline;">5</span>  TRUE  Back, Mitja                             <span style="color: #949494;">"</span>Spr…             <span style="text-decoration: underline;">2</span>020</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span>  0.041<span style="text-decoration: underline;">6</span>  TRUE  Das Dreckige Dutzend und die Niederträ… <span style="color: #949494;">"</span>Dia…             <span style="text-decoration: underline;">2</span>015</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span>  0.041<span style="text-decoration: underline;">4</span>  TRUE  Von Verteidigern und Entdeckern         <span style="color: #949494;">"</span>Ess…             <span style="text-decoration: underline;">2</span>022</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">13</span>  0.040<span style="text-decoration: underline;">0</span>  TRUE  Wege aus der Vertrauenskrise            <span style="color: #949494;">"</span>Zei…             <span style="text-decoration: underline;">2</span>016</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">14</span>  0.028<span style="text-decoration: underline;">4</span>  FALSE ON d-MEASURE AND d-DIMENSION            <span style="color: #949494;">"</span>Rea…             <span style="text-decoration: underline;">1</span>991</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">15</span>  0.025<span style="text-decoration: underline;">0</span>  FALSE Terrific Series-7 PDF Questions 2022 T… <span style="color: #949494;">"</span>Zen…             <span style="text-decoration: underline;">2</span>022</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">16</span>  0.020<span style="text-decoration: underline;">8</span>  FALSE A Study on the Park Using Pattern Focu… <span style="color: #949494;">"</span>KSC…             <span style="text-decoration: underline;">2</span>013</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">17</span>  0.011<span style="text-decoration: underline;">5</span>  TRUE  Lens and Dual Lens Models               <span style="color: #949494;">"</span>Oxf…             <span style="text-decoration: underline;">2</span>019</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">18</span>  0.009<span style="text-decoration: underline;">73</span> TRUE  Hätte die Geschichte auch anders verla… <span style="color: #949494;">"</span>De …             <span style="text-decoration: underline;">2</span>015</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">19</span>  0.007<span style="text-decoration: underline;">85</span> FALSE Strategic pricing Possibilities of Gro… <span style="color: #949494;">"</span>\u0…             <span style="text-decoration: underline;">2</span>007</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">20</span>  0.006<span style="text-decoration: underline;">03</span> FALSE Mining Textual Contents of Financial R… <span style="color: #949494;">"</span>\u0…             <span style="text-decoration: underline;">2</span>004</span></span>
 <span></span>
 <span><span class="co"># publication with NA in the core_sim are mostly irrelevant publications</span></span>
 <span><span class="va">works</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">core_sim</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">core_sim</span>, <span class="va">valid</span>, <span class="va">display_name</span>, <span class="va">so</span>, <span class="va">publication_year</span><span class="op">)</span></span>
@@ -286,12 +286,12 @@ can be better identified.</p>
 <span></span>
 <span><span class="va">res.SIL</span></span>
 <span><span class="co">#&gt;   k        PC        PE          MPC       SIL     SIL.F           XB</span></span>
-<span><span class="co">#&gt; 1 1 0.3438754 0.6621231 -0.312249193 0.3421246 0.5190978 7.742179e-01</span></span>
-<span><span class="co">#&gt; 2 2 0.3438754 0.6621231 -0.312249193 0.3421246 0.5190978 7.742179e-01</span></span>
-<span><span class="co">#&gt; 3 3 0.3375709 0.8800044  0.006356367 0.2759975 0.3934174 7.626301e-01</span></span>
-<span><span class="co">#&gt; 4 4 0.3098872 1.0831863  0.079849659 0.2406467 0.4503172 8.778773e-01</span></span>
-<span><span class="co">#&gt; 5 5 0.2823613 1.2632005  0.102951563 0.2185735 0.4928185 7.248661e+17</span></span>
-<span><span class="co">#&gt; 6 6 0.2590321 1.4153482  0.110838563 0.2170978 0.5292239 5.451533e+29</span></span>
+<span><span class="co">#&gt; 1 1 0.3422959 0.6637770 -0.315408237 0.3272922 0.5079584 8.167572e-01</span></span>
+<span><span class="co">#&gt; 2 2 0.3422959 0.6637770 -0.315408237 0.3272922 0.5079584 8.167572e-01</span></span>
+<span><span class="co">#&gt; 3 3 0.3398631 0.8769248  0.009794575 0.2707649 0.3930967 7.256890e-01</span></span>
+<span><span class="co">#&gt; 4 4 0.3112315 1.0807449  0.081642041 0.2354745 0.4522801 9.050975e-01</span></span>
+<span><span class="co">#&gt; 5 5 0.2836558 1.2603855  0.104569745 0.2100159 0.4970462 7.736987e+17</span></span>
+<span><span class="co">#&gt; 6 6 0.2604560 1.4129361  0.112547198 0.2213769 0.5407807          Inf</span></span>
 <span></span>
 <span><span class="va">fc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/fclust/man/Fclust.html" class="external-link">Fclust</a></span><span class="op">(</span><span class="va">con.mat</span>, k<span class="op">=</span><span class="fl">2</span>, noise<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; The standard FkM algorithm with noise cluster has been chosen</span></span>
@@ -305,22 +305,24 @@ can be better identified.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 5</span></span></span>
 <span><span class="co">#&gt;   lonely_wolf_index display_name                    so    publication_year id   </span></span>
 <span><span class="co">#&gt;               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>             0.637 ON d-MEASURE AND d-DIMENSION    Real…             <span style="text-decoration: underline;">1</span>991 http…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span>             0.631 Produktion von naturwissenscha… Psyc…             <span style="text-decoration: underline;">2</span>017 http…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span>             0.629 Strategic pricing Possibilitie… The …             <span style="text-decoration: underline;">2</span>007 http…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span>             0.625 Wege aus der Vertrauenskrise    Zeit…             <span style="text-decoration: underline;">2</span>016 http…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span>             0.625 TripleR: An R package for soci… Beha…             <span style="text-decoration: underline;">2</span>011 http…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span>             0.620 A Study on the Park Using Patt… Jour…             <span style="text-decoration: underline;">2</span>013 http…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>             0.677 Generalizability of Clinical P… <span style="color: #949494;">"</span>med…             <span style="text-decoration: underline;">2</span>024 http…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span>             0.636 ON d-MEASURE AND d-DIMENSION    <span style="color: #949494;">"</span>Rea…             <span style="text-decoration: underline;">1</span>991 http…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span>             0.630 Produktion von naturwissenscha… <span style="color: #949494;">"</span>Psy…             <span style="text-decoration: underline;">2</span>017 http…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span>             0.628 Strategic pricing Possibilitie… <span style="color: #949494;">"</span>\u0…             <span style="text-decoration: underline;">2</span>007 http…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span>             0.624 TripleR: An R package for soci… <span style="color: #949494;">"</span>Beh…             <span style="text-decoration: underline;">2</span>011 http…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span>             0.624 Wege aus der Vertrauenskrise    <span style="color: #949494;">"</span>Zei…             <span style="text-decoration: underline;">2</span>016 http…</span></span>
 <span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggrepel.slowkow.com/" class="external-link">ggrepel</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">works_reduced</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">lonely_wolf_index</span>, y<span class="op">=</span><span class="va">core_sim</span>, color<span class="op">=</span><span class="va">valid</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggrepel.slowkow.com/reference/geom_text_repel.html" class="external-link">geom_text_repel</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label<span class="op">=</span><span class="va">ID</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: ggrepel: 193 unlabeled data points (too many overlaps). Consider</span></span>
+<span><span class="co">#&gt; Warning: ggrepel: 194 unlabeled data points (too many overlaps). Consider</span></span>
 <span><span class="co">#&gt; increasing max.overlaps</span></span></code></pre></div>
 <p><img src="pub_similarity_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
 <div class="section level2">
 <h2 id="third-attempt-use-the-orcid-record">Third attempt: Use the ORCID record<a class="anchor" aria-label="anchor" href="#third-attempt-use-the-orcid-record"></a>
 </h2>
+<p>(Note: This code is not executed in this vignette, as it needs an
+ORCID authentication).</p>
 <p>In my experience, ORCID record fewer publications than OpenAlex, but
 these are mostly correct. Hence, ORCID has mostly true positives but
 quite some false negatives, while OpenAlex has more true positive at the
@@ -409,13 +411,11 @@ find false positive in the OpenAlex record:</p>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p>
-<p>Developed by Felix D. Schönbrodt.</p>
+  <p>Developed by Felix D. Schönbrodt.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
 </div>
 
     </footer>
