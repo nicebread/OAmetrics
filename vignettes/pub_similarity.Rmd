@@ -147,6 +147,8 @@ ggplot(works_reduced, aes(x=lonely_wolf_index, y=core_sim, color=valid)) + geom_
 
 ## Third attempt: Use the ORCID record
 
+(Note: This code is not executed in this vignette, as it needs an ORCID authentication).
+
 In my experience, ORCID record fewer publications than OpenAlex, but these are mostly correct. Hence, ORCID has mostly true positives but quite some false negatives, while OpenAlex has more true positive at the cost of more false positives. Can we combine the strengths of both?
 
 Here, I try to use the ORCID publication record as a reference set to find false positive in the OpenAlex record:

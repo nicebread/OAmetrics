@@ -9,6 +9,9 @@ install.packages("remotes")
 remotes::install_github("nicebread/OAmetrics")
 ```
 
+## Documentation
+
+Go to the [package's website](https://nicebread.github.io/OAmetrics/).
 
 ## Known issues / TODOs
 

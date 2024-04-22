@@ -33,12 +33,26 @@ get_BIP <- function(dois, verbose=FALSE) {
 
     doi_csv <- paste0(dois_minimal[start:end], collapse=",") |> URLencode(reserved=TRUE)
     req <- curl_fetch_memory(paste0("https://bip-api.imsi.athenarc.gr/paper/scores/batch/", doi_csv))
-    BIP0 <- jsonlite::fromJSON(rawToChar(req$content))
 
-    # if necessary: add missing column
-    if (is.null(BIP0$msg)) BIP0$msg <- NA
-    BIP <- rbind(BIP, BIP0)
-  }
+    if (req$status_code == "503") {
+      # no response from BIP API? Return empty object
+      BIP <- data.frame(
+        doi = dois,
+        pop_class = rep(NA, length(dois)),
+        inf_class = rep(NA, length(dois)),
+        imp_class = rep(NA, length(dois)),
+        "3_year_cc" = rep(NA, length(dois))
+      )
+    } else {
+        BIP0 <- jsonlite::fromJSON(rawToChar(req$content))
+
+        # if necessary: add missing column
+        if (is.null(BIP0$msg)) BIP0$msg <- NA
+        BIP <- rbind(BIP, BIP0)
+      }
+    }
+
+
 
   BIP$pop_class <- factor(BIP$pop_class, levels=paste0("C", 1:5), ordered=TRUE)
   BIP$inf_class <- factor(BIP$inf_class, levels=paste0("C", 1:5), ordered=TRUE)
