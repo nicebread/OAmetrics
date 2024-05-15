@@ -34,7 +34,7 @@ get_BIP <- function(dois, verbose=FALSE) {
     doi_csv <- paste0(dois_minimal[start:end], collapse=",") |> URLencode(reserved=TRUE)
     req <- curl_fetch_memory(paste0("https://bip-api.imsi.athenarc.gr/paper/scores/batch/", doi_csv))
 
-    if (req$status_code == "503") {
+    if (req$status_code %in% c("503", "417")) {
       # no response from BIP API? Return empty object
       BIP <- data.frame(
         doi = dois,
@@ -43,6 +43,8 @@ get_BIP <- function(dois, verbose=FALSE) {
         imp_class = rep(NA, length(dois)),
         "3_year_cc" = rep(NA, length(dois))
       )
+
+      if (verbose==TRUE) print(paste0("Warning: BIP request failed with status code ", req$status_code))
     } else {
         BIP0 <- jsonlite::fromJSON(rawToChar(req$content))
 

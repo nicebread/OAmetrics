@@ -2,16 +2,18 @@
 #'
 #'TODO: Could use a time-window (currently, it uses all citations since publication).
 #'
-#' Computes the h-index and hIa-index of an author. You need to provide exactly *one* of the parameters `search`, `display_name` or `author.id`:
+#' Computes the h-index and hIa-index of an author. You need to provide exactly *one* of the parameters `search`, `display_name`, `author.id`, or `ORCID`:
 #' - `search` allows fuzzy search of the author's name (e.g. with or without middle initial). Might return too many matches
 #' - `display_name` requires an exact match but allows to provide a vector with multiple versions of a name (e.g., `c("Hans Müller", "Hans Mueller", "Hans J. Muller")`)
 #' - `author.id` is the OpenAlex ID for authors.
+#' - `ORCID` is the ORCID (either as link or as the number quartet string)
 #'
 #' Often the same author is listed under different IDs in the OpenAlex database, therefore these are merged by the function. **But what if the function includes wrong authors?** Then you need to manually screen the table with author names, record the IDs from the correct aliases of the target person (starting with "A.......") and enter these author IDs into the `author.id` parameter.
 #'
 #' @param search A character string with the author's name for searching in the OpenAlex API. Allows fuzzy search (e.g. with or without middle initial).
 #' @param display_name A character vector with the exact author's names for searching in the OpenAlex API. You cvan provide multiple variants in a vector.
 #' @param author.id A character vector with OpenAlex author ID(s) (i.e., an ID starting with "A.......") for searching in the OpenAlex API.
+#' @param ORCID A character vector with ORCID IDs (either as URI or as the number quartet string).
 #' @param first_pub_year An integer with the year of the author's first publication. If not provided, it is estimated from the retrieved publications.
 #' @param academic_age_bonus Years that are subtracted from active academic life (e.g. due to child care). For example, SNF subtracts 1.5 years per child (see https://www.snf.ch/en/cciM9NWuvhOVKRxv/news/news-200803-career-funding-the-researchers-overall-performance-counts).
 #'
@@ -21,20 +23,30 @@
 #'
 #' @examples
 #' h_index(search = "Felix Schönbrodt")
+#' h_index(ORCID = "https://orcid.org/0000-0002-8282-3910")
 #' h_index("Markus Bühner", first_pub_year = 1997) # adjust year of first publication
 #'
 #'
 #' @import openalexR
 #' @import dplyr
 #'
-h_index <- function(search = NULL, display_name = NULL, author.id = NULL, first_pub_year = NA, academic_age_bonus = 0) {
+h_index <- function(search = NULL, display_name = NULL, author.id = NULL, ORCID = NULL, first_pub_year = NA, academic_age_bonus = 0) {
 
-  if (sum(is.null(display_name), is.null(author.id), is.null(search)) != 2) {
-    stop("Please provide EITHER display_name OR author.id OR search.")
+  if (sum(is.null(display_name), is.null(author.id), is.null(search), is.null(ORCID)) != 3) {
+    stop("Please provide EITHER display_name OR author.id OR search OR ORCID.")
   }
 
-  if (!is.null(display_name) | !is.null(search)) {
-    authors_from_names <- oa_fetch(entity = "authors", search = search, display_name = display_name)
+
+  if (!is.null(display_name) | !is.null(search) | !is.null(ORCID)) {
+
+  if (!is.null(display_name)) {
+    authors_from_names <- oa_fetch(entity = "authors", display_name = display_name)
+  } else if (!is.null(search)) {
+    authors_from_names <- oa_fetch(entity = "authors", search = search)
+  } else if (!is.null(ORCID)) {
+    authors_from_names <- oa_fetch(entity = "authors", orcid = ORCID)
+  }
+
 
     if (nrow(authors_from_names) > 1 & authors_from_names[2, "cited_by_count"] > 1) {
       print(authors_from_names[, c("id", "display_name", "works_count", "cited_by_count")])
