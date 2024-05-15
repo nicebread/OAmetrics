@@ -12,7 +12,7 @@ given its ISSN and a target year."><!-- mathjax --><script src="https://cdnjs.cl
     
     <a class="navbar-brand me-2" href="../index.html">OAmetrics</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,9 +82,9 @@ citable_items and JIF.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">get_JIF</span><span class="op">(</span>issn<span class="op">=</span><span class="st">"0022-3514"</span>, year<span class="op">=</span><span class="fl">2018</span><span class="op">)</span>  <span class="co"># JPSP</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> </span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in match.arg(entity, oa_entities()):</span> 'arg' should be one of “works”, “authors”, “institutions”, “concepts”, “funders”, “sources”, “publishers”</span>
 <span class="r-in"><span><span class="fu">get_JIF</span><span class="op">(</span>issn<span class="op">=</span><span class="st">"0890-2070"</span>, year<span class="op">=</span><span class="fl">2019</span><span class="op">)</span>  <span class="co"># EJP</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> </span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in match.arg(entity, oa_entities()):</span> 'arg' should be one of “works”, “authors”, “institutions”, “concepts”, “funders”, “sources”, “publishers”</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
