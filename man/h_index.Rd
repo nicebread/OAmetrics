@@ -8,6 +8,7 @@ h_index(
   search = NULL,
   display_name = NULL,
   author.id = NULL,
+  ORCID = NULL,
   first_pub_year = NA,
   academic_age_bonus = 0
 )
@@ -18,6 +19,8 @@ h_index(
 \item{display_name}{A character vector with the exact author's names for searching in the OpenAlex API. You cvan provide multiple variants in a vector.}
 
 \item{author.id}{A character vector with OpenAlex author ID(s) (i.e., an ID starting with "A.......") for searching in the OpenAlex API.}
+
+\item{ORCID}{A character vector with ORCID IDs (either as URI or as the number quartet string).}
 
 \item{first_pub_year}{An integer with the year of the author's first publication. If not provided, it is estimated from the retrieved publications.}
 
@@ -30,17 +33,19 @@ A list containing the net academic age, h-index and hIa-index of the author.
 TODO: Could use a time-window (currently, it uses all citations since publication).
 }
 \details{
-Computes the h-index and hIa-index of an author. You need to provide exactly \emph{one} of the parameters \code{search}, \code{display_name} or \code{author.id}:
+Computes the h-index and hIa-index of an author. You need to provide exactly \emph{one} of the parameters \code{search}, \code{display_name}, \code{author.id}, or \code{ORCID}:
 \itemize{
 \item \code{search} allows fuzzy search of the author's name (e.g. with or without middle initial). Might return too many matches
 \item \code{display_name} requires an exact match but allows to provide a vector with multiple versions of a name (e.g., \code{c("Hans Müller", "Hans Mueller", "Hans J. Muller")})
 \item \code{author.id} is the OpenAlex ID for authors.
+\item \code{ORCID} is the ORCID (either as link or as the number quartet string)
 }
 
 Often the same author is listed under different IDs in the OpenAlex database, therefore these are merged by the function. \strong{But what if the function includes wrong authors?} Then you need to manually screen the table with author names, record the IDs from the correct aliases of the target person (starting with "A.......") and enter these author IDs into the \code{author.id} parameter.
 }
 \examples{
 h_index(search = "Felix Schönbrodt")
+h_index(ORCID = "https://orcid.org/0000-0002-8282-3910")
 h_index("Markus Bühner", first_pub_year = 1997) # adjust year of first publication
 
 

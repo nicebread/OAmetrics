@@ -49,7 +49,7 @@ get_JIF <- function(issn, year, verbose=FALSE) {
   all_works_search$publication_year <- lubridate::year(all_works_search$publication_date)
 
   journal_info <- oa_fetch(
-    entity = "venues",
+    entity = "sources",
     issn = issn
   )
 

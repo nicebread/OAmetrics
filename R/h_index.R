@@ -98,9 +98,11 @@ h_index <- function(search = NULL, display_name = NULL, author.id = NULL, ORCID 
     co <- first_work$concepts[[1]]
     top_L0_concept <- co %>% filter(level==0) %>% slice(1) %>% pull("display_name")
 
-      cat(paste0("Computation of academic age (relative to first publication):\nRetrieving year of first publication from data: ", first_pub_year, ". \n\nThe first publication is: '", first_work$display_name,"', published in '", first_work$so, "'. It has the top L0 concept '", top_L0_concept, "'. \n\nIs that plausible? If not, provide `first_pub_year` as a parameter. You can see all works of that author with the following command:\n\noa_fetch(entity = 'works', author.id = '", author.id, "', is_paratext = F, is_retracted = F, abstract=F) %>% arrange(publication_year)\n\n"))
+    academic_age_note <- paste0("Computation of academic age (relative to first publication):\nRetrieving year of first publication from data: ", first_pub_year, ". \n\nThe first publication is: '", first_work$display_name,"', published in '", first_work$so, "'. It has the top L0 concept '", top_L0_concept, "'. \n\nIs that plausible? If not, provide `first_pub_year` as a parameter. You can see all works of that author with the following command:\n\noa_fetch(entity = 'works', author.id = '", author.id, "', is_paratext = F, is_retracted = F, abstract=F) %>% arrange(publication_year)\n\n")
+    cat(academic_age_note)
   } else {
     first_work <- works %>% arrange(publication_year) %>% slice(1)
+    academic_age_note <- ""
   }
 
 
@@ -122,7 +124,8 @@ h_index <- function(search = NULL, display_name = NULL, author.id = NULL, ORCID 
     net_academic_age=net_academic_age,
     h_index=h_index,
     h_Ia = h_Ia,
-    first_publication=first_work
+    first_publication=first_work,
+    academic_age_note = academic_age_note
   ))
 }
 

@@ -44,7 +44,8 @@ normalize_dois <- function(x, verbose=FALSE) {
 #' @return Character vector of normalized ORCIDS
 #' @importFrom stringr str_extract
 #' @examples
-#' normalize_ORCIDs(c("orcid.org/0000-1234-5678-9111", "0000-1234-5678-9111", "  https://orcid.org/0000-1234-5678-9111 "))
+#' normalize_ORCIDs(c("orcid.org/0000-1234-5678-9111",
+#'     "0000-1234-5678-9111", "  https://orcid.org/0000-1234-5678-9111 "))
 #' @export
 normalize_ORCIDs <- function(x, verbose=FALSE) {
   # grab the ORCID part (without leading URL)

@@ -62,7 +62,7 @@ get_network <- function(author.id, doi=NA, works=NA, min_edges=2, verbose=TRUE) 
   }
 
   # get_all_coauthors
-  all_coauthor_edges <- apply(works, 1, function(x) x$author) |> rbindlist()
+  all_coauthor_edges <- apply(works, 1, function(x) x$author[, c("au_id", "institution_country_code")]) |> rbindlist()
 
   # own country code is the most frequent code of that person.
   own_country_codes <- all_coauthor_edges %>% filter(au_id == author.id) %>% pull("institution_country_code")
