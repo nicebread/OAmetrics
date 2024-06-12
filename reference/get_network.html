@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">OAmetrics</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.3</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,7 +91,7 @@ it by log_2(n_countries), which bounds its range to [0; 1].</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Analyze the network of a specific author</span></span></span>
 <span class="r-in"><span><span class="fu">get_network</span><span class="op">(</span>author.id <span class="op">=</span> <span class="st">'https://openalex.org/A5022479713'</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=author.id%3Ahttps%3A%2F%2Fopenalex.org%2FA5022479713%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 2 pages of results with a total of 242 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 2 pages of results with a total of 244 records...</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> The following work(s) have truncated lists of authors: W3216869777.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> Query each work separately by its identifier to get full list of authors.</span>
@@ -99,43 +99,39 @@ it by log_2(n_countries), which bounds its range to [0; 1].</p>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>   lapply(c("W3216869777"), \(x) oa_fetch(identifier = x))</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> Details at https://docs.openalex.org/api-entities/authors/limitations.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Using the provided works."</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "346 unique co-authors (n&gt;=2 joint papers). 71% from 26 international countries, 29% from the same country. The normalized entropy (ranging from 0=only one country to 1=even distribution among all countries) is 0.65. The 4 countries with the most coauthors are DE, US, NL, GB"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "348 unique co-authors (n&gt;=2 joint papers). 72% from 26 international countries, 28% from the same country. The normalized entropy (ranging from 0=only one country to 1=even distribution among all countries) is 0.65. The 4 countries with the most coauthors are US, DE, NL, GB"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $unique_coauthor_edges</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 604 × 13</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    au_id               au_display_name au_orcid author_position is_corresponding</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> https://openalex.o… Birk Hagemeyer  <span style="color: #BB0000;">NA</span>       middle          FALSE           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> https://openalex.o… Steffen Nestler https:/… last            FALSE           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> https://openalex.o… Caroline Zygar… https:/… first           FALSE           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> https://openalex.o… Mitja D. Back   https:/… first           TRUE            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> https://openalex.o… Sarah Humberg   https:/… middle          FALSE           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> https://openalex.o… Jaap J. A. Den… https:/… middle          FALSE           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> https://openalex.o… Lena Schiestel  <span style="color: #BB0000;">NA</span>       middle          FALSE           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> https://openalex.o… Eric‐Jan Wagen… https:/… middle          FALSE           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> https://openalex.o… Michael Dufner  https:/… first           FALSE           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> https://openalex.o… Marco Perugini  https:/… middle          FALSE           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 594 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 8 more variables: au_affiliation_raw &lt;chr&gt;, institution_id &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   institution_display_name &lt;chr&gt;, institution_ror &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   institution_country_code &lt;chr&gt;, institution_type &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   institution_lineage &lt;chr&gt;, n_coauthorships &lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 605 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    au_id                            institution_country_code n_coauthorships</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> https://openalex.org/A5039784616 DE                                    23</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> https://openalex.org/A5056348040 DE                                    20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> https://openalex.org/A5055189096 DE                                    19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> https://openalex.org/A5063079579 NL                                    18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> https://openalex.org/A5083504666 DE                                    18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> https://openalex.org/A5030640837 DE                                    17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> https://openalex.org/A5052525257 DE                                    17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> https://openalex.org/A5062095202 DE                                    17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> https://openalex.org/A5000733234 DE                                    13</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> https://openalex.org/A5067075596 <span style="color: #BB0000;">NA</span>                                    13</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 595 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $n_coauthors_international</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 217</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 221</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $n_coauthors_same_country</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 87</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 85</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $entropy_normalized</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.6454006</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.6514882</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $country_codes_repeated</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 27 × 2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    institution_country_code     n</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> DE                          87</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> US                          86</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> NL                          39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> US                          87</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> DE                          85</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> NL                          40</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> GB                          27</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> IT                          10</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> CH                           8</span>
@@ -146,7 +142,7 @@ it by log_2(n_countries), which bounds its range to [0; 1].</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 17 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $result_string</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "346 unique co-authors (n&gt;=2 joint papers). 71% from 26 international countries, 29% from the same country. The normalized entropy (ranging from 0=only one country to 1=even distribution among all countries) is 0.65. The 4 countries with the most coauthors are DE, US, NL, GB"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "348 unique co-authors (n&gt;=2 joint papers). 72% from 26 international countries, 28% from the same country. The normalized entropy (ranging from 0=only one country to 1=even distribution among all countries) is 0.65. The 4 countries with the most coauthors are US, DE, NL, GB"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="co"># Analyze the network of a specific author for selected works</span></span></span>
 <span class="r-in"><span><span class="fu">get_network</span><span class="op">(</span>author.id <span class="op">=</span> <span class="st">'https://openalex.org/A5022479713'</span>, min_edges<span class="op">=</span><span class="fl">1</span>,</span></span>
@@ -159,24 +155,20 @@ it by log_2(n_countries), which bounds its range to [0; 1].</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 4 records...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "35 unique co-authors (n&gt;=1 joint papers). 52% from 4 international countries, 48% from the same country. The normalized entropy (ranging from 0=only one country to 1=even distribution among all countries) is 0.81. The 4 countries with the most coauthors are DE, US, NL, AU"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $unique_coauthor_edges</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 35 × 13</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    au_id               au_display_name au_orcid author_position is_corresponding</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> https://openalex.o… Büsra Bektas    <span style="color: #BB0000;">NA</span>       middle          FALSE           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> https://openalex.o… André Wannemül… https:/… middle          FALSE           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> https://openalex.o… Anne M. Scheel  https:/… middle          FALSE           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> https://openalex.o… Fiona Fidler    https:/… middle          FALSE           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> https://openalex.o… Simine Vazire   https:/… last            FALSE           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> https://openalex.o… Roos Hutteman   <span style="color: #BB0000;">NA</span>       middle          FALSE           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> https://openalex.o… Isabel Thielma… https:/… middle          FALSE           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> https://openalex.o… Katherine S. C… https:/… middle          FALSE           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> https://openalex.o… Anna Dreber     https:/… middle          FALSE           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> https://openalex.o… Melissa Kline … <span style="color: #BB0000;">NA</span>       middle          FALSE           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 35 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    au_id                            institution_country_code n_coauthorships</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> https://openalex.org/A5001668502 DE                                     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> https://openalex.org/A5003489815 DE                                     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> https://openalex.org/A5004866926 NL                                     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> https://openalex.org/A5006406097 AU                                     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> https://openalex.org/A5011404541 AU                                     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> https://openalex.org/A5015649291 <span style="color: #BB0000;">NA</span>                                     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> https://openalex.org/A5017494791 DE                                     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> https://openalex.org/A5020051090 US                                     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> https://openalex.org/A5021314811 SE                                     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> https://openalex.org/A5027185097 US                                     1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 25 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 8 more variables: au_affiliation_raw &lt;chr&gt;, institution_id &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   institution_display_name &lt;chr&gt;, institution_ror &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   institution_country_code &lt;chr&gt;, institution_type &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   institution_lineage &lt;chr&gt;, n_coauthorships &lt;int&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $n_coauthors_international</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 14</span>

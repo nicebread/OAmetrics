@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">OAmetrics</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.3</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,6 +55,7 @@
 <span>  search <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  display_name <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  author.id <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  ORCID <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  first_pub_year <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  academic_age_bonus <span class="op">=</span> <span class="fl">0</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -74,6 +75,10 @@
 <dd><p>A character vector with OpenAlex author ID(s) (i.e., an ID starting with "A.......") for searching in the OpenAlex API.</p></dd>
 
 
+<dt>ORCID</dt>
+<dd><p>A character vector with ORCID IDs (either as URI or as the number quartet string).</p></dd>
+
+
 <dt>first_pub_year</dt>
 <dd><p>An integer with the year of the author's first publication. If not provided, it is estimated from the retrieved publications.</p></dd>
 
@@ -90,9 +95,10 @@
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>Computes the h-index and hIa-index of an author. You need to provide exactly <em>one</em> of the parameters <code>search</code>, <code>display_name</code> or <code>author.id</code>:</p><ul><li><p><code>search</code> allows fuzzy search of the author's name (e.g. with or without middle initial). Might return too many matches</p></li>
+    <p>Computes the h-index and hIa-index of an author. You need to provide exactly <em>one</em> of the parameters <code>search</code>, <code>display_name</code>, <code>author.id</code>, or <code>ORCID</code>:</p><ul><li><p><code>search</code> allows fuzzy search of the author's name (e.g. with or without middle initial). Might return too many matches</p></li>
 <li><p><code>display_name</code> requires an exact match but allows to provide a vector with multiple versions of a name (e.g., <code>c("Hans Müller", "Hans Mueller", "Hans J. Muller")</code>)</p></li>
 <li><p><code>author.id</code> is the OpenAlex ID for authors.</p></li>
+<li><p><code>ORCID</code> is the ORCID (either as link or as the number quartet string)</p></li>
 </ul><p>Often the same author is listed under different IDs in the OpenAlex database, therefore these are merged by the function. <strong>But what if the function includes wrong authors?</strong> Then you need to manually screen the table with author names, record the IDs from the correct aliases of the target person (starting with "A.......") and enter these author IDs into the <code>author.id</code> parameter.</p>
     </div>
 
@@ -104,7 +110,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   display_name        works_count cited_by_count</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Felix D. Schönbrodt         248           <span style="text-decoration: underline;">8</span>822</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Felix D. Schönbrodt         245           <span style="text-decoration: underline;">8</span>968</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> The following work(s) have truncated lists of authors: W3216869777.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> Query each work separately by its identifier to get full list of authors.</span>
@@ -124,10 +130,10 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 17</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $h_index</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 30</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 31</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $h_Ia</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.9411765</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $first_publication</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 39</span></span>
@@ -142,13 +148,63 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   publication_year &lt;int&gt;, cited_by_api_url &lt;chr&gt;, ids &lt;list&gt;, doi &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   type &lt;chr&gt;, referenced_works &lt;list&gt;, related_works &lt;list&gt;, …</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $academic_age_note</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Computation of academic age (relative to first publication):\nRetrieving year of first publication from data: 2007. \n\nThe first publication is: 'Interview mit Prof. Dr. Karl Grammer', published in 'Zeitschrift für Medienpsychologie'. It has the top L0 concept 'Philosophy'. \n\nIs that plausible? If not, provide `first_pub_year` as a parameter. You can see all works of that author with the following command:\n\noa_fetch(entity = 'works', author.id = 'https://openalex.org/A5022479713', is_paratext = F, is_retracted = F, abstract=F) %&gt;% arrange(publication_year)\n\n"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span><span class="fu">h_index</span><span class="op">(</span>ORCID <span class="op">=</span> <span class="st">"https://orcid.org/0000-0002-8282-3910"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> A unique author record has been found: </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   display_name        works_count cited_by_count</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Felix D. Schönbrodt         245           <span style="text-decoration: underline;">8</span>968</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> The following work(s) have truncated lists of authors: W3216869777.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> Query each work separately by its identifier to get full list of authors.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> For example:</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span>   lapply(c("W3216869777"), \(x) oa_fetch(identifier = x))</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> Details at https://docs.openalex.org/api-entities/authors/limitations.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Computation of academic age (relative to first publication):</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Retrieving year of first publication from data: 2007. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> The first publication is: 'Interview mit Prof. Dr. Karl Grammer', published in 'Zeitschrift für Medienpsychologie'. It has the top L0 concept 'Philosophy'. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Is that plausible? If not, provide `first_pub_year` as a parameter. You can see all works of that author with the following command:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> oa_fetch(entity = 'works', author.id = 'https://openalex.org/A5022479713', is_paratext = F, is_retracted = F, abstract=F) %&gt;% arrange(publication_year)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $net_academic_age</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $h_index</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 31</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $h_Ia</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $first_publication</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 39</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   id    title display_name author publication_date so    so_id host_organization</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> http… Inte… Interview m… <span style="color: #949494;">&lt;df&gt;</span>   2007-10-01       Zeit… http… Hogrefe Verlag   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 31 more variables: issn_l &lt;chr&gt;, url &lt;chr&gt;, pdf_url &lt;chr&gt;, license &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   version &lt;chr&gt;, first_page &lt;chr&gt;, last_page &lt;chr&gt;, volume &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   issue &lt;chr&gt;, is_oa &lt;lgl&gt;, is_oa_anywhere &lt;lgl&gt;, oa_status &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   oa_url &lt;chr&gt;, any_repository_has_fulltext &lt;lgl&gt;, language &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   grants &lt;list&gt;, cited_by_count &lt;int&gt;, counts_by_year &lt;list&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   publication_year &lt;int&gt;, cited_by_api_url &lt;chr&gt;, ids &lt;list&gt;, doi &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   type &lt;chr&gt;, referenced_works &lt;list&gt;, related_works &lt;list&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $academic_age_note</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Computation of academic age (relative to first publication):\nRetrieving year of first publication from data: 2007. \n\nThe first publication is: 'Interview mit Prof. Dr. Karl Grammer', published in 'Zeitschrift für Medienpsychologie'. It has the top L0 concept 'Philosophy'. \n\nIs that plausible? If not, provide `first_pub_year` as a parameter. You can see all works of that author with the following command:\n\noa_fetch(entity = 'works', author.id = 'https://openalex.org/A5022479713', is_paratext = F, is_retracted = F, abstract=F) %&gt;% arrange(publication_year)\n\n"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="fu">h_index</span><span class="op">(</span><span class="st">"Markus Bühner"</span>, first_pub_year <span class="op">=</span> <span class="fl">1997</span><span class="op">)</span> <span class="co"># adjust year of first publication</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> A unique author record has been found: </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   display_name  works_count cited_by_count</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Markus Bühner         209           <span style="text-decoration: underline;">5</span>933</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Markus Bühner         213           <span style="text-decoration: underline;">6</span>031</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $net_academic_age</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 27</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -156,7 +212,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 36</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $h_Ia</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.4814815</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.5185185</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $first_publication</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 39</span></span>
@@ -170,6 +226,9 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   grants &lt;list&gt;, cited_by_count &lt;int&gt;, counts_by_year &lt;list&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   publication_year &lt;int&gt;, cited_by_api_url &lt;chr&gt;, ids &lt;list&gt;, doi &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   type &lt;chr&gt;, referenced_works &lt;list&gt;, related_works &lt;list&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $academic_age_note</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] ""</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
