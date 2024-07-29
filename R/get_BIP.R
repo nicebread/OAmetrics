@@ -73,6 +73,8 @@ get_BIP <- function(dois, verbose=FALSE) {
     warning("Error in BIP retrieval: Not all dois have been fetched.")
   }
 
+  BIP$doi <- normalize_dois(BIP$doi)
+
   return(BIP)
 }
 

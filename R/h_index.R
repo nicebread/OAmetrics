@@ -39,13 +39,13 @@ h_index <- function(search = NULL, display_name = NULL, author.id = NULL, ORCID 
 
   if (!is.null(display_name) | !is.null(search) | !is.null(ORCID)) {
 
-  if (!is.null(display_name)) {
-    authors_from_names <- oa_fetch(entity = "authors", display_name = display_name)
-  } else if (!is.null(search)) {
-    authors_from_names <- oa_fetch(entity = "authors", search = search)
-  } else if (!is.null(ORCID)) {
-    authors_from_names <- oa_fetch(entity = "authors", orcid = ORCID)
-  }
+    if (!is.null(display_name)) {
+      authors_from_names <- oa_fetch(entity = "authors", display_name = display_name)
+    } else if (!is.null(search)) {
+      authors_from_names <- oa_fetch(entity = "authors", search = search)
+    } else if (!is.null(ORCID)) {
+      authors_from_names <- oa_fetch(entity = "authors", orcid = ORCID)
+    }
 
 
     if (nrow(authors_from_names) > 1 & authors_from_names[2, "cited_by_count"] > 1) {

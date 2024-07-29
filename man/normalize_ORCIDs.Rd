@@ -4,21 +4,19 @@
 \alias{normalize_ORCIDs}
 \title{Normalize ORCIDs}
 \usage{
-normalize_ORCIDs(x, verbose = FALSE)
+normalize_ORCIDs(x)
 }
 \arguments{
 \item{x}{Character vector of ORCIDs to be normalized}
-
-\item{verbose}{Show diagnostic information?}
 }
 \value{
 Character vector of normalized ORCIDS
 }
 \description{
-This function normalizes DOIs by trimming leading/trailing whitespace,
-replacing 'dx.doi.org' with 'doi.org', replacing 'http:' with 'https:',
-and converting the DOI to lowercase, according to the DOI specification
+This function normalizes ORCIDs to the canonical form
+(which is the URL to the profile)
 }
 \examples{
-normalize_ORCIDs(c("orcid.org/0000-1234-5678-9111", "0000-1234-5678-9111", "  https://orcid.org/0000-1234-5678-9111 "))
+normalize_ORCIDs(c("orcid.org/0000-1234-5678-9111",
+    "0000-1234-5678-9111", "  https://orcid.org/0000-1234-5678-9111 "))
 }

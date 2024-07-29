@@ -30,24 +30,19 @@ normalize_dois <- function(x, verbose=FALSE) {
 
 
 
-
-
-
 #' Normalize ORCIDs
 #'
-#' This function normalizes DOIs by trimming leading/trailing whitespace,
-#' replacing 'dx.doi.org' with 'doi.org', replacing 'http:' with 'https:',
-#' and converting the DOI to lowercase, according to the DOI specification
+#' This function normalizes ORCIDs to the canonical form
+#' (which is the URL to the profile)
 #'
 #' @param x Character vector of ORCIDs to be normalized
-#' @param verbose Show diagnostic information?
 #' @return Character vector of normalized ORCIDS
 #' @importFrom stringr str_extract
 #' @examples
 #' normalize_ORCIDs(c("orcid.org/0000-1234-5678-9111",
 #'     "0000-1234-5678-9111", "  https://orcid.org/0000-1234-5678-9111 "))
 #' @export
-normalize_ORCIDs <- function(x, verbose=FALSE) {
+normalize_ORCIDs <- function(x) {
   # grab the ORCID part (without leading URL)
   ORCID_URI <- paste0("https://orcid.org/", str_extract(x, "(\\d{4}[- ]{0,}){3}\\d{3}[\\dX]"))
   return(ORCID_URI)
