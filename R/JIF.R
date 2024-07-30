@@ -46,6 +46,17 @@ get_JIF <- function(issn, year, verbose=FALSE) {
     verbose=verbose
   )
 
+  if (is.null(all_works_search)) {
+    return(data.frame(
+      journal = NA,
+      issn = issn,
+      year = year,
+      total_citations = NA,
+      citable_items = NA,
+      JIF = NA
+    ))
+  }
+
   all_works_search$publication_year <- lubridate::year(all_works_search$publication_date)
 
   journal_info <- oa_fetch(
@@ -73,5 +84,6 @@ get_JIF <- function(issn, year, verbose=FALSE) {
     citable_items = nrow(citable_items),
     JIF = total_citations/nrow(citable_items)
   )
+  colnames(res)[1] <- "journal"
   return(res)
 }
