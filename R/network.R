@@ -198,6 +198,12 @@ get_network <- function(author.id, doi=NA, works=NA, min_coauthorships=2, verbos
   # manual adjustment:
   primary_fields[primary_fields=="Social Sciences"] <- "Psychology"
   primary_fields_tab <- table(primary_fields) |> sort(decreasing=TRUE) |> as.data.frame()
+
+  if (ncol(primary_fields_tab) == 1) {
+    primary_fields_tab2 <- cbind(primary_field = rownames(primary_fields_tab), primary_fields_tab)
+    primary_fields_tab <- primary_fields_tab2
+  }
+
   colnames(primary_fields_tab) <- c("primary_field", "n")
 
   subfields_tab <- table(subfields) |> sort(decreasing=TRUE) |> as.data.frame()
@@ -218,7 +224,7 @@ get_network <- function(author.id, doi=NA, works=NA, min_coauthorships=2, verbos
     ent.interdisc.string <- paste0("The evenness (ranging from 0=only one field to 1=even distribution among all fields) is ", round(interdisc.evenness, 2), ".")
   } else {
     interdisc.evenness <- NA
-    warning("Only one field present, could not compute Gini impurity index.")
+    warning("Only one field present, could not compute evenness index.")
     ent.interdisc.string <- ""
   }
 
