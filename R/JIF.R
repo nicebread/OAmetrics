@@ -47,6 +47,7 @@ get_JIF <- function(issn, year, verbose=FALSE) {
   )
 
   if (is.null(all_works_search)) {
+    warning(paste0("Cannot compute JIF for ISSN ", issn, ": The outlet has not been found in the OA database."))
     return(data.frame(
       journal = NA,
       issn = issn,

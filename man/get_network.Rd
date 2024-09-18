@@ -4,7 +4,13 @@
 \alias{get_network}
 \title{Get network analysis of co-authorships for a given author or set of works}
 \usage{
-get_network(author.id, doi = NA, works = NA, min_edges = 2, verbose = TRUE)
+get_network(
+  author.id,
+  doi = NA,
+  works = NA,
+  min_coauthorships = 2,
+  verbose = TRUE
+)
 }
 \arguments{
 \item{author.id}{The ID of the author for whom the network will be analyzed. Must be provided.}
@@ -13,7 +19,7 @@ get_network(author.id, doi = NA, works = NA, min_edges = 2, verbose = TRUE)
 
 \item{works}{Optional data frame of works (that have already been fetched by oa_fetch). Either provide dois or works.}
 
-\item{min_edges}{Minimal number of co-authorships. By default set to 2: This way, single co-authorship connections are ignored (e.g., in ManyLabs-style papers, this can lead to a strong inflation of co-authorship connections.)}
+\item{min_coauthorships}{Minimal number of co-authorships. By default set to 2: This way, single co-authorship connections are ignored (e.g., in ManyLabs-style papers, this can lead to a strong inflation of co-authorship connections.)}
 
 \item{verbose}{Whether to display the result string (default is TRUE).}
 }
