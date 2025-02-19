@@ -1,5 +1,6 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://nicebread.github.io/OAmetrics/404.html</loc></url>
+<url><loc>https://nicebread.github.io/OAmetrics/articles/JIF.html</loc></url>
 <url><loc>https://nicebread.github.io/OAmetrics/articles/index.html</loc></url>
 <url><loc>https://nicebread.github.io/OAmetrics/articles/pub_similarity.html</loc></url>
 <url><loc>https://nicebread.github.io/OAmetrics/authors.html</loc></url>
@@ -7,6 +8,7 @@
 <url><loc>https://nicebread.github.io/OAmetrics/news/index.html</loc></url>
 <url><loc>https://nicebread.github.io/OAmetrics/reference/FNCS.html</loc></url>
 <url><loc>https://nicebread.github.io/OAmetrics/reference/ecdf2.html</loc></url>
+<url><loc>https://nicebread.github.io/OAmetrics/reference/evenness_index.html</loc></url>
 <url><loc>https://nicebread.github.io/OAmetrics/reference/get_BIP.html</loc></url>
 <url><loc>https://nicebread.github.io/OAmetrics/reference/get_JIF.html</loc></url>
 <url><loc>https://nicebread.github.io/OAmetrics/reference/get_network.html</loc></url>
