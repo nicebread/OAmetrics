@@ -1,9 +1,9 @@
 #' Evenness Index function
 #'
-#' This function calculates Pielou's evenness index (Pielou 1966).
+#' This function calculates Pielou's evenness index (Pielou, 1966).
 #'
 #' @param counts A numeric vector of counts representing the number of observations in each category.
-#' @param max_cat Maximum number of categories.
+#' @param max_cat Maximum number of categories. If less than the number of provided categories, the remaining categories are ignored. If more than the number of provided categories, the missing categories are assumed with count=0.
 #' @return The Evenness Index, which combines entropy and richness providing a more holistic measure. `max_cat` can be a number larger than the number of provided category counts. `max_cat` is used as a normalizing factor: It assumes as many existing categories, and missing categories are added and assumed with count=0.
 #'
 #' @import entropy entropy
@@ -15,6 +15,13 @@
 #'
 #' @export
 evenness_index <- function(counts, max_cat) {
+  if (length(counts) > max_cat) {
+    counts <- counts[1:max_cat]
+  } else if (length(counts) < max_cat) {
+    # strictly speaking this extension of the vector with zeros is not necessary
+    # as the entropy function ignores zero counts anyway.
+    counts <- c(counts, rep(0, max_cat - length(counts)))
+  }
   H <- entropy::entropy(counts)
   H_max <- log(max_cat)
   H / H_max

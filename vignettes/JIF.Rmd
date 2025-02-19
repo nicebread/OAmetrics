@@ -1,0 +1,28 @@
+---
+title: "JIF"
+output: html_document
+---
+
+```{r}
+library(OAmetrics)
+
+# Scientific Reports. According to website the JIF is 3.8 in 2023
+res <- data.frame()
+#for (l in c(100, 250, 500, 1000, 5000, 10000)) {
+for (l in c(5000, 10000)) {
+  for (r in 1:20) {
+    start <- Sys.time()
+    res0 <- get_JIF(issn="2045-2322", year=2023, limit=l, seed=r)
+    end <- Sys.time()
+    res0$dur <- end-start
+    res0$limit <- l
+    res <- rbind(res, res0)
+    print(res)
+    flush.console()
+  }
+}
+
+library(ggplot2)
+ggplot(res, aes(x=limit, y=JIF)) + geom_point()
+```
+

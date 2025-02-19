@@ -5,7 +5,9 @@
 #'
 #' @param issn The ISSN of the journal
 #' @param year The target year
+#' @param limit Upper limit of papers to be downloaded (random selection). Some mega-journals, such as Scientific Reports, have > 45,000 papers in the two-year time window, which takes multiple to download. Typical journals in psychology have only hundreds of papers. Limiting the papers can give you a slight underestimation, as the JIF is also driven by rare outliers (with huge citation scores), which are only covered when all papers are considered.
 #' @param verbose Whether to print verbose output (default is FALSE)
+#' @param seed Seed for a random retrieval of papers. If NA (the default), a random seed is chosen.
 #'
 #' @return A data frame with columns for journal, ISSN, year, total_citations,
 #' citable_items and JIF.
@@ -13,12 +15,13 @@
 #' @examples
 #' get_JIF(issn="0022-3514", year=2018)  # JPSP
 #' get_JIF(issn="0890-2070", year=2019)  # EJP
+#' get_JIF(issn="2045-2322", year=2023, limit=5000)  # Scientific Reports; according to website the JIF is 3.8 in 2023
 #'
 #' @importFrom data.table rbindlist
 #' @importFrom lubridate year
 #' @export
 
-get_JIF <- function(issn, year, verbose=FALSE) {
+get_JIF <- function(issn, year, limit=NA, verbose=FALSE, seed=NA) {
 
   # if year is the current year, then the citation data will not be available for the computation
   if (year >= as.integer(format(Sys.Date(), "%Y"))) {
@@ -33,6 +36,26 @@ get_JIF <- function(issn, year, verbose=FALSE) {
     ))
   }
 
+  # first, only retrieve the number of works
+  all_works_search_n <- oa_fetch(
+    entity = "works",
+    primary_location.source.issn = issn,
+    from_publication_date = paste0(year-2, "-01-01"),
+    to_publication_date = paste0(year-1, "-12-31"),
+    abstract=FALSE,
+    authors_count = ">0",  # remove corrections (which have no authors)
+    count_only  = TRUE
+  )
+
+  if (!is.na(limit) & (all_works_search_n[1] > limit)) {
+    warning(paste0("The journal published ", all_works_search_n[1], " works in the two-year time window. Limiting to n=", limit, " random papers."))
+    if (is.na(seed)) seed <- sample(1e10, 1)
+  } else {
+    limit <- NULL
+    seed <- NULL
+  }
+
+
   all_works_search <- oa_fetch(
     entity = "works",
     primary_location.source.issn = issn,
@@ -40,9 +63,11 @@ get_JIF <- function(issn, year, verbose=FALSE) {
     to_publication_date = paste0(year-1, "-12-31"),
     abstract=FALSE,
     authors_count = ">0",  # remove corrections (which have no authors)
-   # options = list(
-   #   select = c("id", "publication_date", "cited_by_count", "counts_by_year")
-   # ),
+   options = list(
+     select = c("id", "publication_date", "cited_by_count", "counts_by_year"),
+     sample = limit,
+     seed = seed
+   ),
     verbose=verbose
   )
 
@@ -81,6 +106,7 @@ get_JIF <- function(issn, year, verbose=FALSE) {
     journal = journal_info[1, "display_name"],
     issn = issn,
     year = year,
+    paper_limit = limit,
     total_citations = total_citations,
     citable_items = nrow(citable_items),
     JIF = total_citations/nrow(citable_items)
