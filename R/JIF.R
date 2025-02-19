@@ -30,6 +30,7 @@ get_JIF <- function(issn, year, limit=NA, verbose=FALSE, seed=NA) {
       journal = NA,
       issn = issn,
       year = year,
+      paper_limit = NA,
       total_citations = NA,
       citable_items = NA,
       JIF = NA
@@ -77,6 +78,7 @@ get_JIF <- function(issn, year, limit=NA, verbose=FALSE, seed=NA) {
       journal = NA,
       issn = issn,
       year = year,
+      paper_limit = NA,
       total_citations = NA,
       citable_items = NA,
       JIF = NA
@@ -106,7 +108,7 @@ get_JIF <- function(issn, year, limit=NA, verbose=FALSE, seed=NA) {
     journal = journal_info[1, "display_name"],
     issn = issn,
     year = year,
-    paper_limit = limit,
+    paper_limit = ifelse(is.null(limit), NA, limit),
     total_citations = total_citations,
     citable_items = nrow(citable_items),
     JIF = total_citations/nrow(citable_items)
