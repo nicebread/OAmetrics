@@ -55,6 +55,13 @@ get_BIP <- function(dois, verbose=FALSE) {
     }
 
 
+  # If no doi could be retrieved, the returned BIP object does not have all
+  # columns --> add missing columns to ensure a consistent output
+  if (!"pop_class" %in% names(BIP)) {
+    NA -> BIP$attrank -> BIP$tar_ram -> BIP$pagerank -> BIP[, "3_year_cc"] ->
+      BIP$cc -> BIP$pop_class -> BIP$inf_class -> BIP$imp_class
+    BIP <- BIP %>% relocate(msg, .after = last_col())
+  }
 
   BIP$pop_class <- factor(BIP$pop_class, levels=paste0("C", 1:5), ordered=TRUE)
   BIP$inf_class <- factor(BIP$inf_class, levels=paste0("C", 1:5), ordered=TRUE)
