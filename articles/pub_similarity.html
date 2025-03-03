@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">OAmetrics</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -126,7 +126,7 @@ score 0.</p>
 <span>  <span class="va">con</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">pub_id</span> <span class="op">&lt;-</span> <span class="va">works</span><span class="op">[</span><span class="va">i</span>, <span class="op">]</span><span class="op">$</span><span class="va">id</span></span>
 <span>  <span class="va">con</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">doi</span> <span class="op">&lt;-</span> <span class="va">works</span><span class="op">[</span><span class="va">i</span>, <span class="op">]</span><span class="op">$</span><span class="va">doi</span></span>
 <span><span class="op">}</span></span>
-<span><span class="va">con.long</span> <span class="op">&lt;-</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/data.table/man/rbindlist.html" class="external-link">rbindlist</a></span><span class="op">(</span><span class="va">con</span><span class="op">)</span></span>
+<span><span class="va">con.long</span> <span class="op">&lt;-</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdatatable.gitlab.io/data.table/reference/rbindlist.html" class="external-link">rbindlist</a></span><span class="op">(</span><span class="va">con</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># reduce to required levels</span></span>
 <span><span class="va">con.long</span> <span class="op">&lt;-</span> <span class="va">con.long</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">level</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">included_levels</span><span class="op">)</span></span>
@@ -158,11 +158,11 @@ Given this sparsity, cosine similarity seems to be a good measure.</p>
 <span><span class="co">#&gt;               Psychology        Social psychology Developmental psychology </span></span>
 <span><span class="co">#&gt;                    0.630                    0.372                    0.104 </span></span>
 <span><span class="co">#&gt;         Computer science     Cognitive psychology        Political science </span></span>
-<span><span class="co">#&gt;                    0.071                    0.069                    0.039 </span></span>
+<span><span class="co">#&gt;                    0.071                    0.069                    0.040 </span></span>
 <span><span class="co">#&gt;      Clinical psychology       Applied psychology               Humanities </span></span>
 <span><span class="co">#&gt;                    0.033                    0.027                    0.025 </span></span>
 <span><span class="co">#&gt;           Psychoanalysis                Sociology             Data science </span></span>
-<span><span class="co">#&gt;                    0.023                    0.020                    0.019 </span></span>
+<span><span class="co">#&gt;                    0.023                    0.022                    0.019 </span></span>
 <span><span class="co">#&gt;  Artificial intelligence               Statistics               Philosophy </span></span>
 <span><span class="co">#&gt;                    0.016                    0.016                    0.015 </span></span>
 <span><span class="co">#&gt;                Geography               Demography              Mathematics </span></span>
@@ -199,26 +199,26 @@ Given this sparsity, cosine similarity seems to be a good measure.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 20 × 5</span></span></span>
 <span><span class="co">#&gt;    core_sim valid display_name                            so    publication_year</span></span>
 <span><span class="co">#&gt;       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>   0.083<span style="text-decoration: underline;">5</span> TRUE  Comparison Standards Scale for Appeara… Psyc…             <span style="text-decoration: underline;">2</span>023</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>   0.082<span style="text-decoration: underline;">3</span> TRUE  Short Dark Tetrad Scale--German Version Psyc…             <span style="text-decoration: underline;">2</span>021</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>   0.070<span style="text-decoration: underline;">4</span> TRUE  TripleR: An R package for social relat… Beha…             <span style="text-decoration: underline;">2</span>011</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>   0.064<span style="text-decoration: underline;">2</span> TRUE  Persönlichkeit 2.0                      Date…             <span style="text-decoration: underline;">2</span>010</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>   0.064<span style="text-decoration: underline;">1</span> TRUE  Demokratievorstellungen unter Verteidi… Esse…             <span style="text-decoration: underline;">2</span>022</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>   0.063<span style="text-decoration: underline;">6</span> TRUE  Der Identitätskonflikt zwischen Vertei… Esse…             <span style="text-decoration: underline;">2</span>022</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>   0.061<span style="text-decoration: underline;">3</span> TRUE  Verteidiger und Entdecker: Zugehörigke… Esse…             <span style="text-decoration: underline;">2</span>022</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>   0.060<span style="text-decoration: underline;">5</span> TRUE  Produktion von naturwissenschaftlichen… Psyc…             <span style="text-decoration: underline;">2</span>017</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>   0.059<span style="text-decoration: underline;">5</span> TRUE  Der Identitätskonflikt zwischen Entdec… Esse…             <span style="text-decoration: underline;">2</span>022</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>   0.052<span style="text-decoration: underline;">4</span> TRUE  Support for Refugee Integration in Wes… Soci…             <span style="text-decoration: underline;">2</span>019</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span>   0.052<span style="text-decoration: underline;">3</span> TRUE  Special Issue on “The Social Psycholog… Euro…             <span style="text-decoration: underline;">2</span>019</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span>   0.051<span style="text-decoration: underline;">5</span> TRUE  Back, Mitja                             Spri…             <span style="text-decoration: underline;">2</span>017</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">13</span>   0.044<span style="text-decoration: underline;">2</span> TRUE  Back, Mitja                             Spri…             <span style="text-decoration: underline;">2</span>020</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">14</span>   0.039<span style="text-decoration: underline;">8</span> TRUE  Das Dreckige Dutzend und die Niederträ… Diag…             <span style="text-decoration: underline;">2</span>014</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">15</span>   0.038<span style="text-decoration: underline;">0</span> TRUE  Von Verteidigern und Entdeckern         Esse…             <span style="text-decoration: underline;">2</span>022</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">16</span>   0.037<span style="text-decoration: underline;">7</span> TRUE  Wege aus der Vertrauenskrise            Zeit…             <span style="text-decoration: underline;">2</span>016</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">17</span>   0.027<span style="text-decoration: underline;">5</span> TRUE  Individualisation and individualised s… Euro…             <span style="text-decoration: underline;">2</span>024</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">18</span>   0.011<span style="text-decoration: underline;">7</span> TRUE  Verzeichnis der Autorinnen und Autoren  De G…             <span style="text-decoration: underline;">2</span>015</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">19</span>   0.011<span style="text-decoration: underline;">7</span> TRUE  Hätte die Geschichte auch anders verla… De G…             <span style="text-decoration: underline;">2</span>015</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">20</span>   0.011<span style="text-decoration: underline;">3</span> TRUE  Lens and Dual Lens Models               Oxfo…             <span style="text-decoration: underline;">2</span>019</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>   0.083<span style="text-decoration: underline;">2</span> TRUE  Comparison Standards Scale for Appeara… Psyc…             <span style="text-decoration: underline;">2</span>023</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>   0.082<span style="text-decoration: underline;">0</span> TRUE  Short Dark Tetrad Scale--German Version Psyc…             <span style="text-decoration: underline;">2</span>021</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>   0.070<span style="text-decoration: underline;">2</span> TRUE  TripleR: An R package for social relat… Beha…             <span style="text-decoration: underline;">2</span>011</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>   0.065<span style="text-decoration: underline;">8</span> TRUE  Persönlichkeit 2.0                      Date…             <span style="text-decoration: underline;">2</span>010</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>   0.065<span style="text-decoration: underline;">0</span> TRUE  Demokratievorstellungen unter Verteidi… Esse…             <span style="text-decoration: underline;">2</span>022</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>   0.064<span style="text-decoration: underline;">4</span> TRUE  Der Identitätskonflikt zwischen Vertei… Esse…             <span style="text-decoration: underline;">2</span>022</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>   0.062<span style="text-decoration: underline;">1</span> TRUE  Verteidiger und Entdecker: Zugehörigke… Esse…             <span style="text-decoration: underline;">2</span>022</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>   0.061<span style="text-decoration: underline;">2</span> TRUE  Produktion von naturwissenschaftlichen… Psyc…             <span style="text-decoration: underline;">2</span>017</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>   0.060<span style="text-decoration: underline;">0</span> TRUE  Der Identitätskonflikt zwischen Entdec… Esse…             <span style="text-decoration: underline;">2</span>022</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>   0.054<span style="text-decoration: underline;">5</span> TRUE  Special Issue on “The Social Psycholog… Euro…             <span style="text-decoration: underline;">2</span>019</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span>   0.053<span style="text-decoration: underline;">5</span> TRUE  Support for Refugee Integration in Wes… Soci…             <span style="text-decoration: underline;">2</span>019</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span>   0.052<span style="text-decoration: underline;">9</span> TRUE  Back, Mitja                             Spri…             <span style="text-decoration: underline;">2</span>017</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">13</span>   0.045<span style="text-decoration: underline;">3</span> TRUE  Back, Mitja                             Spri…             <span style="text-decoration: underline;">2</span>020</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">14</span>   0.039<span style="text-decoration: underline;">7</span> TRUE  Das Dreckige Dutzend und die Niederträ… Diag…             <span style="text-decoration: underline;">2</span>014</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">15</span>   0.037<span style="text-decoration: underline;">9</span> TRUE  Von Verteidigern und Entdeckern         Esse…             <span style="text-decoration: underline;">2</span>022</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">16</span>   0.037<span style="text-decoration: underline;">5</span> TRUE  Wege aus der Vertrauenskrise            Zeit…             <span style="text-decoration: underline;">2</span>016</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">17</span>   0.028<span style="text-decoration: underline;">3</span> TRUE  Individualisation and individualised s… Euro…             <span style="text-decoration: underline;">2</span>024</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">18</span>   0.011<span style="text-decoration: underline;">6</span> TRUE  Verzeichnis der Autorinnen und Autoren  De G…             <span style="text-decoration: underline;">2</span>015</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">19</span>   0.011<span style="text-decoration: underline;">6</span> TRUE  Hätte die Geschichte auch anders verla… De G…             <span style="text-decoration: underline;">2</span>015</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">20</span>   0.011<span style="text-decoration: underline;">2</span> TRUE  Lens and Dual Lens Models               Oxfo…             <span style="text-decoration: underline;">2</span>019</span></span>
 <span></span>
 <span><span class="co"># publication with NA in the core_sim are mostly irrelevant publications</span></span>
 <span><span class="va">works</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">core_sim</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">core_sim</span>, <span class="va">valid</span>, <span class="va">display_name</span>, <span class="va">so</span>, <span class="va">publication_year</span><span class="op">)</span></span>
@@ -284,12 +284,12 @@ can be better identified.</p>
 <span></span>
 <span><span class="va">res.SIL</span></span>
 <span><span class="co">#&gt;   k        PC        PE         MPC       SIL     SIL.F           XB</span></span>
-<span><span class="co">#&gt; 1 1 0.3356349 0.6676299 -0.32873025 0.2653296 0.4361090 9.051220e-01</span></span>
-<span><span class="co">#&gt; 2 2 0.3356349 0.6676299 -0.32873025 0.2653296 0.4361090 9.051220e-01</span></span>
-<span><span class="co">#&gt; 3 3 0.3251567 0.8988302 -0.01226498 0.2489434 0.3915018 6.689577e-01</span></span>
-<span><span class="co">#&gt; 4 4 0.2999128 1.0987984  0.06655038 0.2148274 0.4376126 1.055317e+00</span></span>
-<span><span class="co">#&gt; 5 5 0.2755834 1.2735788  0.09447928 0.2011736 0.4997248 2.927163e+18</span></span>
-<span><span class="co">#&gt; 6 6 0.2539185 1.4291375  0.10470216 0.1914790 0.5251311 9.229691e+21</span></span>
+<span><span class="co">#&gt; 1 1 0.3345752 0.6683022 -0.33084963 0.2632567 0.4347217 9.153401e-01</span></span>
+<span><span class="co">#&gt; 2 2 0.3345752 0.6683022 -0.33084963 0.2632567 0.4347217 9.153401e-01</span></span>
+<span><span class="co">#&gt; 3 3 0.3233071 0.9011739 -0.01503938 0.2472704 0.3908113 6.695606e-01</span></span>
+<span><span class="co">#&gt; 4 4 0.2985644 1.1008396  0.06475256 0.2131883 0.4374899 1.062314e+00</span></span>
+<span><span class="co">#&gt; 5 5 0.2744921 1.2753559  0.09311511 0.2001183 0.5005090 3.228024e+18</span></span>
+<span><span class="co">#&gt; 6 6 0.2530303 1.4307360  0.10363635 0.1900250 0.5274664 4.584579e+20</span></span>
 <span></span>
 <span><span class="va">fc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/fclust/man/Fclust.html" class="external-link">Fclust</a></span><span class="op">(</span><span class="va">con.mat</span>, k<span class="op">=</span><span class="fl">2</span>, noise<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; The standard FkM algorithm with noise cluster has been chosen</span></span>
@@ -305,10 +305,10 @@ can be better identified.</p>
 <span><span class="co">#&gt;               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>             0.697 Generalizability of Clinical P… medR…             <span style="text-decoration: underline;">2</span>024 http…</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span>             0.654 Produktion von naturwissenscha… Psyc…             <span style="text-decoration: underline;">2</span>017 http…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span>             0.648 Wege aus der Vertrauenskrise    Zeit…             <span style="text-decoration: underline;">2</span>016 http…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span>             0.648 TripleR: An R package for soci… Beha…             <span style="text-decoration: underline;">2</span>011 http…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span>             0.649 TripleR: An R package for soci… Beha…             <span style="text-decoration: underline;">2</span>011 http…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span>             0.649 Wege aus der Vertrauenskrise    Zeit…             <span style="text-decoration: underline;">2</span>016 http…</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span>             0.641 Support for Refugee Integratio… Soci…             <span style="text-decoration: underline;">2</span>019 http…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span>             0.615 Das Dreckige Dutzend und die N… Diag…             <span style="text-decoration: underline;">2</span>014 http…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span>             0.616 Das Dreckige Dutzend und die N… Diag…             <span style="text-decoration: underline;">2</span>014 http…</span></span>
 <span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggrepel.slowkow.com/" class="external-link">ggrepel</a></span><span class="op">)</span></span>
