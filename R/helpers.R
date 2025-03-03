@@ -44,6 +44,10 @@ normalize_dois <- function(x, verbose=FALSE) {
 #' @export
 normalize_ORCIDs <- function(x) {
   # grab the ORCID part (without leading URL)
-  ORCID_URI <- paste0("https://orcid.org/", str_extract(x, "(\\d{4}[- ]{0,}){3}\\d{3}[\\dX]"))
-  return(ORCID_URI)
+  x2 <- str_extract(x, "(\\d{4}[- ]{0,}){3}\\d{3}[\\dX]")
+  if (!is.na(x2)) {
+    return(paste0("https://orcid.org/", x2))
+  } else {
+    return(NA)
+  }
 }

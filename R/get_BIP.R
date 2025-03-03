@@ -32,9 +32,32 @@ get_BIP <- function(dois, verbose=FALSE) {
     }
 
     doi_csv <- paste0(dois_minimal[start:end], collapse=",") |> URLencode(reserved=TRUE)
-    req <- curl_fetch_memory(paste0("https://bip-api.imsi.athenarc.gr/paper/scores/batch/", doi_csv))
+    url <- paste0("https://bip-api.imsi.athenarc.gr/paper/scores/batch/", doi_csv)
 
-    if (req$status_code %in% c("503", "417")) {
+    handle <- curl::new_handle()
+    curl::handle_setopt(handle, timeout = 5)  # Set timeout
+
+    max_attempts <- 3
+    for (attempt in 1:max_attempts) {
+      req <- tryCatch({
+        curl_fetch_memory(url, handle = handle)
+      }, error = function(e) {
+        if (attempt < max_attempts) {
+          message("Attempt ", attempt, " failed. Retrying in ", attempt * 2, " seconds...")
+          Sys.sleep(attempt * 2)  # Exponential backoff
+          return(NULL)
+        } else {
+          message("All attempts failed. Last error: ", e$message)
+          return(e)
+        }
+      })
+
+      if (!is.null(req) && !inherits(req, "error")) {
+        break  # Successful response, exit loop
+      }
+    }
+
+    if ("error" %in% class(req) || req$status_code %in% c("503", "417")) {
       # no response from BIP API? Return empty object
       BIP <- data.frame(
         doi = dois,

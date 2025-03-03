@@ -126,7 +126,9 @@ FNCS <- function(dois=NULL, papers=NULL, ref_set=NULL, upper_trim = 0, verbose=T
       c_count_ecdf2 <- ecdf2(unlist(ref_set_cites))
       papers$FNPR[i] <- c_count_ecdf2(papers$cited_by_count[i])
     } else {
-      print(paste0("No metrics could be computed for ", papers$doi[i], ": Publication_year ", papers$publication_year[i], " missing in reference set"))
+      if (verbose==TRUE) {
+        print(paste0("No metrics could be computed for ", papers$doi[i], ": Publication_year ", papers$publication_year[i], " missing in reference set"))
+        }
     }
   }
 
