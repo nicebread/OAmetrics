@@ -120,6 +120,16 @@ get_network <- function(author.id, doi=NA, works=NA, min_coauthorships=2, verbos
   own_country_codes_tab <- table(own_country_codes) |> sort(decreasing = TRUE)
   own_country_code <- names(own_country_codes_tab)[1]
 
+  if (is.null(own_country_code)) {
+    get_mode <- function(x) {
+      names(sort(table(x), decreasing = TRUE))[1]
+    }
+
+    own_country_code <- get_mode(all_edges$institution_country_code)
+
+    warning(paste0("Could not determine the own country code of the applicant - defaulting to the majority of existing country codes, which is ", own_country_code))
+  }
+
   all_coauthor_edges <- all_edges %>%
     filter(au_id != author.id)
 
