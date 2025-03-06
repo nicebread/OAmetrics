@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">OAmetrics</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -98,7 +98,7 @@ it by log_2(n_countries), which bounds its range to [0; 1].</p>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> Details at https://docs.openalex.org/api-entities/authors/limitations.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Using the provided works."</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "269 unique identifiable co-authors with at least 2 joint papers; 74% from 27 international countries, 26% from the same country. The evenness (ranging from 0=only one country to 1=even distribution among all countries) is 0.77. The 4 countries with the most coauthors are: US (75), DE (71), NL (35), GB (25)."</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "4 primary fields: Psychology (128), Decision Sciences (43), Computer Science (28), Health Professions (7). The evenness (ranging from 0=only one field to 1=even distribution among all fields) is 0.56."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "4 primary fields: Psychology (127), Decision Sciences (43), Computer Science (28), Health Professions (7). The evenness (ranging from 0=only one field to 1=even distribution among all fields) is 0.56."</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $unique_coauthor_edges</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 418 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    au_id                            institution_country_code n_coauthorships</span>
@@ -106,8 +106,8 @@ it by log_2(n_countries), which bounds its range to [0; 1].</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> https://openalex.org/A5056348040 DE                                    18</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> https://openalex.org/A5063079579 NL                                    17</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> https://openalex.org/A5039784616 DE                                    16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> https://openalex.org/A5052525257 DE                                    13</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> https://openalex.org/A5055189096 DE                                    13</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> https://openalex.org/A5052525257 DE                                    12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> https://openalex.org/A5055189096 DE                                    12</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> https://openalex.org/A5083504666 DE                                    11</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> https://openalex.org/A5031368517 DE                                    10</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> https://openalex.org/A5089676027 DE                                    10</span>
@@ -144,11 +144,11 @@ it by log_2(n_countries), which bounds its range to [0; 1].</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "269 unique identifiable co-authors with at least 2 joint papers; 74% from 27 international countries, 26% from the same country. The evenness (ranging from 0=only one country to 1=even distribution among all countries) is 0.77. The 4 countries with the most coauthors are: US (75), DE (71), NL (35), GB (25)."</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $interdisc_evenness</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.5630629</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.5645101</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $primary_fields_tab</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                   primary_field   n</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                    Psychology 128</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                    Psychology 127</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2                             Decision Sciences  43</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3                              Computer Science  28</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4                            Health Professions   7</span>
@@ -166,14 +166,14 @@ it by log_2(n_countries), which bounds its range to [0; 1].</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $primary_fields_tab_reduced</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        primary_field   n</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         Psychology 128</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1         Psychology 127</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2  Decision Sciences  43</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3   Computer Science  28</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4 Health Professions   7</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $subfields_tab</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                subfield  n</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                 Experimental and Cognitive Psychology 84</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                 Experimental and Cognitive Psychology 83</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2                                     Social Psychology 82</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3               Statistics, Probability and Uncertainty 43</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4                       Sociology and Political Science 41</span>
@@ -184,7 +184,7 @@ it by log_2(n_countries), which bounds its range to [0; 1].</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 9            Management Science and Operations Research 17</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 10                           Statistics and Probability 15</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 11                               Cognitive Neuroscience 12</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                 Computer Networks and Communications 12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12                 Computer Networks and Communications 11</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 13                              Artificial Intelligence  9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 14                                   General Psychology  9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 15                                               Health  7</span>
@@ -233,7 +233,7 @@ it by log_2(n_countries), which bounds its range to [0; 1].</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $topics_tab</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                  topic  n</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                        Mental Health Research Topics 49</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                        Mental Health Research Topics 48</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2                                 Attachment and Relationship Dynamics 25</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3                                 Meta-analysis and systematic reviews 23</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4                                  Behavioral Health and Interventions 22</span>
@@ -245,8 +245,8 @@ it by log_2(n_countries), which bounds its range to [0; 1].</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 10                            Scientific Computing and Data Management 16</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 11                                    Social and Intergroup Psychology 16</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 12                                Psychological Testing and Assessment 13</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                            Advanced Statistical Modeling Techniques 12</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                                  Death Anxiety and Social Exclusion 12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13                                  Death Anxiety and Social Exclusion 12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14                            Advanced Statistical Modeling Techniques 11</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 15                           Personality Disorders and Psychopathology 10</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 16                  Academic and Historical Perspectives in Psychology  9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 17                                     Cognitive Abilities and Testing  8</span>
@@ -387,7 +387,7 @@ it by log_2(n_countries), which bounds its range to [0; 1].</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 152                              Youth Education and Societal Dynamics  1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $interdisc_string</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "4 primary fields: Psychology (128), Decision Sciences (43), Computer Science (28), Health Professions (7). The evenness (ranging from 0=only one field to 1=even distribution among all fields) is 0.56."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "4 primary fields: Psychology (127), Decision Sciences (43), Computer Science (28), Health Professions (7). The evenness (ranging from 0=only one field to 1=even distribution among all fields) is 0.56."</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="co"># Analyze the network of a specific author for selected works</span></span></span>
 <span class="r-in"><span><span class="fu">get_network</span><span class="op">(</span>author.id <span class="op">=</span> <span class="st">'https://openalex.org/A5022479713'</span>, min_edges<span class="op">=</span><span class="fl">1</span>,</span></span>
