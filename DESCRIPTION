@@ -1,7 +1,7 @@
 Package: OAmetrics
 Type: Package
 Title: Bibliometric Indices Based on the OpenAlex API
-Version: 0.4.2
+Version: 0.4.3
 Authors@R: 
     person("Felix D.", "Schönbrodt", , "felix.schoenbrodt@psy.lmu.de", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-8282-3910"))

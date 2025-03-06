@@ -2,3 +2,5 @@ url: https://nicebread.github.io/OAmetrics/
 template:
   bootstrap: 5
 
+build:
+  vignettes: "lazy"  # Ensures only changed vignettes are rebuilt
