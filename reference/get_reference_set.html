@@ -11,7 +11,7 @@ Ideally, this should be cached locally."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">OAmetrics</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.4</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,9 +26,7 @@ Ideally, this should be cached locally."></head><body>
     <li><a class="dropdown-item" href="../articles/pub_similarity.html">Computing the similarity of papers to an author's core set</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
-      </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
- <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
-      </ul></div>
+      </ul><ul class="navbar-nav"></ul></div>
 
 
   </div>
@@ -37,7 +35,7 @@ Ideally, this should be cached locally."></head><body>
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Get a reference set for field normalized citation rates</h1>
-
+      <small class="dont-index">Source: <a href="https://github.com/nicebread/OAmetrics/R/get_reference_set.R" class="external-link"><code>R/get_reference_set.R</code></a></small>
       <div class="d-none name"><code>get_reference_set.Rd</code></div>
     </div>
 
@@ -104,15 +102,15 @@ Ideally, this should be cached locally.</p>
 <span class="r-in"><span>  years <span class="op">=</span> <span class="fl">2018</span><span class="op">:</span><span class="fl">2020</span>, n_per_year <span class="op">=</span> <span class="fl">20</span>,</span></span>
 <span class="r-in"><span>  concept.id <span class="op">=</span> <span class="st">"C15744967"</span></span></span>
 <span class="r-in"><span> <span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2025-03-06 08:20:16.051214: Retrieving documents for 2018 ..."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2025-03-07 09:47:09.891046: Retrieving documents for 2018 ..."</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=concept.id%3AC15744967%2Ctype%3Aarticle%2Cfrom_publication_date%3A2018-01-01%2Cto_publication_date%3A2018-12-31%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=20&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 20 records...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Retrieved 20 documents"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2025-03-06 08:20:16.889795: Retrieving documents for 2019 ..."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2025-03-07 09:47:11.042006: Retrieving documents for 2019 ..."</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=concept.id%3AC15744967%2Ctype%3Aarticle%2Cfrom_publication_date%3A2019-01-01%2Cto_publication_date%3A2019-12-31%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=20&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 20 records...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Retrieved 20 documents"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2025-03-06 08:20:17.709353: Retrieving documents for 2020 ..."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2025-03-07 09:47:12.26803: Retrieving documents for 2020 ..."</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=concept.id%3AC15744967%2Ctype%3Aarticle%2Cfrom_publication_date%3A2020-01-01%2Cto_publication_date%3A2020-12-31%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=20&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 20 records...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Retrieved 20 documents"</span>
