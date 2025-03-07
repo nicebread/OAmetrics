@@ -176,9 +176,9 @@ get_network <- function(author.id, doi=NA, works=NA, min_coauthorships=2, verbos
 
     ent.international.string <- paste0("The evenness (ranging from 0=only one country to 1=even distribution among all countries) is ", round(international.evenness, 2), ". The ", n_countries_displayed, " countries with the most coauthors are: ", country_string, ".")
   } else {
-    international.evenness <- NA
-    warning("Only one country present, could not compute entropy index.")
-    ent.international.string <- ""
+    international.evenness <- 0
+    warning("Only one country present, setting evenness index to 0.")
+    ent.international.string <- paste0("The evenness (ranging from 0=only one country to 1=even distribution among all countries) is ", round(international.evenness, 2), ".")
   }
 
   internationalization_string <- paste0(nrow(unique_repeated_coauthor_edges), " unique identifiable co-authors with at least ", min_coauthorships, " joint papers; ", perc_international, "% from ", nrow(country_codes_repeated)-1, " international countries, ", perc_same_country, "% from the same country. ", ent.international.string)
@@ -240,9 +240,9 @@ get_network <- function(author.id, doi=NA, works=NA, min_coauthorships=2, verbos
 
     ent.interdisc.string <- paste0("The evenness (ranging from 0=only one field to 1=even distribution among all fields) is ", round(interdisc.evenness, 2), ".")
   } else {
-    interdisc.evenness <- NA
-    warning("Only one field present, could not compute evenness index.")
-    ent.interdisc.string <- ""
+    interdisc.evenness <- 0
+    warning("Only one field present, setting evenness index to 0.")
+    ent.interdisc.string <- paste0("The evenness (ranging from 0=only one field to 1=even distribution among all fields) is ", round(interdisc.evenness, 2), ".")
   }
 
 

@@ -4,3 +4,11 @@ template:
 
 build:
   vignettes: "lazy"  # Ensures only changed vignettes are rebuilt
+
+repo:
+  url:
+    source: https://github.com/nicebread/OAmetrics
+
+navbar:
+  structure:
+    right: [github]
