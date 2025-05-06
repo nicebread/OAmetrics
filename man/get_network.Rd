@@ -36,7 +36,7 @@ This function performs a network analysis for a given author or set of works, pr
 # Analyze the network of a specific author
 get_network(author.id = 'https://openalex.org/A5022479713')
 # Analyze the network of a specific author for selected works
-get_network(author.id = 'https://openalex.org/A5022479713', min_edges=1,
+get_network(author.id = 'https://openalex.org/A5022479713',
     doi = c(
         'https://doi.org/10.1037/pspp0000428',
         'https://doi.org/10.1017/S0033291722003294',

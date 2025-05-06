@@ -9,13 +9,13 @@ evenness_index(counts, max_cat)
 \arguments{
 \item{counts}{A numeric vector of counts representing the number of observations in each category.}
 
-\item{max_cat}{Maximum number of categories.}
+\item{max_cat}{Maximum number of categories. If less than the number of provided categories, the remaining categories are ignored. If more than the number of provided categories, the missing categories are assumed with count=0.}
 }
 \value{
 The Evenness Index, which combines entropy and richness providing a more holistic measure. \code{max_cat} can be a number larger than the number of provided category counts. \code{max_cat} is used as a normalizing factor: It assumes as many existing categories, and missing categories are added and assumed with count=0.
 }
 \description{
-This function calculates Pielou's evenness index (Pielou 1966).
+This function calculates Pielou's evenness index (Pielou, 1966).
 }
 \examples{
 counts <- c(10, 20, 30, 40)

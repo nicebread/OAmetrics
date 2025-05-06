@@ -2,15 +2,16 @@
 % Please edit documentation in R/get_reference_set.R
 \name{get_reference_set}
 \alias{get_reference_set}
-\title{Get a reference set for field normalized citation rates}
+\title{Get a reference set for field- and age-normalized citation rates}
 \usage{
 get_reference_set(
   years,
   n_per_year = 10000,
   concept.id = "C15744967",
   type = "article",
+  seed = 42,
   verbose = TRUE,
-  seed = NULL,
+  per_page = 200,
   save_intermediate = NULL
 )
 }
@@ -23,9 +24,11 @@ get_reference_set(
 
 \item{type}{Reference sets should refer to the same type of publication; defaults to "article"}
 
+\item{seed}{Set a seed for reproducible analyses. However, as the underlying OA database changes frequently, the results will still not be very stable ...}
+
 \item{verbose}{Show OA API progress?}
 
-\item{seed}{Set a seed for reproducible analyses. However, as the underlying OA database changes frequently, the results will still not be very stable ...}
+\item{per_page}{How many records should be requested per page? (200 is the maximum)}
 
 \item{save_intermediate}{If a path is provided here, the intermediate downloaded files are saved at that path.}
 }
@@ -35,7 +38,7 @@ A data frame containing the document id, year, cited_by_count, and number of aut
 \description{
 This function downloads a large set of publications from a certain field and certain years.
 Retrieving 10,000 documents from the API takes about 1-2 min.
-Ideally, this should be cached locally.
+Ideally, this should be cached locally. OpenAlex will only return random samples for up to 10,000 records. If you request multiples random samples, you will get duplicates. Therefore we stratify the request by month (to get non-overlapping samples). So we can download 10,000 * 12 unique entries. When more than 120,000 samples are requested, some duplicates can happen, but should be rare.
 }
 \examples{
 # Get reference set for "Psychology" for multiple years (small n here for demo)
@@ -43,4 +46,16 @@ psych_ref <- get_reference_set(
   years = 2018:2020, n_per_year = 20,
   concept.id = "C15744967"
  )
+
+ \dontrun{
+ # Get a large reference set for psychology
+ ref2 <- get_reference_set_by_month(
+     years = 2001:2024,
+     n_per_year    = 100000,
+     concept.id    = "C15744967",
+     type          = "article",
+     seed          = 42,
+     verbose       = TRUE
+ )
+ }
 }

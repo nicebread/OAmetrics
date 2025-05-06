@@ -15,7 +15,8 @@
 #' @examples
 #' get_JIF(issn="0022-3514", year=2018)  # JPSP
 #' get_JIF(issn="0890-2070", year=2019)  # EJP
-#' get_JIF(issn="2045-2322", year=2023, limit=5000)  # Scientific Reports; according to website the JIF is 3.8 in 2023
+#' # Scientific Reports; according to website the JIF is 3.8 in 2023
+#' get_JIF(issn="2045-2322", year=2023, limit=5000)
 #'
 #' @importFrom data.table rbindlist
 #' @importFrom lubridate year
