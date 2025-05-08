@@ -12,7 +12,9 @@ get_reference_set(
   seed = 42,
   verbose = TRUE,
   per_page = 200,
-  save_intermediate = NULL
+  save_intermediate = NULL,
+  max_retries = 3,
+  retry_delay = 5
 )
 }
 \arguments{
@@ -31,6 +33,10 @@ get_reference_set(
 \item{per_page}{How many records should be requested per page? (200 is the maximum)}
 
 \item{save_intermediate}{If a path is provided here, the intermediate downloaded files are saved at that path.}
+
+\item{max_retries}{How many times to retry if the OpenAlex API returns an error}
+
+\item{retry_delay}{Base delay (in seconds) between retries}
 }
 \value{
 A data frame containing the document id, year, cited_by_count, and number of authors of the retrieved documents
@@ -43,19 +49,24 @@ Ideally, this should be cached locally. OpenAlex will only return random samples
 \examples{
 # Get reference set for "Psychology" for multiple years (small n here for demo)
 psych_ref <- get_reference_set(
-  years = 2018:2020, n_per_year = 20,
+  years = 2018:2020, n_per_year = 120,
   concept.id = "C15744967"
  )
 
- \dontrun{
- # Get a large reference set for psychology
- ref2 <- get_reference_set_by_month(
-     years = 2001:2024,
-     n_per_year    = 100000,
-     concept.id    = "C15744967",
-     type          = "article",
-     seed          = 42,
-     verbose       = TRUE
- )
- }
+\dontrun{
+# Get a large reference set for psychology. Save intermediate (yearly)
+# results in case the process is interrupted
+start <- Sys.time()
+refset <- get_reference_set(
+    years = 2001:2024,
+    n_per_year    = 100000,
+    concept.id    = "C15744967",
+    type          = "article",
+    seed          = 42,
+    verbose       = TRUE,
+    save_intermediate = "~/refset_temp"
+)
+end <- Sys.time()
+print(end-start)
+}
 }

@@ -12,6 +12,8 @@
 #' @param per_page How many records should be requested per page? (200 is the maximum)
 #' @param seed Set a seed for reproducible analyses. However, as the underlying OA database changes frequently, the results will still not be very stable ...
 #' @param save_intermediate If a path is provided here, the intermediate downloaded files are saved at that path.
+#' @param max_retries How many times to retry if the OpenAlex API returns an error
+#' @param retry_delay Base delay (in seconds) between retries
 #' @importFrom lubridate days days_in_month
 #' @return A data frame containing the document id, year, cited_by_count, and number of authors of the retrieved documents
 #'
@@ -20,21 +22,26 @@
 #' @examples
 #' # Get reference set for "Psychology" for multiple years (small n here for demo)
 #' psych_ref <- get_reference_set(
-#'   years = 2018:2020, n_per_year = 20,
+#'   years = 2018:2020, n_per_year = 120,
 #'   concept.id = "C15744967"
 #'  )
 #'
-#'  \dontrun{
-#'  # Get a large reference set for psychology
-#'  ref2 <- get_reference_set_by_month(
-#'      years = 2001:2024,
-#'      n_per_year    = 100000,
-#'      concept.id    = "C15744967",
-#'      type          = "article",
-#'      seed          = 42,
-#'      verbose       = TRUE
-#'  )
-#'  }
+#' \dontrun{
+#' # Get a large reference set for psychology. Save intermediate (yearly)
+#' # results in case the process is interrupted
+#' start <- Sys.time()
+#' refset <- get_reference_set(
+#'     years = 2001:2024,
+#'     n_per_year    = 100000,
+#'     concept.id    = "C15744967",
+#'     type          = "article",
+#'     seed          = 42,
+#'     verbose       = TRUE,
+#'     save_intermediate = "~/refset_temp"
+#' )
+#' end <- Sys.time()
+#' print(end-start)
+#' }
 get_reference_set <- function(
     years,
     n_per_year    = 10000,
@@ -43,45 +50,62 @@ get_reference_set <- function(
     seed          = 42,
     verbose       = TRUE,
     per_page      = 200,
-    save_intermediate = NULL
+    save_intermediate = NULL,
+    max_retries       = 3,
+    retry_delay       = 5
 ) {
   # Maximum per-month sample is capped at 10,000 (API limit)
   samp_per_month <- ceiling(n_per_year / 12)
   samp_per_month <- pmin(samp_per_month, 10000L)
 
-  # Iterate over each year
+  # A small helper to retry a call to oa_fetch()
+  fetch_month_with_retry <- function(fetch_args) {
+    attempt <- 1
+    repeat {
+      if (verbose) message("-> Fetch attempt ", attempt)
+      res <- try(do.call(oa_fetch, fetch_args), silent = TRUE)
+      if (!inherits(res, "try-error")) {
+        return(res)
+      }
+      if (attempt >= max_retries) {
+        stop("Failed after ", max_retries, " attempts: ", conditionMessage(res))
+      }
+      wait <- retry_delay * 2^(attempt - 1)
+      message("Error: ", conditionMessage(res),
+              " - retrying in ", wait, "s ...")
+      Sys.sleep(wait)
+      attempt <- attempt + 1
+    }
+  }
+
+
   yearly_results <- lapply(years, function(y) {
     if (verbose) message("Year ", y, ": sampling ", samp_per_month, " per month")
+    start_y <- Sys.time()
 
-    # For months 1..12
     month_slices <- lapply(1:12, function(m) {
-      # Compute start/end dates for the month
       start_date <- as.Date(sprintf("%04d-%02d-01", y, m))
       end_date   <- start_date + days(days_in_month(start_date) - 1)
-
-      # Pages needed for samp_per_month at per_page rows each
       pages_needed <- seq_len(ceiling(samp_per_month / per_page))
-
-      # Constant seed per year-month slice
       slice_seed   <- as.integer(seed + y * 100 + m)
 
       if (verbose) message("  Month ", sprintf("%02d", m),
-                           ": ", start_date, " to ", end_date)
+                           ": ", start_date, " --> ", end_date)
 
-      # Fetch up to samp_per_month random works for this month
-      df_month <- oa_fetch(
-        entity       = "works",
-        publication_year         = y,
-        from_publication_date    = as.character(start_date),
-        to_publication_date      = as.character(end_date),
-        concept.id               = concept.id,
-        type                     = type,
-        is_paratext              = FALSE,
-        is_retracted             = FALSE,
-        authors_count            = ">0",   # remove corrections (which have no authors)
-        has_doi = TRUE,                             # TODO: is that filter legit?
-        primary_location.source.has_issn = TRUE,    # TODO: is that filter legit?
-        options      = list(
+      # Build arguments list for do.call()
+      fetch_args <- list(
+        entity                 = "works",
+        publication_year       = y,
+        from_publication_date  = as.character(start_date),
+        to_publication_date    = as.character(end_date),
+        `concept.id`           = concept.id,
+        type                   = type,
+        is_paratext            = FALSE,
+        is_retracted           = FALSE,
+        authors_count          = ">0",
+        has_doi                = TRUE,
+        `primary_location.source.has_issn` = TRUE,
+        options                = list(
           sample = samp_per_month,
           seed   = slice_seed,
           select = c("id",
@@ -89,27 +113,34 @@ get_reference_set <- function(
                      "publication_year",
                      "cited_by_count")
         ),
-        per_page     = 200,
-        pages        = pages_needed,
-        verbose      = verbose
+        per_page = per_page,
+        pages    = pages_needed,
+        verbose  = verbose
       )
+
+      # Fetch with retry logic
+      df_month <- fetch_month_with_retry(fetch_args)
 
       # Count authors
       df_month$n_authors <- sapply(df_month$author, nrow)
 
       # Return core columns
-      df_month |> select(
-        id,
-        publication_year,
-        n_authors,
-        cited_by_count
-      )
+      df_month %>%
+        select(id, publication_year, n_authors, cited_by_count)
     })
 
     # Combine 12 monthly results (disjoint by design)
     dt_year <- rbindlist(month_slices)
 
+    end_y <- Sys.time()
+    if (verbose) {
+      message("Year ", y, " completed in ", round(difftime(end_y, start_y, units = "mins"), 1), " min")
+    }
+
     if (!is.null(save_intermediate)) {
+      if (!dir.exists(save_intermediate)) {
+        dir.create(save_intermediate, recursive = TRUE, showWarnings = FALSE)
+      }
       saveRDS(dt_year, file=paste0(save_intermediate, "/refset_", y, ".RDS"))
     }
 
@@ -123,26 +154,21 @@ get_reference_set <- function(
 
 
 
+
+
+#' @title Helper function: Get reference set from files
+#' @description The `get_reference_set` function can save intermediate files on a drive. In case that the download or the function aborts with an error, all existing files in a given path can be read combined.
+#' @param path The relative or absolute path of the files
+#' @return Returns a data frame with a reference set.
+#' @importFrom data.table rbindlist
 #'
-#'
-#' #' @title Helper function: Get reference set from files
-#' #' @description The `get_reference_set` function can save intermediate files on a drive. In case that the download or the function aborts with an error, all existing files in a given path can be read combined.
-#' #' @param path The relative or absolute path of the files
-#' #' @return Returns a data frame with a reference set.
-#' #' @importFrom data.table rbindlist
-#' #'
-#' get_reference_set_from_files <- function(path) {
-#'   pages <- list()
-#'   for (f in list.files(path, full.names = TRUE)) {
-#'     print(paste0("Reading ", f))
-#'     res <- readRDS(f)
-#'     pages[[f]] <- data.frame(
-#'       id = res$id,
-#'       publication_year = res$publication_year,
-#'       n_authors = sapply(res$author, nrow),
-#'       cited_by_count = res$cited_by_count
-#'     )
-#'   }
-#'
-#'   return(data.table::rbindlist(pages))
-#' }
+get_reference_set_from_files <- function(path) {
+  pages <- list()
+  for (f in list.files(path, full.names = TRUE, pattern = "*.RDS")) {
+    print(paste0("Reading ", f))
+    res <- readRDS(f)
+    pages[[f]] <- res
+  }
+
+  return(data.table::rbindlist(pages))
+}

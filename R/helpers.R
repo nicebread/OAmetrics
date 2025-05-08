@@ -43,11 +43,12 @@ normalize_dois <- function(x, verbose=FALSE) {
 #'     "0000-1234-5678-9111", "  https://orcid.org/0000-1234-5678-9111 "))
 #' @export
 normalize_ORCIDs <- function(x) {
-  # grab the ORCID part (without leading URL)
-  x2 <- str_extract(x, "(\\d{4}[- ]{0,}){3}\\d{3}[\\dX]")
-  if (!is.na(x2)) {
-    return(paste0("https://orcid.org/", x2))
-  } else {
-    return(NA)
-  }
+  # 1) trim whitespace
+  xx <- str_trim(x)
+  # 2) extract the 16-digit ORCID (allow hyphen or space between blocks)
+  orc <- str_extract(xx, "(?:\\d{4}[- ]?){3}\\d{3}[\\dX]")
+  # 3) build full URL where not NA, else NA_character_
+  ifelse(is.na(orc),
+         NA_character_,
+         paste0("https://orcid.org/", orc))
 }
