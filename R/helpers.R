@@ -21,10 +21,6 @@ normalize_dois <- function(x, verbose=FALSE) {
     str_replace("^10.", "https://doi.org/10.") |>
     str_to_lower()  # according to the DOI specification, it is case-insensitive. OpenAlex uses only lowercase dois.
 
-  if (any(x2 != x) & verbose==TRUE) {
-    warning("It is strongly recommended to normalize dois with the `normalize_dois()` function.")
-  }
-
   return(x2)
 }
 
@@ -51,4 +47,31 @@ normalize_ORCIDs <- function(x) {
   ifelse(is.na(orc),
          NA_character_,
          paste0("https://orcid.org/", orc))
+}
+
+
+
+#' Get Number of Authors from an OpenAlex Object
+#'
+#' Extracts the number of authors for each record in an OpenAlex-style list object.
+#'
+#' @param OA_object A list-like object (e.g., from OpenAlex API) containing an \code{author} element.
+#'
+#' @return A numeric vector giving the number of authors for each entry.
+#'   Entries with no author information (\code{NULL}) are returned as \code{NA}.
+#'
+#' @details
+#' The function applies \code{nrow} to each element of \code{OA_object$author}.
+#' If any entries are \code{NULL}, they are converted to \code{NA} in the output.
+#' @export
+get_n_authors <- function(OA_object) {
+  n_authors <- sapply(OA_object$author, nrow)
+
+  # find NULL entries
+  NULL_entries <- sapply(n_authors, is.null)
+  if (any(NULL_entries)) {
+    n_authors[NULL_entries] <- NA
+  }
+
+  return(n_authors |> unlist())
 }

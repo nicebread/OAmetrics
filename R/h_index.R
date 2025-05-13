@@ -84,7 +84,7 @@ h_index <- function(search = NULL, display_name = NULL, author.id = NULL, ORCID 
     return(list(net_academic_age=NA, h_index=NA, h_Ia = NA, first_publication=NA))
   }
 
-  works$n_authors <- sapply(works$author, nrow)
+  works$n_authors <- get_n_authors(works)
 
   works <- works %>% arrange(-cited_by_count)
   works$h_position <- 1:nrow(works)

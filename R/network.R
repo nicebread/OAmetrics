@@ -109,8 +109,13 @@ get_network <- function(author.id, doi=NA, works=NA, min_coauthorships=2, verbos
   # Analysis of co-authorships: Internationalization
   #----------------------------------------------------------------------------
 
-  # get_all_coauthors that have not NA as institution_country_code
-  all_edges <- apply(works, 1, function(x) x$author[, c("au_id", "institution_country_code")]) |>
+  # get_all_coauthors that have not NA as institution_country_code, and not an
+  # all-NA author field
+
+  n_authors <- get_n_authors(works)
+  NULL_entries <- sapply(n_authors, is.null)
+
+  all_edges <- apply(works[!NULL_entries, ], 1, function(x) x$author[, c("au_id", "institution_country_code")]) |>
     rbindlist() |>
     as.data.frame() |>
     dplyr::filter(!is.na(institution_country_code))

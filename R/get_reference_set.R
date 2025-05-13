@@ -122,7 +122,7 @@ get_reference_set <- function(
       df_month <- fetch_month_with_retry(fetch_args)
 
       # Count authors
-      df_month$n_authors <- sapply(df_month$author, nrow)
+      df_month$n_authors <- get_n_authors(df_month)
 
       # Return core columns
       df_month %>%
