@@ -9,7 +9,7 @@ given its ISSN and a target year."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">OAmetrics</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +21,6 @@ given its ISSN and a target year."></head><body>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/JIF.html">JIF</a></li>
-    <li><a class="dropdown-item" href="../articles/pub_similarity.html">Computing the similarity of papers to an author's core set</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"></ul></div>
@@ -44,7 +43,7 @@ given its ISSN and a target year.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_JIF</span><span class="op">(</span><span class="va">issn</span>, <span class="va">year</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_JIF</span><span class="op">(</span><span class="va">issn</span>, <span class="va">year</span>, limit <span class="op">=</span> <span class="cn">NA</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span>, seed <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -59,8 +58,16 @@ given its ISSN and a target year.</p>
 <dd><p>The target year</p></dd>
 
 
+<dt id="arg-limit">limit<a class="anchor" aria-label="anchor" href="#arg-limit"></a></dt>
+<dd><p>Upper limit of papers to be downloaded (random selection). Some mega-journals, such as Scientific Reports, have &gt; 45,000 papers in the two-year time window, which takes multiple to download. Typical journals in psychology have only hundreds of papers. Limiting the papers can give you a slight underestimation, as the JIF is also driven by rare outliers (with huge citation scores), which are only covered when all papers are considered.</p></dd>
+
+
 <dt id="arg-verbose">verbose<a class="anchor" aria-label="anchor" href="#arg-verbose"></a></dt>
 <dd><p>Whether to print verbose output (default is FALSE)</p></dd>
+
+
+<dt id="arg-seed">seed<a class="anchor" aria-label="anchor" href="#arg-seed"></a></dt>
+<dd><p>Seed for a random retrieval of papers. If NA (the default), a random seed is chosen.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -81,6 +88,13 @@ citable_items and JIF.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 European Journal of Personality 0890-2070 2019          NA             443</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   citable_items      JIF</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1            88 5.034091</span>
+<span class="r-in"><span><span class="co"># Scientific Reports; according to website the JIF is 3.8 in 2023</span></span></span>
+<span class="r-in"><span><span class="fu">get_JIF</span><span class="op">(</span>issn<span class="op">=</span><span class="st">"2045-2322"</span>, year<span class="op">=</span><span class="fl">2023</span>, limit<span class="op">=</span><span class="fl">5000</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>The journal published 47211 works in the two-year time window. Limiting to n=5000 random papers.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              journal      issn year paper_limit total_citations citable_items</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Scientific Reports 2045-2322 2023        5000           24279          5000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      JIF</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 4.8558</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
@@ -93,7 +107,7 @@ citable_items and JIF.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
 </div>
 
     </footer></div>

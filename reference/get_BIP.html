@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">OAmetrics</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,7 +19,6 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/JIF.html">JIF</a></li>
-    <li><a class="dropdown-item" href="../articles/pub_similarity.html">Computing the similarity of papers to an author's core set</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"></ul></div>
@@ -66,11 +65,11 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">dois</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://doi.org/10.1080/00223891.2020.1726936"</span>, <span class="st">"10.1016/j.jrp.2013.05.009"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">get_BIP</span><span class="op">(</span><span class="va">dois</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                             doi      attrank tar_ram</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 https://doi.org/10.1080/00223891.2020.1726936 1.710533e-08      NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2     https://doi.org/10.1016/j.jrp.2013.05.009 8.816282e-07      NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 https://doi.org/10.1080/00223891.2020.1726936 1.717881e-08      NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2     https://doi.org/10.1016/j.jrp.2013.05.009 9.405089e-07      NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       pagerank three_year_cc   cc pop_class inf_class imp_class msg</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 3.889392e-09            19   22        C4        C5        C4  NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 6.673346e-08            93 1452        C1        C2        C3  NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 3.757618e-09            19   22        C4        C5        C4  NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 6.832590e-08            90 1498        C1        C2        C3  NA</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -82,7 +81,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
 </div>
 
     </footer></div>

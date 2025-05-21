@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">OAmetrics</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,7 +19,6 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/JIF.html">JIF</a></li>
-    <li><a class="dropdown-item" href="../articles/pub_similarity.html">Computing the similarity of papers to an author's core set</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"></ul></div>
@@ -100,7 +99,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   display_name        works_count cited_by_count</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Felix D. Schönbrodt         252          <span style="text-decoration: underline;">12</span>348</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Felix D. Schönbrodt         271          <span style="text-decoration: underline;">12</span>698</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> The following work(s) have truncated lists of authors: W4407393904, W3216869777.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> Query each work separately by its identifier to get full list of authors.</span>
@@ -110,36 +109,36 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> Computation of academic age (relative to first publication):</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Retrieving year of first publication from data: 2007. </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> The first publication is: 'Interview mit Prof. Dr. Karl Grammer', published in 'Zeitschrift für Medienpsychologie'. It has the top L0 concept 'Philosophy'. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> The first publication is: 'Interview mit Prof. Dr. Karl Grammer', published in 'Zeitschrift für Medienpsychologie'. It has the domain 'Social Sciences'. </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Is that plausible? If not, provide `first_pub_year` as a parameter. You can see all works of that author with the following command:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> oa_fetch(entity = 'works', author.id = 'https://openalex.org/A5022479713', is_paratext = F, is_retracted = F, abstract=F) %&gt;% arrange(publication_year)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> oa_fetch(entity = 'works', author.id = 'https://openalex.org/A5022479713', is_paratext = FALSE, is_retracted = FALSE, abstract=FALSE) %&gt;% arrange(publication_year)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $net_academic_age</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 18</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $h_index</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 34</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 36</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $h_Ia</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.055556</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $first_publication</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 39</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   id    title display_name author publication_date so    so_id host_organization</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> http… Inte… Interview m… <span style="color: #949494;">&lt;df&gt;</span>   2007-10-01       Zeit… http… Hogrefe Verlag   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 31 more variables: issn_l &lt;chr&gt;, url &lt;chr&gt;, pdf_url &lt;chr&gt;, license &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   version &lt;chr&gt;, first_page &lt;chr&gt;, last_page &lt;chr&gt;, volume &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   issue &lt;chr&gt;, is_oa &lt;lgl&gt;, is_oa_anywhere &lt;lgl&gt;, oa_status &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   oa_url &lt;chr&gt;, any_repository_has_fulltext &lt;lgl&gt;, language &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   grants &lt;list&gt;, cited_by_count &lt;int&gt;, counts_by_year &lt;list&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   publication_year &lt;int&gt;, cited_by_api_url &lt;chr&gt;, ids &lt;list&gt;, doi &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   type &lt;chr&gt;, referenced_works &lt;list&gt;, related_works &lt;list&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 44</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   id      title display_name authorships doi   publication_date publication_year</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>                      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> https:… Inte… Interview m… <span style="color: #949494;">&lt;tibble&gt;</span>    http… 2007-10-01                   <span style="text-decoration: underline;">2</span>007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 37 more variables: fwci &lt;dbl&gt;, cited_by_count &lt;int&gt;, counts_by_year &lt;list&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   cited_by_api_url &lt;chr&gt;, ids &lt;list&gt;, type &lt;chr&gt;, is_oa &lt;lgl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   is_oa_anywhere &lt;lgl&gt;, oa_status &lt;chr&gt;, oa_url &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   any_repository_has_fulltext &lt;lgl&gt;, source_display_name &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   source_id &lt;chr&gt;, issn_l &lt;chr&gt;, host_organization &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   host_organization_name &lt;chr&gt;, landing_page_url &lt;chr&gt;, pdf_url &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   license &lt;chr&gt;, version &lt;chr&gt;, referenced_works &lt;list&gt;, …</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $academic_age_note</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Computation of academic age (relative to first publication):\nRetrieving year of first publication from data: 2007. \n\nThe first publication is: 'Interview mit Prof. Dr. Karl Grammer', published in 'Zeitschrift für Medienpsychologie'. It has the top L0 concept 'Philosophy'. \n\nIs that plausible? If not, provide `first_pub_year` as a parameter. You can see all works of that author with the following command:\n\noa_fetch(entity = 'works', author.id = 'https://openalex.org/A5022479713', is_paratext = F, is_retracted = F, abstract=F) %&gt;% arrange(publication_year)\n\n"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Computation of academic age (relative to first publication):\nRetrieving year of first publication from data: 2007. \n\nThe first publication is: 'Interview mit Prof. Dr. Karl Grammer', published in 'Zeitschrift für Medienpsychologie'. It has the domain 'Social Sciences'. \n\nIs that plausible? If not, provide `first_pub_year` as a parameter. You can see all works of that author with the following command:\n\noa_fetch(entity = 'works', author.id = 'https://openalex.org/A5022479713', is_paratext = FALSE, is_retracted = FALSE, abstract=FALSE) %&gt;% arrange(publication_year)\n\n"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="fu">h_index</span><span class="op">(</span>ORCID <span class="op">=</span> <span class="st">"https://orcid.org/0000-0002-8282-3910"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> A unique author record has been found: </span>
@@ -147,7 +146,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   display_name        works_count cited_by_count</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Felix D. Schönbrodt         252          <span style="text-decoration: underline;">12</span>348</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Felix D. Schönbrodt         271          <span style="text-decoration: underline;">12</span>698</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> The following work(s) have truncated lists of authors: W4407393904, W3216869777.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> Query each work separately by its identifier to get full list of authors.</span>
@@ -157,36 +156,36 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> Computation of academic age (relative to first publication):</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Retrieving year of first publication from data: 2007. </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> The first publication is: 'Interview mit Prof. Dr. Karl Grammer', published in 'Zeitschrift für Medienpsychologie'. It has the top L0 concept 'Philosophy'. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> The first publication is: 'Interview mit Prof. Dr. Karl Grammer', published in 'Zeitschrift für Medienpsychologie'. It has the domain 'Social Sciences'. </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Is that plausible? If not, provide `first_pub_year` as a parameter. You can see all works of that author with the following command:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> oa_fetch(entity = 'works', author.id = 'https://openalex.org/A5022479713', is_paratext = F, is_retracted = F, abstract=F) %&gt;% arrange(publication_year)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> oa_fetch(entity = 'works', author.id = 'https://openalex.org/A5022479713', is_paratext = FALSE, is_retracted = FALSE, abstract=FALSE) %&gt;% arrange(publication_year)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $net_academic_age</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 18</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $h_index</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 34</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 36</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $h_Ia</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.055556</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $first_publication</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 39</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   id    title display_name author publication_date so    so_id host_organization</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> http… Inte… Interview m… <span style="color: #949494;">&lt;df&gt;</span>   2007-10-01       Zeit… http… Hogrefe Verlag   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 31 more variables: issn_l &lt;chr&gt;, url &lt;chr&gt;, pdf_url &lt;chr&gt;, license &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   version &lt;chr&gt;, first_page &lt;chr&gt;, last_page &lt;chr&gt;, volume &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   issue &lt;chr&gt;, is_oa &lt;lgl&gt;, is_oa_anywhere &lt;lgl&gt;, oa_status &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   oa_url &lt;chr&gt;, any_repository_has_fulltext &lt;lgl&gt;, language &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   grants &lt;list&gt;, cited_by_count &lt;int&gt;, counts_by_year &lt;list&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   publication_year &lt;int&gt;, cited_by_api_url &lt;chr&gt;, ids &lt;list&gt;, doi &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   type &lt;chr&gt;, referenced_works &lt;list&gt;, related_works &lt;list&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 44</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   id      title display_name authorships doi   publication_date publication_year</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>                      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> https:… Inte… Interview m… <span style="color: #949494;">&lt;tibble&gt;</span>    http… 2007-10-01                   <span style="text-decoration: underline;">2</span>007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 37 more variables: fwci &lt;dbl&gt;, cited_by_count &lt;int&gt;, counts_by_year &lt;list&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   cited_by_api_url &lt;chr&gt;, ids &lt;list&gt;, type &lt;chr&gt;, is_oa &lt;lgl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   is_oa_anywhere &lt;lgl&gt;, oa_status &lt;chr&gt;, oa_url &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   any_repository_has_fulltext &lt;lgl&gt;, source_display_name &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   source_id &lt;chr&gt;, issn_l &lt;chr&gt;, host_organization &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   host_organization_name &lt;chr&gt;, landing_page_url &lt;chr&gt;, pdf_url &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   license &lt;chr&gt;, version &lt;chr&gt;, referenced_works &lt;list&gt;, …</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $academic_age_note</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Computation of academic age (relative to first publication):\nRetrieving year of first publication from data: 2007. \n\nThe first publication is: 'Interview mit Prof. Dr. Karl Grammer', published in 'Zeitschrift für Medienpsychologie'. It has the top L0 concept 'Philosophy'. \n\nIs that plausible? If not, provide `first_pub_year` as a parameter. You can see all works of that author with the following command:\n\noa_fetch(entity = 'works', author.id = 'https://openalex.org/A5022479713', is_paratext = F, is_retracted = F, abstract=F) %&gt;% arrange(publication_year)\n\n"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Computation of academic age (relative to first publication):\nRetrieving year of first publication from data: 2007. \n\nThe first publication is: 'Interview mit Prof. Dr. Karl Grammer', published in 'Zeitschrift für Medienpsychologie'. It has the domain 'Social Sciences'. \n\nIs that plausible? If not, provide `first_pub_year` as a parameter. You can see all works of that author with the following command:\n\noa_fetch(entity = 'works', author.id = 'https://openalex.org/A5022479713', is_paratext = FALSE, is_retracted = FALSE, abstract=FALSE) %&gt;% arrange(publication_year)\n\n"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="fu">h_index</span><span class="op">(</span><span class="st">"Markus Bühner"</span>, first_pub_year <span class="op">=</span> <span class="fl">1997</span><span class="op">)</span> <span class="co"># adjust year of first publication</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> A unique author record has been found: </span>
@@ -194,7 +193,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   display_name  works_count cited_by_count</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Markus Bühner         211           <span style="text-decoration: underline;">7</span>810</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Markus Bühner         220           <span style="text-decoration: underline;">8</span>007</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $net_academic_age</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 28</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -205,17 +204,17 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.6071429</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $first_publication</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 39</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   id    title display_name author publication_date so    so_id host_organization</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> http… Attr… Attribution… <span style="color: #949494;">&lt;df&gt;</span>   1998-01-01       Jour… http… American Psychol…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 31 more variables: issn_l &lt;chr&gt;, url &lt;chr&gt;, pdf_url &lt;chr&gt;, license &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   version &lt;chr&gt;, first_page &lt;chr&gt;, last_page &lt;chr&gt;, volume &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   issue &lt;chr&gt;, is_oa &lt;lgl&gt;, is_oa_anywhere &lt;lgl&gt;, oa_status &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   oa_url &lt;chr&gt;, any_repository_has_fulltext &lt;lgl&gt;, language &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   grants &lt;list&gt;, cited_by_count &lt;int&gt;, counts_by_year &lt;list&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   publication_year &lt;int&gt;, cited_by_api_url &lt;chr&gt;, ids &lt;list&gt;, doi &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   type &lt;chr&gt;, referenced_works &lt;list&gt;, related_works &lt;list&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 44</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   id      title display_name authorships doi   publication_date publication_year</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>                      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> https:… Attr… Attribution… <span style="color: #949494;">&lt;tibble&gt;</span>    http… 1998-01-01                   <span style="text-decoration: underline;">1</span>998</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 37 more variables: fwci &lt;dbl&gt;, cited_by_count &lt;int&gt;, counts_by_year &lt;list&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   cited_by_api_url &lt;chr&gt;, ids &lt;list&gt;, type &lt;chr&gt;, is_oa &lt;lgl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   is_oa_anywhere &lt;lgl&gt;, oa_status &lt;chr&gt;, oa_url &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   any_repository_has_fulltext &lt;lgl&gt;, source_display_name &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   source_id &lt;chr&gt;, issn_l &lt;chr&gt;, host_organization &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   host_organization_name &lt;chr&gt;, landing_page_url &lt;chr&gt;, pdf_url &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   license &lt;chr&gt;, version &lt;chr&gt;, referenced_works &lt;list&gt;, …</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $academic_age_note</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] ""</span>
@@ -233,7 +232,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
 </div>
 
     </footer></div>

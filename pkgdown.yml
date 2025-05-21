@@ -1,10 +1,9 @@
 pandoc: 3.1.11
-pkgdown: 2.1.1
+pkgdown: 2.1.2
 pkgdown_sha: ~
 articles:
   JIF: JIF.html
-  pub_similarity: pub_similarity.html
-last_built: 2025-03-07T09:46Z
+last_built: 2025-05-21T15:35Z
 urls:
   reference: https://nicebread.github.io/OAmetrics/reference
   article: https://nicebread.github.io/OAmetrics/articles
