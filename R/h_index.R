@@ -71,7 +71,7 @@ h_index <- function(search = NULL, display_name = NULL, author.id = NULL, ORCID 
 
   # filter out works that should not count for the h-index, and for the computation of academic age (i.e., works without doi and which are not published in an outlet).
   # This is mostly irrelevant for the h-index, but important for the automatic retrieval of academic age.
-  works <- works %>% filter(!is.na(doi), !is.na(so))
+  works <- works %>% filter(!is.na(doi), !is.na(source_display_name))
 
   # if a first_publication_year is provided: strip all older publications from h-index computation
   if (!is.na(first_pub_year)) {
@@ -95,10 +95,9 @@ h_index <- function(search = NULL, display_name = NULL, author.id = NULL, ORCID 
   if (is.na(first_pub_year)) {
     first_pub_year <- min(works$publication_year)
     first_work <- works %>% arrange(publication_year) %>% slice(1)
-    co <- first_work$concepts[[1]]
-    top_L0_concept <- co %>% filter(level==0) %>% slice(1) %>% pull("display_name")
+    maintopic <- first_work$topics[[1]] |> filter(type=="domain") |> slice(1) |> pull(display_name)
 
-    academic_age_note <- paste0("Computation of academic age (relative to first publication):\nRetrieving year of first publication from data: ", first_pub_year, ". \n\nThe first publication is: '", first_work$display_name,"', published in '", first_work$so, "'. It has the top L0 concept '", top_L0_concept, "'. \n\nIs that plausible? If not, provide `first_pub_year` as a parameter. You can see all works of that author with the following command:\n\noa_fetch(entity = 'works', author.id = '", author.id, "', is_paratext = F, is_retracted = F, abstract=F) %>% arrange(publication_year)\n\n")
+    academic_age_note <- paste0("Computation of academic age (relative to first publication):\nRetrieving year of first publication from data: ", first_pub_year, ". \n\nThe first publication is: '", first_work$display_name,"', published in '", first_work$source_display_name, "'. It has the domain '", maintopic, "'. \n\nIs that plausible? If not, provide `first_pub_year` as a parameter. You can see all works of that author with the following command:\n\noa_fetch(entity = 'works', author.id = '", author.id, "', is_paratext = FALSE, is_retracted = FALSE, abstract=FALSE) %>% arrange(publication_year)\n\n")
     cat(academic_age_note)
   } else {
     first_work <- works %>% arrange(publication_year) %>% slice(1)

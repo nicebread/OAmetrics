@@ -1,6 +1,10 @@
 ---
 title: "JIF"
-output: html_document
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{When is the computation of the JIF stable (for mega-journals with many publications)}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r}

@@ -65,13 +65,13 @@ normalize_ORCIDs <- function(x) {
 #' If any entries are \code{NULL}, they are converted to \code{NA} in the output.
 #' @export
 get_n_authors <- function(OA_object) {
-  n_authors <- sapply(OA_object$author, nrow)
+  n_authors <- sapply(OA_object$authorships, nrow)
 
   # find NULL entries
-  NULL_entries <- sapply(n_authors, is.null)
-  if (any(NULL_entries)) {
-    n_authors[NULL_entries] <- NA
-  }
+  # NULL_entries <- sapply(n_authors, is.null)
+  # if (any(NULL_entries)) {
+  #   n_authors[NULL_entries] <- NA
+  # }
 
   return(n_authors |> unlist())
 }

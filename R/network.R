@@ -109,19 +109,30 @@ get_network <- function(author.id, doi=NA, works=NA, min_coauthorships=2, verbos
   # Analysis of co-authorships: Internationalization
   #----------------------------------------------------------------------------
 
-  # get_all_coauthors that have not NA as institution_country_code, and not an
+  # get_all_coauthors that have not NA as country_code, and not an
   # all-NA author field
 
   n_authors <- get_n_authors(works)
   NULL_entries <- sapply(n_authors, is.null)
 
-  all_edges <- apply(works[!NULL_entries, ], 1, function(x) x$author[, c("au_id", "institution_country_code")]) |>
-    rbindlist() |>
-    as.data.frame() |>
-    dplyr::filter(!is.na(institution_country_code))
+  all_edges <- data.frame()
 
-  # own country code is the most frequent code of that person.
-  own_country_codes <- all_edges %>% filter(au_id == author.id) %>% pull("institution_country_code")
+  for (w in 1:nrow(works[!NULL_entries, ])) {
+    authors <- works[!NULL_entries, ][w, ]$authorships[[1]]
+
+    for (a in 1:nrow(authors)) {
+      all_edges <- rbind(all_edges, data.frame(
+        id = authors[a, "id"],
+        country_code = authors[a, ]$affiliations[[1]][1, ]$country_code
+      ))
+    }
+  }
+
+  all_edges <- all_edges |> as.data.frame() |>
+    dplyr::filter(!is.na(country_code))
+
+  # own country code is the most frequent code of that person (because that can change over time)
+  own_country_codes <- all_edges %>% filter(id == author.id) %>% pull("country_code")
   own_country_codes_tab <- table(own_country_codes) |> sort(decreasing = TRUE)
   own_country_code <- names(own_country_codes_tab)[1]
 
@@ -130,17 +141,17 @@ get_network <- function(author.id, doi=NA, works=NA, min_coauthorships=2, verbos
       names(sort(table(x), decreasing = TRUE))[1]
     }
 
-    own_country_code <- get_mode(all_edges$institution_country_code)
+    own_country_code <- get_mode(all_edges$country_code)
 
     warning(paste0("Could not determine the own country code of the applicant - defaulting to the majority of existing country codes, which is ", own_country_code))
   }
 
   all_coauthor_edges <- all_edges %>%
-    filter(au_id != author.id)
+    filter(id != author.id)
 
   # each row is one unique coauthor
   unique_coauthor_edges <- all_coauthor_edges %>%
-    group_by(au_id) %>%
+    group_by(id) %>%
     mutate(n_coauthorships = n()) %>%
     slice(1) %>%
     ungroup() %>%
@@ -152,12 +163,12 @@ get_network <- function(author.id, doi=NA, works=NA, min_coauthorships=2, verbos
     filter(n_coauthorships >= min_coauthorships)
 
   country_codes_repeated <- unique_repeated_coauthor_edges %>%
-    count(institution_country_code) %>%
-    filter(!is.na(institution_country_code)) %>%
+    count(country_code) %>%
+    filter(!is.na(country_code)) %>%
     arrange(-n)
 
-  n_coauthors_international <- unique_repeated_coauthor_edges %>% filter(institution_country_code != own_country_code) %>% nrow()
-  n_coauthors_same_country <- unique_repeated_coauthor_edges %>% filter(institution_country_code == own_country_code) %>% nrow()
+  n_coauthors_international <- unique_repeated_coauthor_edges %>% filter(country_code != own_country_code) %>% nrow()
+  n_coauthors_same_country <- unique_repeated_coauthor_edges %>% filter(country_code == own_country_code) %>% nrow()
 
   perc_international <- (n_coauthors_international*100/(n_coauthors_international+n_coauthors_same_country)) |> round()
   perc_same_country <- 100 - perc_international
@@ -172,7 +183,7 @@ get_network <- function(author.id, doi=NA, works=NA, min_coauthorships=2, verbos
 
     country_string <- ""
     for (i in 1:n_countries_displayed) {
-      country_string <- paste0(country_string, country_codes_repeated$institution_country_code[i], " (", country_codes_repeated$n[i], ")")
+      country_string <- paste0(country_string, country_codes_repeated$country_code[i], " (", country_codes_repeated$n[i], ")")
 
       if (i < n_countries_displayed) {
         country_string <- paste0(country_string, ", ")
@@ -199,21 +210,21 @@ get_network <- function(author.id, doi=NA, works=NA, min_coauthorships=2, verbos
   # return the primary fields of the works (Level 2)
   primary_fields <- apply(works, 1, function(x) {
       topics <- x$topics |> as.data.frame()
-      topics <- topics[topics$i == 1 & topics$name == "field", ]
+      topics <- topics[topics$i == 1 & topics$type == "field", ]
       return(topics$display_name)
     }) |> unlist()
 
   # return all subfields of the works (Level 3)
   subfields <- apply(works, 1, function(x) {
     sf <- x$topics |> as.data.frame()
-    sf <- sf[sf$name == "subfield", ]
+    sf <- sf[sf$type == "subfield", ]
     return(sf$display_name)
   }) |> unlist() |> as.vector()
 
   # return all topics of the works (Level 4)
   topics <- apply(works, 1, function(x) {
     sf <- x$topics |> as.data.frame()
-    sf <- sf[sf$name == "topic", ]
+    sf <- sf[sf$type == "topic", ]
     return(sf$display_name)
   }) |> unlist() |> as.vector()
 
@@ -245,7 +256,7 @@ get_network <- function(author.id, doi=NA, works=NA, min_coauthorships=2, verbos
   colnames(topics_tab) <- c("topic", "n")
   rownames(topics_tab) <- NULL
 
-  # only keep primary_fields that show up in at least 5% of all papers (to remove some wrongly assigned primary_fields)
+  # only keep primary_fields that show up in at least 3% of all papers (to remove some wrongly assigned primary_fields)
   primary_fields_tab_reduced <- primary_fields_tab[primary_fields_tab$n / sum(primary_fields_tab$n) > .03, ]
 
   # compute evenness index, with a maximum of 6 fields

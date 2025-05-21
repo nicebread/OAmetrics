@@ -1,3 +1,8 @@
+# OAmetrics 0.5.0
+
+Adapting to the breaking changes of openalexR >= 2.0.0
+
+
 # OAmetrics 0.2.0
 
 ## Major changes
