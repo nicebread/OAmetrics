@@ -147,7 +147,7 @@ get_network <- function(author.id, doi=NA, works=NA, min_coauthorships=2, verbos
     arrange(-n_coauthorships)
 
   # each row is one unique coauthor
-  # We remove here single co-authorships, as this can be highly inflated by Many-Labs-style papers.
+  # If min_coauthorships > 1, single co-authorships are removed, as this can be highly inflated by Many-Labs-style papers.
   unique_repeated_coauthor_edges <- unique_coauthor_edges %>%
     filter(n_coauthorships >= min_coauthorships)
 
@@ -227,14 +227,25 @@ get_network <- function(author.id, doi=NA, works=NA, min_coauthorships=2, verbos
   }
 
   colnames(primary_fields_tab) <- c("primary_field", "n")
+  rownames(primary_fields_tab) <- NULL
 
   subfields_tab <- table(subfields) |> sort(decreasing=TRUE) |> as.data.frame()
+  if (ncol(subfields_tab) == 1) {
+    subfields_tab2 <- cbind(subfield = rownames(subfields_tab), subfields_tab)
+    subfields_tab <- subfields_tab2
+  }
   colnames(subfields_tab) <- c("subfield", "n")
+  rownames(subfields_tab) <- NULL
 
   topics_tab <- table(topics) |> sort(decreasing=TRUE) |> as.data.frame()
+  if (ncol(topics_tab) == 1) {
+    topics_tab2 <- cbind(topic = rownames(topics_tab), topics_tab)
+    topics_tab <- topics_tab2
+  }
   colnames(topics_tab) <- c("topic", "n")
+  rownames(topics_tab) <- NULL
 
-  # only keep topics that show up in at least 5% of all papers (to remove some wrongly assigned topics)
+  # only keep primary_fields that show up in at least 5% of all papers (to remove some wrongly assigned primary_fields)
   primary_fields_tab_reduced <- primary_fields_tab[primary_fields_tab$n / sum(primary_fields_tab$n) > .03, ]
 
   # compute evenness index, with a maximum of 6 fields
