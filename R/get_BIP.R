@@ -89,7 +89,7 @@ get_BIP <- function(dois, verbose=FALSE) {
   BIP$pop_class <- factor(BIP$pop_class, levels=paste0("C", 1:5), ordered=TRUE)
   BIP$inf_class <- factor(BIP$inf_class, levels=paste0("C", 1:5), ordered=TRUE)
   BIP$imp_class <- factor(BIP$imp_class, levels=paste0("C", 1:5), ordered=TRUE)
-  colnames(BIP)[5] <- "three_year_cc"
+  colnames(BIP)[colnames(BIP) == "3_year_cc"] <- "three_year_cc"
 
   # fix bug in BIP API: Sometimes additional records are added. Reduce to the actual papers.
   BIP <- BIP[BIP$doi %in% dois_minimal, ]
