@@ -1,0 +1,94 @@
+# Compute the Field Normalized Citation Score (FNCS) and Percentage Rank (FNPR) of a publication
+
+The FNCS reflects the impact of a paper relative to a reference set,
+namely publications of the same type (typically, journal articles),
+published in the same year, and in the same field. The “same field” can
+be operationalized, for example, by the top-level concepts as assigned
+by the OpenAlex database. Once a reference set has been compiled, the
+FNCS of a paper is computed as the raw citation count divided by the
+average citation count of papers in the reference set. It can be
+interpreted as a ratio: A value of 1 means that a paper has received as
+many citations as an average paper in the reference set, 2 means that it
+received two times as many citations. The percentage rank is the "CP-EX"
+measure described in Bornmann & Williams (2020), which returns the
+percentage of publications with strictly less citations (and *not* "less
+or equal"). As many publications have 0 citations, the alternative CP-IN
+measure (which return "less or equal") returns often very high
+percentiles although a paper has 0 citations. This is not intuitive. For
+the percentile rank, the function applies a linear interpolation on the
+empirical reference data (cf. Bornmann & Williams, 2020) using a
+function provided by Tal Galili
+(https://stats.stackexchange.com/q/230458). The FNPR is a monotonic
+transformation of the FNCS; except adding new aspects of interpretation
+and providing some robustness against outliers, it doesn't add much more
+information compared to the FNCS.
+
+## Usage
+
+``` r
+FNCS(
+  dois = NULL,
+  papers = NULL,
+  ref_set = NULL,
+  upper_trim = 0,
+  verbose = TRUE
+)
+```
+
+## Arguments
+
+- dois:
+
+  A character vector of the DOI of the paper for which the FNCS should
+  be computed. Citation counts are freshly downloaded by an `oa_fetch`
+  call. Either provide `dois` or `papers`.
+
+- papers:
+
+  A data frame with the papers that should be analyzed, as provided by
+  an `oa_fetch` call. In this case the citation counts and not freshly
+  retrieved, but taken from the object. Either provide `dois` or
+  `papers`.
+
+- ref_set:
+
+  A data frame containing the reference set for the paper of interest.
+  This is an object from the `get_reference_set` function, which needs
+  the following columns: `publication_year` and `cited_by_count`.
+
+- upper_trim:
+
+  A numeric value between 0 and 1 that indicates the fraction of values
+  to be trimmed from the upper end of the reference set. Scheidsteger et
+  al. (2023) remove the upper 1 percent of citation counts when using
+  OpenAlex. This only affects the FNCS, not the percentile rank (FNPR).
+
+- verbose:
+
+  Show diagnostic information?
+
+## Value
+
+A list containing the computed FNCS and the percentile rank of the
+paper. The latter is the CP-EX measure which means "how many citations
+in the reference set have *less* citations than the target paper".
+
+## References
+
+Bornmann, L., & Williams, R. (2020). An evaluation of percentile
+measures of citation impact, and a proposal for making them better.
+Scientometrics, 124(2), 1457–1478.
+https://doi.org/10.1007/s11192-020-03512-7 Scheidsteger, T., Haunschild,
+R., & Bornmann, L. (2023). How similar are field-normalized scores from
+different free or commercial databases calculated for large German
+universities?
+https://dapp.orvium.io/deposits/6441118c643beb0d90fc543f/view
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+# TODO: ref_set does not exist yet
+FNCS(dois = "10.1177/2515245918810225", ref_set = ref_set, upper_trim = .01)
+} # }
+```
