@@ -94,8 +94,14 @@ h_index <- function(search = NULL, display_name = NULL, author.id = NULL, ORCID 
   # retrieve first publication from data set
   if (is.na(first_pub_year)) {
     first_pub_year <- min(works$publication_year)
-    first_work <- works %>% arrange(publication_year) %>% slice(1)
-    maintopic <- first_work$topics[[1]] |> filter(type=="domain") |> slice(1) |> pull(display_name)
+    first_work <- works %>% arrange(publication_date) %>% slice(1)
+    topics <- first_work$topics[[1]]
+    if (length(topics) > 0) {
+      maintopic <- first_work$topics[[1]] |> filter(type=="domain") |> slice(1) |> pull(display_name)
+    } else {
+      maintopic <- "<NA>"
+    }
+
 
     academic_age_note <- paste0("Computation of academic age (relative to first publication):\nRetrieving year of first publication from data: ", first_pub_year, ". \n\nThe first publication is: '", first_work$display_name,"', published in '", first_work$source_display_name, "'. It has the domain '", maintopic, "'. \n\nIs that plausible? If not, provide `first_pub_year` as a parameter. You can see all works of that author with the following command:\n\noa_fetch(entity = 'works', author.id = '", author.id, "', is_paratext = FALSE, is_retracted = FALSE, abstract=FALSE) %>% arrange(publication_year)\n\n")
     cat(academic_age_note)

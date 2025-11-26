@@ -1,3 +1,7 @@
+# OAmetrics 0.5.1
+
+Make get_network() robust if more than 1 author.id is provided.
+
 # OAmetrics 0.5.0
 
 Adapting to the breaking changes of openalexR >= 2.0.0

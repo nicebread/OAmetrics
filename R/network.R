@@ -37,6 +37,7 @@ evenness_index <- function(counts, max_cat) {
 # get_network(author.id = 'https://openalex.org/A5022479713')
 # get_network(author.id = 'https://openalex.org/A5089676027')
 # get_network(author.id = "https://openalex.org/A5031368517")
+# get_network(author.id = c("https://openalex.org/A5031368517", 'https://openalex.org/A5089676027'))
 
 #' @title Get network analysis of co-authorships for a given author or set of works
 #' @description This function performs a network analysis for a given author or set of works, providing indicators for the degree of international collaborations.
@@ -132,7 +133,7 @@ get_network <- function(author.id, doi=NA, works=NA, min_coauthorships=2, verbos
     dplyr::filter(!is.na(country_code))
 
   # own country code is the most frequent code of that person (because that can change over time)
-  own_country_codes <- all_edges %>% filter(id == author.id) %>% pull("country_code")
+  own_country_codes <- all_edges %>% filter(id %in% author.id) %>% pull("country_code")
   own_country_codes_tab <- table(own_country_codes) |> sort(decreasing = TRUE)
   own_country_code <- names(own_country_codes_tab)[1]
 
@@ -147,7 +148,7 @@ get_network <- function(author.id, doi=NA, works=NA, min_coauthorships=2, verbos
   }
 
   all_coauthor_edges <- all_edges %>%
-    filter(id != author.id)
+    filter(!(id %in% author.id))
 
   # each row is one unique coauthor
   unique_coauthor_edges <- all_coauthor_edges %>%

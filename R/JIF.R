@@ -5,7 +5,7 @@
 #'
 #' @param issn The ISSN of the journal
 #' @param year The target year
-#' @param limit Upper limit of papers to be downloaded (random selection). Some mega-journals, such as Scientific Reports, have > 45,000 papers in the two-year time window, which takes multiple to download. Typical journals in psychology have only hundreds of papers. Limiting the papers can give you a slight underestimation, as the JIF is also driven by rare outliers (with huge citation scores), which are only covered when all papers are considered.
+#' @param limit Upper limit of papers to be downloaded (random selection). Some mega-journals, such as Scientific Reports, have > 45,000 papers in the two-year time window, which takes quite some time  to download. Typical journals in psychology have only hundreds of papers. Limiting the papers can give you a slight underestimation, as the JIF is also driven by rare outliers (with huge citation scores), which are only covered when all papers are considered. A limit of 5000 to 10000 should give you pretty stable estimates.
 #' @param verbose Whether to print verbose output (default is FALSE)
 #' @param seed Seed for a random retrieval of papers. If NA (the default), a random seed is chosen.
 #'
