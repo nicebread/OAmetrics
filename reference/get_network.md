@@ -58,61 +58,66 @@ to \[0; 1\].
 ``` r
 # Analyze the network of a specific author
 get_network(author.id = 'https://openalex.org/A5022479713')
-#> Requesting url: https://api.openalex.org/works?filter=author.id%3Ahttps%3A%2F%2Fopenalex.org%2FA5022479713%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse
-#> Getting 2 pages of results with a total of 277 records...
+#> Requesting url:
+#> <https://api.openalex.org/works?filter=author.id%3Ahttps%3A%2F%2Fopenalex.org%2FA5022479713%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse>
+#> ℹ Getting 2 pages of results with a total of 275 records...
+#> ⠙ Converting [90/275] ■■■■■■■■■■■                       33% ETA:  2s
+#> ⠹ Converting [240/275] ■■■■■■■■■■■■■■■■■■■■■■■■■■■       87% ETA:  0s
+#> ⠹ Converting [275/275] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  100% ETA:  0s
+#> 
 #> [1] "Using the provided works."
-#> [1] "270 unique identifiable co-authors with at least 2 joint papers; 73% from 27 international countries, 27% from the same country. The evenness (ranging from 0=only one country to 1=even distribution among all countries) is 0.77. The 4 countries with the most coauthors are: US (73), DE (72), NL (36), GB (24)."
-#> [1] "3 primary fields: Psychology (138), Decision Sciences (47), Computer Science (32). The evenness (ranging from 0=only one field to 1=even distribution among all fields) is 0.5."
+#> [1] "289 unique identifiable co-authors with at least 2 joint papers; 73% from 28 international countries, 27% from the same country. The evenness (ranging from 0=only one country to 1=even distribution among all countries) is 0.77. The 4 countries with the most coauthors are: DE (79), US (74), NL (43), GB (24)."
+#> [1] "3 primary fields: Psychology (136), Decision Sciences (47), Computer Science (32). The evenness (ranging from 0=only one field to 1=even distribution among all fields) is 0.51."
 #> $unique_coauthor_edges
-#> # A tibble: 421 × 3
+#> # A tibble: 428 × 3
 #>    id                               country_code n_coauthorships
 #>    <chr>                            <chr>                  <int>
-#>  1 https://openalex.org/A5056348040 DE                        19
-#>  2 https://openalex.org/A5063079579 NL                        17
-#>  3 https://openalex.org/A5039784616 DE                        16
+#>  1 https://openalex.org/A5056348040 DE                        18
+#>  2 https://openalex.org/A5039784616 DE                        16
+#>  3 https://openalex.org/A5063079579 NL                        16
 #>  4 https://openalex.org/A5052525257 DE                        13
-#>  5 https://openalex.org/A5055189096 DE                        13
-#>  6 https://openalex.org/A5031368517 DE                        11
+#>  5 https://openalex.org/A5031368517 DE                        12
+#>  6 https://openalex.org/A5055189096 DE                        11
 #>  7 https://openalex.org/A5083504666 DE                        11
 #>  8 https://openalex.org/A5089676027 DE                        10
-#>  9 https://openalex.org/A5004432486 DE                         9
-#> 10 https://openalex.org/A5030640837 DE                         9
-#> # ℹ 411 more rows
+#>  9 https://openalex.org/A5000733234 DE                         9
+#> 10 https://openalex.org/A5043481987 DE                         9
+#> # ℹ 418 more rows
 #> 
 #> $n_coauthors_international
-#> [1] 198
+#> [1] 210
 #> 
 #> $n_coauthors_same_country
-#> [1] 72
+#> [1] 79
 #> 
 #> $international_evenness
-#> [1] 0.7695998
+#> [1] 0.7730475
 #> 
 #> $country_codes_repeated
-#> # A tibble: 28 × 2
+#> # A tibble: 29 × 2
 #>    country_code     n
 #>    <chr>        <int>
-#>  1 US              73
-#>  2 DE              72
-#>  3 NL              36
+#>  1 DE              79
+#>  2 US              74
+#>  3 NL              43
 #>  4 GB              24
 #>  5 IT               9
-#>  6 CH               7
-#>  7 SE               7
-#>  8 AT               4
+#>  6 AT               7
+#>  7 CH               7
+#>  8 SE               7
 #>  9 AU               4
 #> 10 ES               4
-#> # ℹ 18 more rows
+#> # ℹ 19 more rows
 #> 
 #> $internationalization_string
-#> [1] "270 unique identifiable co-authors with at least 2 joint papers; 73% from 27 international countries, 27% from the same country. The evenness (ranging from 0=only one country to 1=even distribution among all countries) is 0.77. The 4 countries with the most coauthors are: US (73), DE (72), NL (36), GB (24)."
+#> [1] "289 unique identifiable co-authors with at least 2 joint papers; 73% from 28 international countries, 27% from the same country. The evenness (ranging from 0=only one country to 1=even distribution among all countries) is 0.77. The 4 countries with the most coauthors are: DE (79), US (74), NL (43), GB (24)."
 #> 
 #> $interdisc_evenness
-#> [1] 0.5031129
+#> [1] 0.5054292
 #> 
 #> $primary_fields_tab
 #>                                   primary_field   n
-#> 1                                    Psychology 138
+#> 1                                    Psychology 136
 #> 2                             Decision Sciences  47
 #> 3                              Computer Science  32
 #> 4                            Health Professions   7
@@ -130,18 +135,18 @@ get_network(author.id = 'https://openalex.org/A5022479713')
 #> 
 #> $primary_fields_tab_reduced
 #>       primary_field   n
-#> 1        Psychology 138
+#> 1        Psychology 136
 #> 2 Decision Sciences  47
 #> 3  Computer Science  32
 #> 
 #> $subfields_tab
 #>                                                 subfield  n
-#> 1                  Experimental and Cognitive Psychology 88
+#> 1                  Experimental and Cognitive Psychology 86
 #> 2                                      Social Psychology 84
 #> 3                        Sociology and Political Science 44
 #> 4                Statistics, Probability and Uncertainty 44
-#> 5                                    Clinical Psychology 42
-#> 6                                     Applied Psychology 39
+#> 5                                    Clinical Psychology 41
+#> 6                                     Applied Psychology 38
 #> 7                                    Information Systems 28
 #> 8             Management Science and Operations Research 24
 #> 9                     Information Systems and Management 23
@@ -200,7 +205,7 @@ get_network(author.id = 'https://openalex.org/A5022479713')
 #> 
 #> $topics_tab
 #>                                                                  topic  n
-#> 1                                        Mental Health Research Topics 52
+#> 1                                        Mental Health Research Topics 51
 #> 2                                 Attachment and Relationship Dynamics 25
 #> 3                                  Behavioral Health and Interventions 23
 #> 4                                 Meta-analysis and systematic reviews 23
@@ -209,14 +214,14 @@ get_network(author.id = 'https://openalex.org/A5022479713')
 #> 7                           Evolutionary Psychology and Human Behavior 19
 #> 8                             Scientific Computing and Data Management 18
 #> 9                                     Social and Intergroup Psychology 18
-#> 10                                   Personality Traits and Psychology 17
-#> 11                           scientometrics and bibliometrics research 17
-#> 12                                Psychological Testing and Assessment 13
-#> 13                            Advanced Statistical Modeling Techniques 12
-#> 14                                  Death Anxiety and Social Exclusion 12
+#> 10                           scientometrics and bibliometrics research 17
+#> 11                                   Personality Traits and Psychology 16
+#> 12                            Advanced Statistical Modeling Techniques 12
+#> 13                                  Death Anxiety and Social Exclusion 12
+#> 14                                Psychological Testing and Assessment 12
 #> 15                           Personality Disorders and Psychopathology 11
-#> 16                                     Cognitive Abilities and Testing  9
-#> 17                  Academic and Historical Perspectives in Psychology  8
+#> 16                  Academic and Historical Perspectives in Psychology  8
+#> 17                                     Cognitive Abilities and Testing  8
 #> 18                               Evaluation and Performance Assessment  8
 #> 19                              Statistical Methods in Clinical Trials  8
 #> 20                      Psychological Well-being and Life Satisfaction  7
@@ -368,7 +373,7 @@ get_network(author.id = 'https://openalex.org/A5022479713')
 #> 166                        demographic modeling and climate adaptation  1
 #> 
 #> $interdisc_string
-#> [1] "3 primary fields: Psychology (138), Decision Sciences (47), Computer Science (32). The evenness (ranging from 0=only one field to 1=even distribution among all fields) is 0.5."
+#> [1] "3 primary fields: Psychology (136), Decision Sciences (47), Computer Science (32). The evenness (ranging from 0=only one field to 1=even distribution among all fields) is 0.51."
 #> 
 # Analyze the network of a specific author for selected works
 get_network(author.id = 'https://openalex.org/A5022479713',
@@ -377,27 +382,28 @@ get_network(author.id = 'https://openalex.org/A5022479713',
         'https://doi.org/10.1017/S0033291722003294',
         'https://doi.org/10.5964/ps.6029',
         'https://doi.org/10.1146/annurev-psych-020821-114157'))
-#> Requesting url: https://api.openalex.org/works?filter=doi%3Ahttps%3A%2F%2Fdoi.org%2F10.1037%2Fpspp0000428%7Chttps%3A%2F%2Fdoi.org%2F10.1017%2FS0033291722003294%7Chttps%3A%2F%2Fdoi.org%2F10.5964%2Fps.6029%7Chttps%3A%2F%2Fdoi.org%2F10.1146%2Fannurev-psych-020821-114157%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse
-#> Getting 1 page of results with a total of 3 records...
+#> Requesting url:
+#> <https://api.openalex.org/works?filter=doi%3Ahttps%3A%2F%2Fdoi.org%2F10.1037%2Fpspp0000428%7Chttps%3A%2F%2Fdoi.org%2F10.1017%2FS0033291722003294%7Chttps%3A%2F%2Fdoi.org%2F10.5964%2Fps.6029%7Chttps%3A%2F%2Fdoi.org%2F10.1146%2Fannurev-psych-020821-114157%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse>
+#> ℹ Getting 1 page of results with a total of 4 records...
 #> Warning: Only one country present, setting evenness index to 0.
 #> [1] "0 unique identifiable co-authors with at least 2 joint papers; NaN% from -1 international countries, NaN% from the same country. The evenness (ranging from 0=only one country to 1=even distribution among all countries) is 0."
 #> Warning: Only one field present, setting evenness index to 0.
-#> [1] "1 primary fields: Psychology (3). The evenness (ranging from 0=only one field to 1=even distribution among all fields) is 0."
+#> [1] "1 primary fields: Psychology (4). The evenness (ranging from 0=only one field to 1=even distribution among all fields) is 0."
 #> $unique_coauthor_edges
-#> # A tibble: 24 × 3
+#> # A tibble: 35 × 3
 #>    id                               country_code n_coauthorships
 #>    <chr>                            <chr>                  <int>
-#>  1 https://openalex.org/A5004866926 NL                         1
-#>  2 https://openalex.org/A5006406097 AU                         1
-#>  3 https://openalex.org/A5011404541 AU                         1
-#>  4 https://openalex.org/A5017494791 DE                         1
-#>  5 https://openalex.org/A5021314811 SE                         1
-#>  6 https://openalex.org/A5027185097 US                         1
-#>  7 https://openalex.org/A5027778611 DE                         1
-#>  8 https://openalex.org/A5030640837 DE                         1
-#>  9 https://openalex.org/A5031368517 DE                         1
-#> 10 https://openalex.org/A5032088990 US                         1
-#> # ℹ 14 more rows
+#>  1 https://openalex.org/A5001668502 DE                         1
+#>  2 https://openalex.org/A5004866926 NL                         1
+#>  3 https://openalex.org/A5006406097 AU                         1
+#>  4 https://openalex.org/A5011404541 AU                         1
+#>  5 https://openalex.org/A5015649291 NL                         1
+#>  6 https://openalex.org/A5017494791 DE                         1
+#>  7 https://openalex.org/A5021314811 SE                         1
+#>  8 https://openalex.org/A5027185097 US                         1
+#>  9 https://openalex.org/A5027692708 DE                         1
+#> 10 https://openalex.org/A5027778611 DE                         1
+#> # ℹ 25 more rows
 #> 
 #> $n_coauthors_international
 #> [1] 0
@@ -420,29 +426,32 @@ get_network(author.id = 'https://openalex.org/A5022479713',
 #> 
 #> $primary_fields_tab
 #>   primary_field n
-#> 1    Psychology 3
+#> 1    Psychology 4
 #> 
 #> $primary_fields_tab_reduced
 #>   primary_field n
-#> 1    Psychology 3
+#> 1    Psychology 4
 #> 
 #> $subfields_tab
 #>                                  subfield n
-#> 1   Experimental and Cognitive Psychology 3
+#> 1   Experimental and Cognitive Psychology 5
 #> 2 Statistics, Probability and Uncertainty 2
-#> 3                  Cognitive Neuroscience 1
-#> 4    Computer Networks and Communications 1
-#> 5         Sociology and Political Science 1
+#> 3                      Applied Psychology 1
+#> 4                  Cognitive Neuroscience 1
+#> 5    Computer Networks and Communications 1
+#> 6         Sociology and Political Science 1
 #> 
 #> $topics_tab
-#>                                       topic n
-#> 1             Mental Health Research Topics 3
-#> 2      Meta-analysis and systematic reviews 2
-#> 3  Advanced Statistical Modeling Techniques 1
-#> 4     Functional Brain Connectivity Studies 1
-#> 5 Qualitative Comparative Analysis Research 1
+#>                                                                topic n
+#> 1                                      Mental Health Research Topics 4
+#> 2                               Meta-analysis and systematic reviews 2
+#> 3                           Advanced Statistical Modeling Techniques 1
+#> 4 Anxiety, Depression, Psychometrics, Treatment, Cognitive Processes 1
+#> 5                                Digital Mental Health Interventions 1
+#> 6                              Functional Brain Connectivity Studies 1
+#> 7                          Qualitative Comparative Analysis Research 1
 #> 
 #> $interdisc_string
-#> [1] "1 primary fields: Psychology (3). The evenness (ranging from 0=only one field to 1=even distribution among all fields) is 0."
+#> [1] "1 primary fields: Psychology (4). The evenness (ranging from 0=only one field to 1=even distribution among all fields) is 0."
 #> 
 ```

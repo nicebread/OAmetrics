@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">OAmetrics</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,61 +85,66 @@ it by log_2(n_countries), which bounds its range to [0; 1].</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Analyze the network of a specific author</span></span></span>
 <span class="r-in"><span><span class="fu">get_network</span><span class="op">(</span>author.id <span class="op">=</span> <span class="st">'https://openalex.org/A5022479713'</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=author.id%3Ahttps%3A%2F%2Fopenalex.org%2FA5022479713%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 2 pages of results with a total of 277 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=author.id%3Ahttps%3A%2F%2Fopenalex.org%2FA5022479713%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse&gt;</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 2 pages of results with a total of 275 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ Converting [90/275] <span style="color: #00BB00;">■■■■■■■■■■■                     </span>  33% ETA:  2s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠹ Converting [240/275] <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■■     </span>  87% ETA:  0s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ⠹ Converting [275/275] <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ </span> 100% ETA:  0s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Using the provided works."</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "270 unique identifiable co-authors with at least 2 joint papers; 73% from 27 international countries, 27% from the same country. The evenness (ranging from 0=only one country to 1=even distribution among all countries) is 0.77. The 4 countries with the most coauthors are: US (73), DE (72), NL (36), GB (24)."</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "3 primary fields: Psychology (138), Decision Sciences (47), Computer Science (32). The evenness (ranging from 0=only one field to 1=even distribution among all fields) is 0.5."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "289 unique identifiable co-authors with at least 2 joint papers; 73% from 28 international countries, 27% from the same country. The evenness (ranging from 0=only one country to 1=even distribution among all countries) is 0.77. The 4 countries with the most coauthors are: DE (79), US (74), NL (43), GB (24)."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "3 primary fields: Psychology (136), Decision Sciences (47), Computer Science (32). The evenness (ranging from 0=only one field to 1=even distribution among all fields) is 0.51."</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $unique_coauthor_edges</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 421 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 428 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    id                               country_code n_coauthorships</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> https://openalex.org/A5056348040 DE                        19</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> https://openalex.org/A5063079579 NL                        17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> https://openalex.org/A5039784616 DE                        16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> https://openalex.org/A5056348040 DE                        18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> https://openalex.org/A5039784616 DE                        16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> https://openalex.org/A5063079579 NL                        16</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> https://openalex.org/A5052525257 DE                        13</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> https://openalex.org/A5055189096 DE                        13</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> https://openalex.org/A5031368517 DE                        11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> https://openalex.org/A5031368517 DE                        12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> https://openalex.org/A5055189096 DE                        11</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> https://openalex.org/A5083504666 DE                        11</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> https://openalex.org/A5089676027 DE                        10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> https://openalex.org/A5004432486 DE                         9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> https://openalex.org/A5030640837 DE                         9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 411 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> https://openalex.org/A5000733234 DE                         9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> https://openalex.org/A5043481987 DE                         9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 418 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $n_coauthors_international</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 198</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 210</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $n_coauthors_same_country</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 72</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 79</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $international_evenness</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.7695998</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.7730475</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $country_codes_repeated</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 28 × 2</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 29 × 2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    country_code     n</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> US              73</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> DE              72</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> NL              36</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> DE              79</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> US              74</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> NL              43</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> GB              24</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> IT               9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> CH               7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> SE               7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> AT               4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> AT               7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> CH               7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> SE               7</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> AU               4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> ES               4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 18 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 19 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $internationalization_string</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "270 unique identifiable co-authors with at least 2 joint papers; 73% from 27 international countries, 27% from the same country. The evenness (ranging from 0=only one country to 1=even distribution among all countries) is 0.77. The 4 countries with the most coauthors are: US (73), DE (72), NL (36), GB (24)."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "289 unique identifiable co-authors with at least 2 joint papers; 73% from 28 international countries, 27% from the same country. The evenness (ranging from 0=only one country to 1=even distribution among all countries) is 0.77. The 4 countries with the most coauthors are: DE (79), US (74), NL (43), GB (24)."</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $interdisc_evenness</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.5031129</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.5054292</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $primary_fields_tab</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                   primary_field   n</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                    Psychology 138</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                    Psychology 136</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2                             Decision Sciences  47</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3                              Computer Science  32</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4                            Health Professions   7</span>
@@ -157,18 +162,18 @@ it by log_2(n_countries), which bounds its range to [0; 1].</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $primary_fields_tab_reduced</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       primary_field   n</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1        Psychology 138</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1        Psychology 136</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2 Decision Sciences  47</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3  Computer Science  32</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $subfields_tab</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                 subfield  n</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                  Experimental and Cognitive Psychology 88</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                  Experimental and Cognitive Psychology 86</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2                                      Social Psychology 84</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3                        Sociology and Political Science 44</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4                Statistics, Probability and Uncertainty 44</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                    Clinical Psychology 42</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                     Applied Psychology 39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                    Clinical Psychology 41</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                     Applied Psychology 38</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 7                                    Information Systems 28</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 8             Management Science and Operations Research 24</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 9                     Information Systems and Management 23</span>
@@ -227,7 +232,7 @@ it by log_2(n_countries), which bounds its range to [0; 1].</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $topics_tab</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                  topic  n</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                        Mental Health Research Topics 52</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                        Mental Health Research Topics 51</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2                                 Attachment and Relationship Dynamics 25</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3                                  Behavioral Health and Interventions 23</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4                                 Meta-analysis and systematic reviews 23</span>
@@ -236,14 +241,14 @@ it by log_2(n_countries), which bounds its range to [0; 1].</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 7                           Evolutionary Psychology and Human Behavior 19</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 8                             Scientific Computing and Data Management 18</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 9                                     Social and Intergroup Psychology 18</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                                   Personality Traits and Psychology 17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                           scientometrics and bibliometrics research 17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                Psychological Testing and Assessment 13</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                            Advanced Statistical Modeling Techniques 12</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                                  Death Anxiety and Social Exclusion 12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10                           scientometrics and bibliometrics research 17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11                                   Personality Traits and Psychology 16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12                            Advanced Statistical Modeling Techniques 12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13                                  Death Anxiety and Social Exclusion 12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14                                Psychological Testing and Assessment 12</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 15                           Personality Disorders and Psychopathology 11</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                                     Cognitive Abilities and Testing  9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17                  Academic and Historical Perspectives in Psychology  8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16                  Academic and Historical Perspectives in Psychology  8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17                                     Cognitive Abilities and Testing  8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 18                               Evaluation and Performance Assessment  8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 19                              Statistical Methods in Clinical Trials  8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 20                      Psychological Well-being and Life Satisfaction  7</span>
@@ -395,7 +400,7 @@ it by log_2(n_countries), which bounds its range to [0; 1].</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 166                        demographic modeling and climate adaptation  1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $interdisc_string</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "3 primary fields: Psychology (138), Decision Sciences (47), Computer Science (32). The evenness (ranging from 0=only one field to 1=even distribution among all fields) is 0.5."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "3 primary fields: Psychology (136), Decision Sciences (47), Computer Science (32). The evenness (ranging from 0=only one field to 1=even distribution among all fields) is 0.51."</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="co"># Analyze the network of a specific author for selected works</span></span></span>
 <span class="r-in"><span><span class="fu">get_network</span><span class="op">(</span>author.id <span class="op">=</span> <span class="st">'https://openalex.org/A5022479713'</span>,</span></span>
@@ -404,27 +409,28 @@ it by log_2(n_countries), which bounds its range to [0; 1].</p>
 <span class="r-in"><span>        <span class="st">'https://doi.org/10.1017/S0033291722003294'</span>,</span></span>
 <span class="r-in"><span>        <span class="st">'https://doi.org/10.5964/ps.6029'</span>,</span></span>
 <span class="r-in"><span>        <span class="st">'https://doi.org/10.1146/annurev-psych-020821-114157'</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=doi%3Ahttps%3A%2F%2Fdoi.org%2F10.1037%2Fpspp0000428%7Chttps%3A%2F%2Fdoi.org%2F10.1017%2FS0033291722003294%7Chttps%3A%2F%2Fdoi.org%2F10.5964%2Fps.6029%7Chttps%3A%2F%2Fdoi.org%2F10.1146%2Fannurev-psych-020821-114157%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 3 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=doi%3Ahttps%3A%2F%2Fdoi.org%2F10.1037%2Fpspp0000428%7Chttps%3A%2F%2Fdoi.org%2F10.1017%2FS0033291722003294%7Chttps%3A%2F%2Fdoi.org%2F10.5964%2Fps.6029%7Chttps%3A%2F%2Fdoi.org%2F10.1146%2Fannurev-psych-020821-114157%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse&gt;</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 4 records...</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Only one country present, setting evenness index to 0.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "0 unique identifiable co-authors with at least 2 joint papers; NaN% from -1 international countries, NaN% from the same country. The evenness (ranging from 0=only one country to 1=even distribution among all countries) is 0."</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Only one field present, setting evenness index to 0.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1 primary fields: Psychology (3). The evenness (ranging from 0=only one field to 1=even distribution among all fields) is 0."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1 primary fields: Psychology (4). The evenness (ranging from 0=only one field to 1=even distribution among all fields) is 0."</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $unique_coauthor_edges</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 24 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 35 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    id                               country_code n_coauthorships</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> https://openalex.org/A5004866926 NL                         1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> https://openalex.org/A5006406097 AU                         1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> https://openalex.org/A5011404541 AU                         1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> https://openalex.org/A5017494791 DE                         1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> https://openalex.org/A5021314811 SE                         1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> https://openalex.org/A5027185097 US                         1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> https://openalex.org/A5027778611 DE                         1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> https://openalex.org/A5030640837 DE                         1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> https://openalex.org/A5031368517 DE                         1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> https://openalex.org/A5032088990 US                         1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 14 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> https://openalex.org/A5001668502 DE                         1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> https://openalex.org/A5004866926 NL                         1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> https://openalex.org/A5006406097 AU                         1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> https://openalex.org/A5011404541 AU                         1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> https://openalex.org/A5015649291 NL                         1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> https://openalex.org/A5017494791 DE                         1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> https://openalex.org/A5021314811 SE                         1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> https://openalex.org/A5027185097 US                         1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> https://openalex.org/A5027692708 DE                         1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> https://openalex.org/A5027778611 DE                         1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 25 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $n_coauthors_international</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
@@ -447,30 +453,33 @@ it by log_2(n_countries), which bounds its range to [0; 1].</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $primary_fields_tab</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   primary_field n</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1    Psychology 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1    Psychology 4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $primary_fields_tab_reduced</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   primary_field n</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1    Psychology 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1    Psychology 4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $subfields_tab</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                  subfield n</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   Experimental and Cognitive Psychology 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   Experimental and Cognitive Psychology 5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2 Statistics, Probability and Uncertainty 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                  Cognitive Neuroscience 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4    Computer Networks and Communications 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5         Sociology and Political Science 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                      Applied Psychology 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                  Cognitive Neuroscience 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5    Computer Networks and Communications 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6         Sociology and Political Science 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $topics_tab</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                       topic n</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1             Mental Health Research Topics 3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2      Meta-analysis and systematic reviews 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  Advanced Statistical Modeling Techniques 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4     Functional Brain Connectivity Studies 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 Qualitative Comparative Analysis Research 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                topic n</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                      Mental Health Research Topics 4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                               Meta-analysis and systematic reviews 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                           Advanced Statistical Modeling Techniques 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 Anxiety, Depression, Psychometrics, Treatment, Cognitive Processes 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                Digital Mental Health Interventions 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                              Functional Brain Connectivity Studies 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7                          Qualitative Comparative Analysis Research 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $interdisc_string</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1 primary fields: Psychology (3). The evenness (ranging from 0=only one field to 1=even distribution among all fields) is 0."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1 primary fields: Psychology (4). The evenness (ranging from 0=only one field to 1=even distribution among all fields) is 0."</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

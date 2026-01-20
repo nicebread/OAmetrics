@@ -51,17 +51,17 @@ get_JIF(issn="0022-3514", year=2018)  # JPSP
 #>                                        journal      issn year paper_limit
 #> 1 Journal of Personality and Social Psychology 0022-3514 2018          NA
 #>   total_citations citable_items      JIF
-#> 1            1804           214 8.429907
+#> 1            1807           212 8.523585
 get_JIF(issn="0890-2070", year=2019)  # EJP
 #>                           journal      issn year paper_limit total_citations
-#> 1 European Journal of Personality 0890-2070 2019          NA             451
+#> 1 European Journal of Personality 0890-2070 2019          NA             453
 #>   citable_items      JIF
-#> 1            85 5.305882
+#> 1            86 5.267442
 # Scientific Reports; according to website the JIF is 3.8 in 2023
 get_JIF(issn="2045-2322", year=2023, limit=5000)
-#> Warning: The journal published 47176 works in the two-year time window. Limiting to n=5000 random papers.
+#> Warning: The journal published 47182 works in the two-year time window. Limiting to n=5000 random papers.
 #>              journal      issn year paper_limit total_citations citable_items
-#> 1 Scientific Reports 2045-2322 2023        5000           25229          5000
-#>      JIF
-#> 1 5.0458
+#> 1 Scientific Reports 2045-2322 2023        5000           24765          5000
+#>     JIF
+#> 1 4.953
 ```

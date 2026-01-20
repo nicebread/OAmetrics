@@ -11,7 +11,7 @@ Ideally, this should be cached locally. OpenAlex will only return random samples
 
     <a class="navbar-brand me-2" href="../index.html">OAmetrics</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -119,189 +119,225 @@ Ideally, this should be cached locally. OpenAlex will only return random samples
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Year 2018: sampling 10 per month</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 01: 2018-01-01 --&gt; 2018-01-31</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2018%2Cfrom_publication_date%3A2018-01-01%2Cto_publication_date%3A2018-01-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201843&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2018%2Cfrom_publication_date%3A2018-01-01%2Cto_publication_date%3A2018-01-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201843&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 02: 2018-02-01 --&gt; 2018-02-28</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2018%2Cfrom_publication_date%3A2018-02-01%2Cto_publication_date%3A2018-02-28%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201844&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2018%2Cfrom_publication_date%3A2018-02-01%2Cto_publication_date%3A2018-02-28%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201844&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 03: 2018-03-01 --&gt; 2018-03-31</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2018%2Cfrom_publication_date%3A2018-03-01%2Cto_publication_date%3A2018-03-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201845&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2018%2Cfrom_publication_date%3A2018-03-01%2Cto_publication_date%3A2018-03-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201845&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 04: 2018-04-01 --&gt; 2018-04-30</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2018%2Cfrom_publication_date%3A2018-04-01%2Cto_publication_date%3A2018-04-30%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201846&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2018%2Cfrom_publication_date%3A2018-04-01%2Cto_publication_date%3A2018-04-30%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201846&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 05: 2018-05-01 --&gt; 2018-05-31</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2018%2Cfrom_publication_date%3A2018-05-01%2Cto_publication_date%3A2018-05-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201847&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2018%2Cfrom_publication_date%3A2018-05-01%2Cto_publication_date%3A2018-05-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201847&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 06: 2018-06-01 --&gt; 2018-06-30</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2018%2Cfrom_publication_date%3A2018-06-01%2Cto_publication_date%3A2018-06-30%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201848&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2018%2Cfrom_publication_date%3A2018-06-01%2Cto_publication_date%3A2018-06-30%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201848&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 07: 2018-07-01 --&gt; 2018-07-31</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2018%2Cfrom_publication_date%3A2018-07-01%2Cto_publication_date%3A2018-07-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201849&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2018%2Cfrom_publication_date%3A2018-07-01%2Cto_publication_date%3A2018-07-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201849&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 08: 2018-08-01 --&gt; 2018-08-31</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2018%2Cfrom_publication_date%3A2018-08-01%2Cto_publication_date%3A2018-08-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201850&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2018%2Cfrom_publication_date%3A2018-08-01%2Cto_publication_date%3A2018-08-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201850&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 09: 2018-09-01 --&gt; 2018-09-30</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2018%2Cfrom_publication_date%3A2018-09-01%2Cto_publication_date%3A2018-09-30%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201851&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2018%2Cfrom_publication_date%3A2018-09-01%2Cto_publication_date%3A2018-09-30%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201851&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 10: 2018-10-01 --&gt; 2018-10-31</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2018%2Cfrom_publication_date%3A2018-10-01%2Cto_publication_date%3A2018-10-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201852&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2018%2Cfrom_publication_date%3A2018-10-01%2Cto_publication_date%3A2018-10-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201852&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 11: 2018-11-01 --&gt; 2018-11-30</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2018%2Cfrom_publication_date%3A2018-11-01%2Cto_publication_date%3A2018-11-30%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201853&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2018%2Cfrom_publication_date%3A2018-11-01%2Cto_publication_date%3A2018-11-30%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201853&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 12: 2018-12-01 --&gt; 2018-12-31</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2018%2Cfrom_publication_date%3A2018-12-01%2Cto_publication_date%3A2018-12-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201854&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2018%2Cfrom_publication_date%3A2018-12-01%2Cto_publication_date%3A2018-12-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201854&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Year 2018 completed in 0.1 min</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Year 2018 completed in 0.2 min</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Year 2019: sampling 10 per month</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 01: 2019-01-01 --&gt; 2019-01-31</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2019%2Cfrom_publication_date%3A2019-01-01%2Cto_publication_date%3A2019-01-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201943&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2019%2Cfrom_publication_date%3A2019-01-01%2Cto_publication_date%3A2019-01-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201943&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 02: 2019-02-01 --&gt; 2019-02-28</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2019%2Cfrom_publication_date%3A2019-02-01%2Cto_publication_date%3A2019-02-28%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201944&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2019%2Cfrom_publication_date%3A2019-02-01%2Cto_publication_date%3A2019-02-28%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201944&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 03: 2019-03-01 --&gt; 2019-03-31</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2019%2Cfrom_publication_date%3A2019-03-01%2Cto_publication_date%3A2019-03-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201945&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2019%2Cfrom_publication_date%3A2019-03-01%2Cto_publication_date%3A2019-03-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201945&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 04: 2019-04-01 --&gt; 2019-04-30</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2019%2Cfrom_publication_date%3A2019-04-01%2Cto_publication_date%3A2019-04-30%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201946&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2019%2Cfrom_publication_date%3A2019-04-01%2Cto_publication_date%3A2019-04-30%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201946&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 05: 2019-05-01 --&gt; 2019-05-31</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2019%2Cfrom_publication_date%3A2019-05-01%2Cto_publication_date%3A2019-05-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201947&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2019%2Cfrom_publication_date%3A2019-05-01%2Cto_publication_date%3A2019-05-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201947&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 06: 2019-06-01 --&gt; 2019-06-30</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2019%2Cfrom_publication_date%3A2019-06-01%2Cto_publication_date%3A2019-06-30%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201948&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2019%2Cfrom_publication_date%3A2019-06-01%2Cto_publication_date%3A2019-06-30%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201948&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 07: 2019-07-01 --&gt; 2019-07-31</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2019%2Cfrom_publication_date%3A2019-07-01%2Cto_publication_date%3A2019-07-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201949&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2019%2Cfrom_publication_date%3A2019-07-01%2Cto_publication_date%3A2019-07-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201949&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 08: 2019-08-01 --&gt; 2019-08-31</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2019%2Cfrom_publication_date%3A2019-08-01%2Cto_publication_date%3A2019-08-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201950&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2019%2Cfrom_publication_date%3A2019-08-01%2Cto_publication_date%3A2019-08-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201950&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 09: 2019-09-01 --&gt; 2019-09-30</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2019%2Cfrom_publication_date%3A2019-09-01%2Cto_publication_date%3A2019-09-30%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201951&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2019%2Cfrom_publication_date%3A2019-09-01%2Cto_publication_date%3A2019-09-30%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201951&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 10: 2019-10-01 --&gt; 2019-10-31</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2019%2Cfrom_publication_date%3A2019-10-01%2Cto_publication_date%3A2019-10-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201952&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2019%2Cfrom_publication_date%3A2019-10-01%2Cto_publication_date%3A2019-10-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201952&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 11: 2019-11-01 --&gt; 2019-11-30</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2019%2Cfrom_publication_date%3A2019-11-01%2Cto_publication_date%3A2019-11-30%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201953&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2019%2Cfrom_publication_date%3A2019-11-01%2Cto_publication_date%3A2019-11-30%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201953&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 12: 2019-12-01 --&gt; 2019-12-31</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2019%2Cfrom_publication_date%3A2019-12-01%2Cto_publication_date%3A2019-12-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201954&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2019%2Cfrom_publication_date%3A2019-12-01%2Cto_publication_date%3A2019-12-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=201954&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Year 2019 completed in 0.1 min</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Year 2019 completed in 0.2 min</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Year 2020: sampling 10 per month</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 01: 2020-01-01 --&gt; 2020-01-31</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2020%2Cfrom_publication_date%3A2020-01-01%2Cto_publication_date%3A2020-01-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=202043&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2020%2Cfrom_publication_date%3A2020-01-01%2Cto_publication_date%3A2020-01-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=202043&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 02: 2020-02-01 --&gt; 2020-02-29</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2020%2Cfrom_publication_date%3A2020-02-01%2Cto_publication_date%3A2020-02-29%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=202044&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2020%2Cfrom_publication_date%3A2020-02-01%2Cto_publication_date%3A2020-02-29%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=202044&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 03: 2020-03-01 --&gt; 2020-03-31</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2020%2Cfrom_publication_date%3A2020-03-01%2Cto_publication_date%3A2020-03-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=202045&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2020%2Cfrom_publication_date%3A2020-03-01%2Cto_publication_date%3A2020-03-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=202045&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 04: 2020-04-01 --&gt; 2020-04-30</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2020%2Cfrom_publication_date%3A2020-04-01%2Cto_publication_date%3A2020-04-30%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=202046&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2020%2Cfrom_publication_date%3A2020-04-01%2Cto_publication_date%3A2020-04-30%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=202046&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 05: 2020-05-01 --&gt; 2020-05-31</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2020%2Cfrom_publication_date%3A2020-05-01%2Cto_publication_date%3A2020-05-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=202047&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2020%2Cfrom_publication_date%3A2020-05-01%2Cto_publication_date%3A2020-05-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=202047&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 06: 2020-06-01 --&gt; 2020-06-30</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2020%2Cfrom_publication_date%3A2020-06-01%2Cto_publication_date%3A2020-06-30%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=202048&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2020%2Cfrom_publication_date%3A2020-06-01%2Cto_publication_date%3A2020-06-30%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=202048&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 07: 2020-07-01 --&gt; 2020-07-31</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2020%2Cfrom_publication_date%3A2020-07-01%2Cto_publication_date%3A2020-07-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=202049&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2020%2Cfrom_publication_date%3A2020-07-01%2Cto_publication_date%3A2020-07-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=202049&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 08: 2020-08-01 --&gt; 2020-08-31</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2020%2Cfrom_publication_date%3A2020-08-01%2Cto_publication_date%3A2020-08-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=202050&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2020%2Cfrom_publication_date%3A2020-08-01%2Cto_publication_date%3A2020-08-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=202050&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 09: 2020-09-01 --&gt; 2020-09-30</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2020%2Cfrom_publication_date%3A2020-09-01%2Cto_publication_date%3A2020-09-30%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=202051&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2020%2Cfrom_publication_date%3A2020-09-01%2Cto_publication_date%3A2020-09-30%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=202051&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 10: 2020-10-01 --&gt; 2020-10-31</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2020%2Cfrom_publication_date%3A2020-10-01%2Cto_publication_date%3A2020-10-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=202052&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2020%2Cfrom_publication_date%3A2020-10-01%2Cto_publication_date%3A2020-10-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=202052&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 11: 2020-11-01 --&gt; 2020-11-30</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2020%2Cfrom_publication_date%3A2020-11-01%2Cto_publication_date%3A2020-11-30%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=202053&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2020%2Cfrom_publication_date%3A2020-11-01%2Cto_publication_date%3A2020-11-30%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=202053&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   Month 12: 2020-12-01 --&gt; 2020-12-31</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> -&gt; Fetch attempt 1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url: https://api.openalex.org/works?filter=publication_year%3A2020%2Cfrom_publication_date%3A2020-12-01%2Cto_publication_date%3A2020-12-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=202054&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Requesting url:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://api.openalex.org/works?filter=publication_year%3A2020%2Cfrom_publication_date%3A2020-12-01%2Cto_publication_date%3A2020-12-31%2Cconcept.id%3AC15744967%2Ctype%3Aarticle%2Cis_paratext%3Afalse%2Cis_retracted%3Afalse%2Cauthors_count%3A%3E0%2Chas_doi%3Atrue%2Cprimary_location.source.has_issn%3Atrue&amp;sample=10&amp;seed=202054&amp;select=id%2Cauthorships%2Cpublication_year%2Ccited_by_count&gt;</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Using basic paging...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Getting 1 page of results with a total of 10 records...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Year 2020 completed in 0.1 min</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Getting 1 page of results with a total of 10 records...</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Year 2020 completed in 0.3 min</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="co"># Get a large reference set for psychology. Save intermediate (yearly)</span></span></span>

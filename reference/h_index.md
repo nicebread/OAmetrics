@@ -42,7 +42,8 @@ h_index(
 - first_pub_year:
 
   An integer with the year of the author's first publication. If not
-  provided, it is estimated from the retrieved publications.
+  provided, it is estimated from the retrieved publications. This is
+  used to compute the age-corrected h_Ia index.
 
 - academic_age_bonus:
 
@@ -83,15 +84,12 @@ the `author.id` parameter.
 
 ``` r
 h_index(search = "Felix Schönbrodt")
-#> # A tibble: 4 × 4
-#>   id                               display_name       works_count cited_by_count
-#>   <chr>                            <chr>                    <int>          <int>
-#> 1 https://openalex.org/A5022479713 Felix D. Schönbro…         280          14028
-#> 2 https://openalex.org/A2775945403 Felix Schönbrodt           344              2
-#> 3 https://openalex.org/A1760078977 Felix D. Schönbro…           6              0
-#> 4 https://openalex.org/A5097497531 Felix D. Schönbro…           1              0
-#> Multiple author IDs have substantial citation count - merged author IDs. Please check if they are correct.
+#> A unique author record has been found: 
 #> 
+#> # A tibble: 1 × 3
+#>   display_name        works_count cited_by_count
+#>   <chr>                     <int>          <int>
+#> 1 Felix D. Schönbrodt         280          14159
 #> Computation of academic age (relative to first publication):
 #> Retrieving year of first publication from data: 2006. 
 #> 
@@ -101,30 +99,21 @@ h_index(search = "Felix Schönbrodt")
 #> 
 #> oa_fetch(entity = 'works', author.id = 'https://openalex.org/A5022479713', is_paratext = FALSE, is_retracted = FALSE, abstract=FALSE) %>% arrange(publication_year)
 #> 
-#>  Computation of academic age (relative to first publication):
-#> Retrieving year of first publication from data: 2006. 
-#> 
-#> The first publication is: 'Das Evolutionäre Motivprofil - Entwicklung eines Motivfragebogens zum "Zürcher Modell sozialer Motivation" und seine Validierung an der PRF-D, dem MMG sowie biographischen Angaben', published in 'PsyDok Dokumentenserver für die Psychologie (Leibniz-Zentrum für Psychologische Information und Dokumentation)'. It has the domain 'Social Sciences'. 
-#> 
-#> Is that plausible? If not, provide `first_pub_year` as a parameter. You can see all works of that author with the following command:
-#> 
-#> oa_fetch(entity = 'works', author.id = 'https://openalex.org/A2775945403', is_paratext = FALSE, is_retracted = FALSE, abstract=FALSE) %>% arrange(publication_year)
-#> 
 #> $net_academic_age
-#> [1] 19
+#> [1] 20
 #> 
 #> $h_index
-#> [1] 38
+#> [1] 39
 #> 
 #> $h_Ia
-#> [1] 1.105263
+#> [1] 1.05
 #> 
 #> $first_publication
-#> # A tibble: 1 × 43
+#> # A tibble: 1 × 45
 #>   id      title display_name authorships doi   publication_date publication_year
 #>   <chr>   <chr> <chr>        <list>      <chr> <date>                      <int>
 #> 1 https:… "Das… "Das Evolut… <tibble>    http… 2006-01-01                   2006
-#> # ℹ 36 more variables: fwci <dbl>, cited_by_count <int>, counts_by_year <list>,
+#> # ℹ 38 more variables: fwci <dbl>, cited_by_count <int>, counts_by_year <list>,
 #> #   ids <list>, type <chr>, is_oa <lgl>, is_oa_anywhere <lgl>, oa_status <chr>,
 #> #   oa_url <chr>, any_repository_has_fulltext <lgl>, source_display_name <chr>,
 #> #   source_id <chr>, issn_l <chr>, host_organization <chr>,
@@ -134,7 +123,6 @@ h_index(search = "Felix Schönbrodt")
 #> 
 #> $academic_age_note
 #> [1] "Computation of academic age (relative to first publication):\nRetrieving year of first publication from data: 2006. \n\nThe first publication is: 'Das Evolutionäre Motivprofil - Entwicklung eines Motivfragebogens zum \"Zürcher Modell sozialer Motivation\" und seine Validierung an der PRF-D, dem MMG sowie biographischen Angaben', published in 'PsyDok Dokumentenserver für die Psychologie (Leibniz-Zentrum für Psychologische Information und Dokumentation)'. It has the domain 'Social Sciences'. \n\nIs that plausible? If not, provide `first_pub_year` as a parameter. You can see all works of that author with the following command:\n\noa_fetch(entity = 'works', author.id = 'https://openalex.org/A5022479713', is_paratext = FALSE, is_retracted = FALSE, abstract=FALSE) %>% arrange(publication_year)\n\n"
-#> [2] "Computation of academic age (relative to first publication):\nRetrieving year of first publication from data: 2006. \n\nThe first publication is: 'Das Evolutionäre Motivprofil - Entwicklung eines Motivfragebogens zum \"Zürcher Modell sozialer Motivation\" und seine Validierung an der PRF-D, dem MMG sowie biographischen Angaben', published in 'PsyDok Dokumentenserver für die Psychologie (Leibniz-Zentrum für Psychologische Information und Dokumentation)'. It has the domain 'Social Sciences'. \n\nIs that plausible? If not, provide `first_pub_year` as a parameter. You can see all works of that author with the following command:\n\noa_fetch(entity = 'works', author.id = 'https://openalex.org/A2775945403', is_paratext = FALSE, is_retracted = FALSE, abstract=FALSE) %>% arrange(publication_year)\n\n"
 #> 
 h_index(ORCID = "https://orcid.org/0000-0002-8282-3910")
 #> A unique author record has been found: 
@@ -142,7 +130,7 @@ h_index(ORCID = "https://orcid.org/0000-0002-8282-3910")
 #> # A tibble: 1 × 3
 #>   display_name        works_count cited_by_count
 #>   <chr>                     <int>          <int>
-#> 1 Felix D. Schönbrodt         280          14028
+#> 1 Felix D. Schönbrodt         280          14159
 #> Computation of academic age (relative to first publication):
 #> Retrieving year of first publication from data: 2006. 
 #> 
@@ -153,20 +141,20 @@ h_index(ORCID = "https://orcid.org/0000-0002-8282-3910")
 #> oa_fetch(entity = 'works', author.id = 'https://openalex.org/A5022479713', is_paratext = FALSE, is_retracted = FALSE, abstract=FALSE) %>% arrange(publication_year)
 #> 
 #> $net_academic_age
-#> [1] 19
+#> [1] 20
 #> 
 #> $h_index
-#> [1] 38
+#> [1] 39
 #> 
 #> $h_Ia
-#> [1] 1.105263
+#> [1] 1.05
 #> 
 #> $first_publication
-#> # A tibble: 1 × 43
+#> # A tibble: 1 × 45
 #>   id      title display_name authorships doi   publication_date publication_year
 #>   <chr>   <chr> <chr>        <list>      <chr> <date>                      <int>
 #> 1 https:… "Das… "Das Evolut… <tibble>    http… 2006-01-01                   2006
-#> # ℹ 36 more variables: fwci <dbl>, cited_by_count <int>, counts_by_year <list>,
+#> # ℹ 38 more variables: fwci <dbl>, cited_by_count <int>, counts_by_year <list>,
 #> #   ids <list>, type <chr>, is_oa <lgl>, is_oa_anywhere <lgl>, oa_status <chr>,
 #> #   oa_url <chr>, any_repository_has_fulltext <lgl>, source_display_name <chr>,
 #> #   source_id <chr>, issn_l <chr>, host_organization <chr>,
@@ -178,29 +166,27 @@ h_index(ORCID = "https://orcid.org/0000-0002-8282-3910")
 #> [1] "Computation of academic age (relative to first publication):\nRetrieving year of first publication from data: 2006. \n\nThe first publication is: 'Das Evolutionäre Motivprofil - Entwicklung eines Motivfragebogens zum \"Zürcher Modell sozialer Motivation\" und seine Validierung an der PRF-D, dem MMG sowie biographischen Angaben', published in 'PsyDok Dokumentenserver für die Psychologie (Leibniz-Zentrum für Psychologische Information und Dokumentation)'. It has the domain 'Social Sciences'. \n\nIs that plausible? If not, provide `first_pub_year` as a parameter. You can see all works of that author with the following command:\n\noa_fetch(entity = 'works', author.id = 'https://openalex.org/A5022479713', is_paratext = FALSE, is_retracted = FALSE, abstract=FALSE) %>% arrange(publication_year)\n\n"
 #> 
 h_index("Markus Bühner", first_pub_year = 1997) # adjust year of first publication
-#> # A tibble: 3 × 4
-#>   id                               display_name  works_count cited_by_count
-#>   <chr>                            <chr>               <int>          <int>
-#> 1 https://openalex.org/A5109261047 Markus Bühner         235           8710
-#> 2 https://openalex.org/A2212317002 Bühner Markus          63             56
-#> 3 https://openalex.org/A2101030386 Markus Bühner          56              1
-#> Multiple author IDs have substantial citation count - merged author IDs. Please check if they are correct.
+#> A unique author record has been found: 
 #> 
+#> # A tibble: 1 × 3
+#>   display_name  works_count cited_by_count
+#>   <chr>               <int>          <int>
+#> 1 Markus Bühner         237           8784
 #> $net_academic_age
-#> [1] 28
+#> [1] 29
 #> 
 #> $h_index
 #> [1] 43
 #> 
 #> $h_Ia
-#> [1] 0.6428571
+#> [1] 0.6551724
 #> 
 #> $first_publication
-#> # A tibble: 1 × 43
+#> # A tibble: 1 × 45
 #>   id      title display_name authorships doi   publication_date publication_year
 #>   <chr>   <chr> <chr>        <list>      <chr> <date>                      <int>
 #> 1 https:… Attr… Attribution… <tibble>    http… 1998-01-01                   1998
-#> # ℹ 36 more variables: fwci <dbl>, cited_by_count <int>, counts_by_year <list>,
+#> # ℹ 38 more variables: fwci <dbl>, cited_by_count <int>, counts_by_year <list>,
 #> #   ids <list>, type <chr>, is_oa <lgl>, is_oa_anywhere <lgl>, oa_status <chr>,
 #> #   oa_url <chr>, any_repository_has_fulltext <lgl>, source_display_name <chr>,
 #> #   source_id <chr>, issn_l <chr>, host_organization <chr>,
