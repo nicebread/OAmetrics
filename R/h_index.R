@@ -14,7 +14,7 @@
 #' @param display_name A character vector with the exact author's names for searching in the OpenAlex API. You cvan provide multiple variants in a vector.
 #' @param author.id A character vector with OpenAlex author ID(s) (i.e., an ID starting with "A.......") for searching in the OpenAlex API.
 #' @param ORCID A character vector with ORCID IDs (either as URI or as the number quartet string).
-#' @param first_pub_year An integer with the year of the author's first publication. If not provided, it is estimated from the retrieved publications.
+#' @param first_pub_year An integer with the year of the author's first publication. If not provided, it is estimated from the retrieved publications. This is used to compute the age-corrected h_Ia index.
 #' @param academic_age_bonus Years that are subtracted from active academic life (e.g. due to child care). For example, SNF subtracts 1.5 years per child (see https://www.snf.ch/en/cciM9NWuvhOVKRxv/news/news-200803-career-funding-the-researchers-overall-performance-counts).
 #'
 #' @return A list containing the net academic age, h-index and hIa-index of the author.

@@ -22,7 +22,7 @@ h_index(
 
 \item{ORCID}{A character vector with ORCID IDs (either as URI or as the number quartet string).}
 
-\item{first_pub_year}{An integer with the year of the author's first publication. If not provided, it is estimated from the retrieved publications.}
+\item{first_pub_year}{An integer with the year of the author's first publication. If not provided, it is estimated from the retrieved publications. This is used to compute the age-corrected h_Ia index.}
 
 \item{academic_age_bonus}{Years that are subtracted from active academic life (e.g. due to child care). For example, SNF subtracts 1.5 years per child (see https://www.snf.ch/en/cciM9NWuvhOVKRxv/news/news-200803-career-funding-the-researchers-overall-performance-counts).}
 }

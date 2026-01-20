@@ -24,9 +24,20 @@
 
 get_JIF <- function(issn, year, limit=NA, verbose=FALSE, seed=NA) {
 
+  fail <- FALSE
+
   # if year is the current year, then the citation data will not be available for the computation
   if (year >= as.integer(format(Sys.Date(), "%Y"))) {
     warning(paste0("Cannot compute JIF for the year '", year, "'"))
+    fail <- TRUE
+  }
+
+  if (is.null(issn)) {
+    warning(paste0("ISSN is NULL, cannot compute JIF."))
+    fail <- TRUE
+  }
+
+  if (fail == TRUE) {
     return(data.frame(
       journal = NA,
       issn = issn,
@@ -37,6 +48,7 @@ get_JIF <- function(issn, year, limit=NA, verbose=FALSE, seed=NA) {
       JIF = NA
     ))
   }
+
 
   # first, only retrieve the number of works
   all_works_search_n <- oa_fetch(
