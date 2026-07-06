@@ -104,6 +104,9 @@ get_network <- function(author.id, doi=NA, works=NA, min_coauthorships=2, verbos
     if (verbose == TRUE) {
       print("Using the provided works.")
     }
+
+    # in case of multi-study situation: reduce to unique papers
+    works <- works %>% distinct(doi, .keep_all = TRUE)
   }
 
   #----------------------------------------------------------------------------

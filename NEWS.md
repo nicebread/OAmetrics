@@ -1,3 +1,13 @@
+# OAmetrics 0.5.3
+
+## Bug fixes: 
+
+Properly handle duplicate dois (e.g., when RESQUER has multi-study papers with the same DOI)
+
+* Preserve the original DOI order and duplicate entries in `FNCS()` after fetching works from OpenAlex.
+* Preserve the original DOI order and duplicate entries in `get_BIP()` after fetching scores from the BIP API.
+* When `get_network()` receives pre-fetched works, reduce them to unique papers by DOI before analysis.
+
 # OAmetrics 0.5.1
 
 Make get_network() robust if more than 1 author.id is provided.

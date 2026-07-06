@@ -7,3 +7,5 @@
 ^\.httr-oauth$
 
 _archive
+_tests
+*.code-workspace

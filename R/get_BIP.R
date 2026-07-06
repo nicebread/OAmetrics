@@ -74,8 +74,8 @@ get_BIP <- function(dois, verbose=FALSE) {
         # if necessary: add missing column
         if (is.null(BIP0$msg)) BIP0$msg <- NA
         BIP <- rbind(BIP, BIP0)
-      }
     }
+  }    # of n_pages
 
 
   # If no doi could be retrieved, the returned BIP object does not have all
@@ -94,13 +94,16 @@ get_BIP <- function(dois, verbose=FALSE) {
   # fix bug in BIP API: Sometimes additional records are added. Reduce to the actual papers.
   BIP <- BIP[BIP$doi %in% dois_minimal, ]
 
-  # the BIP API orders the dois alphabetically - bring back to original order:
-  BIP <- full_join(BIP, doi_df, by="doi") %>%
+  # the BIP API orders the dois alphabetically - bring back to original order.
+  # duplicate rows should follow the input list (doi_df), not API duplicates.
+  BIP <- BIP %>%
+    distinct(doi, .keep_all = TRUE)
+  BIP <- left_join(doi_df, BIP, by="doi") %>%
     arrange(index) %>%
     select(-index)
 
   if (!all.equal(BIP$doi, dois_minimal)) {
-    warning("Error in BIP retrieval: Not all dois have been fetched.")
+    warning("Warning in BIP retrieval: Not all dois have been fetched.")
   }
 
   BIP$doi <- normalize_dois(BIP$doi)

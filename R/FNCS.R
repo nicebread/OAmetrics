@@ -78,14 +78,29 @@ ecdf2 <- function (x) {
 FNCS <- function(dois=NULL, papers=NULL, ref_set=NULL, upper_trim = 0, verbose=TRUE) {
 
   if (is.null(ref_set)) stop("You need to provide a reference set.")
+  doi_df <- NULL
 
   if (is.null(dois) & is.null(papers)) {
     stop("You have to provide either dois or works.")
   } else if (!is.null(dois) & is.null(papers)) {
+    # Keep original order and duplicates as provided by the user.
+    dois_normalized <- normalize_dois(dois)
+    dois_minimal <- str_extract(dois_normalized, pattern = "10.\\d{4,9}/[-._;()/:a-z0-9A-Z]+")
+    doi_df <- data.frame(index = seq_along(dois_minimal), doi = dois_minimal)
+
     # get citation counts for all provided dois
     if (verbose) print("Retrieving citation counts for provided dois from OpenAlex ...")
     papers <- oa_fetch(entity = "works", doi = dois, abstract=FALSE,
                        options = list(select=c("id", "doi", "cited_by_count", "publication_year", "display_name")))
+
+    # oa_fetch may reorder and de-duplicate rows; restore input order and duplicates.
+    papers$doi <- normalize_dois(papers$doi)
+    papers$doi <- str_extract(papers$doi, pattern = "10.\\d{4,9}/[-._;()/:a-z0-9A-Z]+")
+    papers <- papers %>%
+      distinct(doi, .keep_all = TRUE)
+    papers <- left_join(doi_df, papers, by = "doi") %>%
+      arrange(index) %>%
+      select(-index)
   } else if (is.null(dois) & !is.null(papers)) {
     # check if all necessary columns exist
     coldiff <- setdiff(c("id", "doi", "cited_by_count", "publication_year", "display_name"), colnames(papers))
@@ -136,6 +151,8 @@ FNCS <- function(dois=NULL, papers=NULL, ref_set=NULL, upper_trim = 0, verbose=T
   #par(mfrow = c(1,2))
   #curve(c_count_ecdf,  0, max(ref_set_year$cited_by_count), main = "step function ecdf")
   #curve(c_count_ecdf2, 0, max(ref_set_year$cited_by_count), main = "linear interpolation function ecdf")
+
+  papers$doi <- normalize_dois(papers$doi)
 
   return(papers %>% select(doi, publication_year, title=display_name, cited_by_count, expected_citations = mean_c, FNCS, FNPR))
 }
