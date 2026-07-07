@@ -117,7 +117,7 @@ FNCS <- function(dois=NULL, papers=NULL, ref_set=NULL, upper_trim = 0, verbose=T
   # Does the reference set contain publications from the relevant years?
   years_not_in_ref_set <- setdiff(papers$publication_year, yearly_expected_c$publication_year)
   if (length(years_not_in_ref_set) > 0) {
-    warning(paste0("The following years are not in the reference set: ", paste(years_not_in_ref_set, collapse=", "), ". No metrics can be computed for publications from these years."))
+    warning(paste0("The following years are not in the reference set: ", paste(sort(years_not_in_ref_set), collapse=", "), ". No metrics can be computed for publications from these years."))
   }
 
   # TODO: If a paper is assigned to multiple fields, this should be an weighted average...

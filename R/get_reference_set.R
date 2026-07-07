@@ -20,13 +20,13 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' # Get reference set for "Psychology" for multiple years (small n here for demo)
 #' psych_ref <- get_reference_set(
-#'   years = 2018:2020, n_per_year = 120,
+#'   years = 2019:2020, n_per_year = 12,
 #'   concept.id = "C15744967"
 #'  )
 #'
-#' \dontrun{
 #' # Get a large reference set for psychology. Save intermediate (yearly)
 #' # results in case the process is interrupted
 #' start <- Sys.time()
